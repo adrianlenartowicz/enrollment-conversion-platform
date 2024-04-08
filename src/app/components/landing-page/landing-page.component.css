@@ -1,0 +1,140 @@
+.landing-page-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.landing-page-hero .header-section {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 10%;
+    max-width: 400px;
+}
+
+.landing-page-hero .header-section .header {
+    font-size: 2.5rem;
+}
+
+.landing-page-hero .header-section .subheader {
+    font-size: 1.2rem;
+}
+
+.landing-page-hero .header-section .button {
+    margin-top: 30px;
+}
+
+.landing-page-hero .header-section button {
+    font-size: 1.2rem;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 13px 20px 13px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.landing-page-hero .header-section button:after {
+    content: "";
+    background-color: #e2635d;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+    transition: 0.2s;
+}
+
+.landing-page-hero .header-section button:hover:after {
+    top: 0px;
+    left: 0px;
+}
+
+@media (min-width: 768px) {
+    .landing-page-hero .header-section {
+        margin-left: 10%; /* Adjusted margin-left */
+        margin-right: 10%; /* Adjusted margin-right */
+    }
+
+    .landing-page-hero .header-section button {
+        padding: 13px 50px 13px;
+    }
+}
+
+.landing-page-hero .image-section {
+    margin-top: 10%;
+    margin-right: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.landing-page-hero .image-section .image {
+    max-height: 500px;
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    .landing-page-hero .image-section {
+        display: none;
+    }
+
+    .landing-page-hero .header-section {
+        margin-top: 20%;
+    }
+}
+
+.features-section {
+    margin-top: 150px;
+    margin-right: 20px;
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    column-gap: 60px;
+}
+
+.feature-card {
+    max-width: 500px;
+}
+
+.feature-card h4 {
+    font-size: 1.2rem;
+}
+
+.contact-section {
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.contact-section .contact-header {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.contact-section .steps-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-section .steps-section .step-card {
+    max-width: 500px;
+    margin-top: 15px;
+}
+
+.contact-section .steps-section .contact-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 30px;
+}
