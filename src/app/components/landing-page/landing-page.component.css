@@ -96,11 +96,13 @@
     margin-right: 20px;
     margin-left: 20px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    column-gap: 60px;
+    gap: 20px;
 }
 
 .feature-card {
+    flex: 1 1 300px;
     max-width: 500px;
 }
 
@@ -108,8 +110,16 @@
     font-size: 1.2rem;
 }
 
+@media (max-width: 767px) {
+    .features-section {
+        margin-top: 100px;
+    }
+}
+
+
 .contact-section {
     margin-top: 150px;
+    padding 0 20px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -117,19 +127,22 @@
 }
 
 .contact-section .contact-header {
-    margin-top: 50px;
     text-align: center;
+    font-size: 2rem;
 }
 
 .contact-section .steps-section {
+    margin-top: 50px;
+    max-width: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .contact-section .steps-section .step-card {
+    width: 100%;
     max-width: 500px;
-    margin-top: 15px;
+    margin-bottom: 30px;
 }
 
 .contact-section .steps-section .contact-info {
