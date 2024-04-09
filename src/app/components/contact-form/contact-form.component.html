@@ -1,0 +1,17 @@
+<ng-container *ngIf="!isSubmited">
+  <div class="contact-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <input placeholder="numer telefonu lub adres e-mail" type="text" formControlName="contact">
+      <div *ngIf="form.get('contact')!.invalid && (form.get('contact')!.dirty || form.get('contact')!.touched)">
+        <div *ngIf="form.get('contact')!.errors?.['invalidContact']">
+          <p [ngStyle]="{ 'color': 'red', 'margin-top': 0, 'margin-bottom': '20px' }">Nieprawidłowy numer lub adres e-mail</p>
+        </div>
+      </div>
+      <button type="submit" [disabled]="form.get('contact')?.invalid">Proszę o kontakt</button>
+    </form>
+  </div>
+</ng-container>
+
+<div *ngIf="isSubmited">
+  <p>Dziękujemy. Niebawem się z Tobą skontaktujemy.</p>
+</div>
