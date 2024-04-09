@@ -9,6 +9,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    env:
+      ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
+
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
