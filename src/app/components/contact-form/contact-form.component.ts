@@ -27,7 +27,7 @@ export class ContactFormComponent implements OnInit {
     this.isSubmited = true;
     let formData: FormData = new FormData();
     formData.append('contact', this.form.get('contact')?.value);
-    formData.append('access_key', environment.formAccessKey);
+    formData.append('access_key', environment.ACCESS_KEY);
 
     try {
       const res = await this.mailService.sendEmail(formData);
