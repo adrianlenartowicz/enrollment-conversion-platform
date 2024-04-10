@@ -30,4 +30,4 @@ jobs:
         with:
           BASE_BRANCH: master
           BRANCH: prod
-          FOLDER: dist/browser
+          FOLDER: alawroc/dist/browser
