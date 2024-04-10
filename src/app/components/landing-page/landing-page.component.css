@@ -159,3 +159,24 @@
 .contact-form-section {
     padding: 20px 0;
 }
+
+.footer-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer-section .ala-logo {
+    margin-top: 150px;
+}
+
+.footer-section .company-info {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.footer-section p {
+    margin: 0;
+}
