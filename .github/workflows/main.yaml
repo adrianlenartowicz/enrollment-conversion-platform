@@ -29,4 +29,4 @@ jobs:
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
           branch: prod
-          folder: /dist/browser
+          folder: alawroc/dist/browser
