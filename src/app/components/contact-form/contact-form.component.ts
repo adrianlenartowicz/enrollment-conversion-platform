@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { EmailOrPhoneValidator } from './validators/email-or-phone.validator';
 import { MailService } from '../../services/mail.service';
-import { environment } from '../../../environments/environment.development';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-contact-form',
@@ -12,7 +12,7 @@ import { environment } from '../../../environments/environment.development';
 export class ContactFormComponent implements OnInit {
   isSubmited: boolean = false;
   form!: FormGroup;
-  
+
   constructor(private formBuilder: FormBuilder, private mailService: MailService) {};
 
   ngOnInit(): void {
@@ -28,7 +28,7 @@ export class ContactFormComponent implements OnInit {
     let formData: FormData = new FormData();
     formData.append('contact', this.form.get('contact')?.value);
     formData.append('access_key', environment.formAccessKey);
-  
+
     try {
       const res = await this.mailService.sendEmail(formData);
       console.log(res)
