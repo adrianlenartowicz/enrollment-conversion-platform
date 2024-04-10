@@ -1,11 +1,13 @@
 {
+  "homepage": "https://adrianlenartowicz.github.io/alawroc",
   "name": "ala-wroclaw",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "npm run config && ng build",
     "config": "ts-node src/environments/set-env.js",
+    "start": "ng serve",
+    "start:dev:prod": "ng build --configuration=production --base-href=/alawroc && ng serve",
+    "build": "ng build",
     "build:prod": "npm run config && ng build --configuration=production --base-href=/alawroc",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
