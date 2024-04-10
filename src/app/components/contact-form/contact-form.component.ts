@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmailOrPhoneValidator } from './validators/email-or-phone.validator';
 import { MailService } from '../../services/mail.service';
 import { environment } from '../../../environments/environment';
@@ -11,6 +11,7 @@ import { environment } from '../../../environments/environment';
 })
 export class ContactFormComponent implements OnInit {
   isSubmited: boolean = false;
+  wasButtonClicked: boolean = false;
   form!: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private mailService: MailService) {};
@@ -18,7 +19,8 @@ export class ContactFormComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.formBuilder.group(
       {
-        contact: ['', [EmailOrPhoneValidator()]]
+        contact: ['', [EmailOrPhoneValidator()]],
+        rodo: ['', Validators.requiredTrue]
       }
     )
   }
@@ -42,7 +44,13 @@ export class ContactFormComponent implements OnInit {
 
 
   onSubmit() {
-    this.submitEmail();
+    if (this.form.valid) {
+      this.submitEmail();
+    }
+  }
+
+  informAboutClick() {
+    this.wasButtonClicked = true;
   }
 
 }

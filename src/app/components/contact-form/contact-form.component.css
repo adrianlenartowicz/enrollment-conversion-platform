@@ -14,6 +14,7 @@
   text-align: center;
 }
 
+
 .contact-form button {
   display: block;
   width: 100%;
@@ -24,6 +25,7 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: inherit;
+  margin-top: 15px;
 }
 
 .contact-form input::placeholder,
@@ -33,4 +35,23 @@
 
 .contact-form button:hover {
   background-color: #0056b3;
+}
+
+.contact-form .rodo-container {
+  margin: 10px 0;
+}
+
+.contact-form .rodo-container input {
+  margin-top: 15px;
+  transform: scale(1.4);
+}
+
+.contact-form .rodo-container label {
+  font-size: 0.8rem;
+}
+
+.contact-form .rodo-container label::before {
+  content: '*';
+  color: red;
+  margin-right: 5px;
 }

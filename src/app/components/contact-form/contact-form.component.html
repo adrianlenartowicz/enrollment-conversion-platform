@@ -2,12 +2,23 @@
   <div class="contact-form">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <input placeholder="numer telefonu lub adres e-mail" type="text" formControlName="contact">
+      <div *ngIf="form.get('contact')!.valid" class="rodo-container">      
+        <label for="rodo">
+          Wyrażam zgodę na przetwarzanie moich danych osobowych podanych w powyższym formularzu w celu kontaktu przez Akademię Lekkiej Atletyki Wrocław sp. z o.o. oraz przez podmioty trzecie.
+        </label>
+        <input type="checkbox" id="rodo" formControlName="rodo">
+      </div>
       <div *ngIf="form.get('contact')!.invalid && (form.get('contact')!.dirty || form.get('contact')!.touched)">
         <div *ngIf="form.get('contact')!.errors?.['invalidContact']">
           <p [ngStyle]="{ 'color': 'red', 'margin-top': 0, 'margin-bottom': '20px' }">Nieprawidłowy numer lub adres e-mail</p>
         </div>
       </div>
-      <button type="submit" [disabled]="form.get('contact')?.invalid">Proszę o kontakt</button>
+      <div *ngIf="form.get('contact')!.valid && wasButtonClicked">
+        <div *ngIf="form.get('rodo')!.invalid">
+          <p [ngStyle]="{ 'color': 'red', 'margin-top': 0, 'margin-bottom': '20px' }">Zaakceptuj zgodę</p>
+        </div>
+      </div>
+      <button type="submit" (click)="informAboutClick()">Proszę o kontakt</button>
     </form>
   </div>
 </ng-container>
