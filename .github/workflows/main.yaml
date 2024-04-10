@@ -28,5 +28,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
-          branch: prod
-          folder: alawroc/dist/browser
+          branch: gh-pages
+          folder: build
