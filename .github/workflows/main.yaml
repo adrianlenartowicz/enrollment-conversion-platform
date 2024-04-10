@@ -22,7 +22,6 @@ jobs:
           node-version: 20
 
       - name: Build Angular app to prod
-        working-directory: ala-wroclaw
         run: npm install && npm run build:prod
 
       - name: Deploy to GitHub Pages
