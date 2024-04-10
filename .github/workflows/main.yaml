@@ -28,6 +28,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: ala-wroclaw/dist/browser
-          branch: prod
-          token: ${{ secrets.GH_TOKEN }}
+          BASE_BRANCH: master
+          BRANCH: prod
+          FOLDER: dist/browser
