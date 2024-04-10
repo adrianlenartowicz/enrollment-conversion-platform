@@ -31,4 +31,4 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BASE_BRANCH: master
           BRANCH: prod
-          FOLDER: alawroc/dist/browser
+          FOLDER: dist/browser
