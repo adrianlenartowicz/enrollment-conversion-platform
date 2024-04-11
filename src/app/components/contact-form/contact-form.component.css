@@ -55,3 +55,18 @@
   color: red;
   margin-right: 5px;
 }
+
+.thank-you-message {
+  background-color: #f0f8ff;
+  border: 1px solid #90ee90;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.thank-you-message p {
+  color: #008000;
+  font-size: 0.9rem;
+  margin: 0;
+}
