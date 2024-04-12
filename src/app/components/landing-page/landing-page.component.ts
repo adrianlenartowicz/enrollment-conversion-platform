@@ -10,9 +10,12 @@ export class LandingPageComponent {
 
   scrollToElement() {
     const targetElement = this.elementRef.nativeElement.querySelector('#targetElement');
+    const additionalMargin = 80;
     if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      window.scrollTo({
+        top: targetElement.offsetTop - additionalMargin,
+        behavior: 'smooth'
+      });
     }
   }
 }
-//test
