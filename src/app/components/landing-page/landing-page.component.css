@@ -1,3 +1,9 @@
+h2 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+
 .top-bar {
     width: 100%;
     display: flex;
@@ -206,12 +212,6 @@
     }
 }
 
-.contact-section .contact-header {
-    text-align: center;
-    font-size: 2rem;
-}
-
-
 .contact-section .steps-section {
     margin-top: 25px;
     max-width: 600px;
@@ -240,6 +240,47 @@
 .contact-form-section {
     padding: 20px 0;
 }
+
+.location-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    padding: 0 20px;
+    flex-direction: column;
+    text-align: center;
+}
+
+.location-section p {
+    margin: 0;
+}
+
+.location-section .street-name {
+    margin-top: 15px;
+}
+
+.location-section .google-map {
+    position: relative;
+    width: 100%;
+    padding-bottom: 500px;
+    max-width: 100%;
+    max-height: 400px; /* Set a maximum height for the map */
+    overflow: hidden; /* Hide any overflow beyond the maximum height */
+}
+
+
+.location-section .google-map iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 400px;
+}
+
+
 
 .footer-section {
     display: flex;
