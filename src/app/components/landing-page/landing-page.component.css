@@ -231,6 +231,11 @@ h2 {
     flex-direction: row;
     justify-content: center;
     column-gap: 30px;
+    align-items: center;
+}
+
+.contact-section .steps-section .contact-info p i {
+    margin-right: 5px;
 }
 
 .contact-section .steps-section .step-card h4 {
@@ -291,11 +296,12 @@ h2 {
     flex-direction: column;
     border-top: 1px solid #ccc;
     max-height: 150px;
-    margin-bottom: 75px;
+    margin-bottom: 125px;
 }
 
 .footer-section .ala-logo {
     margin: 0;
+    max-height: 225px;
 }
 
 .footer-section .company-info {
