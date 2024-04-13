@@ -26,6 +26,7 @@ h2 {
 
   .top-bar .top-bar-content .logo-container {
     display: flex;
+    align-items: center;
   }
 
 
