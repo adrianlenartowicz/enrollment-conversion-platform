@@ -1,104 +1,12 @@
-<div class="top-bar">
-  <div class="top-bar-content">
-    <div class="logo-container">
-      <img class="logo" src="assets/logo-ala.svg" alt="logo">
-      <p>Akademia Lekkiej Atletyki Wrocław</p>
-    </div>
-    <div class="contact-info">
-      <p><i class="fas fa-phone"></i> +48 570 417 942</p>
-      <p><i class="fas fa-phone"></i> +48 734 163 242</p>
-    </div>
-  </div>
+<div class="top-bar-section">
+  <app-top-bar></app-top-bar>
 </div>
-
-<div class="landing-page-hero">
-  <div class="header-section">
-    <h1 class="header">Rozwijamy pasję <br /> dzieci do sportu</h1>
-    <p class="subheader">Naszą misją jest zachęcanie dzieci do aktywności fizycznej i kształtowanie ich charakteru, jednocześnie ucząc je czerpania radości ze sportu.</p>
-    <div class="button">
-      <button (click)="scrollToElement()">Wypróbuj bezpłatnie</button>
-    </div>
-  </div>
-  <div class="image-section">
-    <img class="image" src="./assets/hero-image.jpg">
-  </div>
-</div>
-
-<div class="features-section">
-  <div class="feature-card">
-    <h4>Już od 5 roku życia</h4>
-    <p>Wiemy, jak ważny jest rozwój młodych zawodników. Kształtowanie pewnych cech motorycznych jest możliwe tylko w wieku dziecięcym. Dajemy dzieciom szansę na rozwinięcie pełnego potencjału poprzez wczesne zapoznanie ze sportem.</p>
-  </div>
-  <div class="feature-card">
-    <h4>Indywidualne podejście</h4>
-    <p>Tworząc przyjazną atmosferę, wspieramy najmłodszych w ich rozwoju. Każde dziecko znajdzie u nas swoje miejsce oraz będzie mogło czuć się docenione, niezależnie od poziomu zaawansowania.</p>
-  </div>
-  <div class="feature-card">
-    <h4>Treningi poprzez zabawę</h4>
-    <p>Zachęcamy dzieci do ruchu poprzez gry i zabawy. Dzięki swojej różnorodności lekkoatletyka sprawdza się do tego idealnie. W ten sposób dzieci budują zdrowy tryb życia, jednocześnie dobrze się przy tym bawiąc.</p>
-  </div>
-</div>
-
-<div class="info-section">
-  <div class="info-text">
-    <h2>Jak wyglądają zajęcia?</h2>
-    <p>Zajęcia mają formę ogólnorozwojowych treningów z elementami lekkiej atletyki. W ich trakcie dzieci rozwijają swoje zdolności motoryczne oraz budują prawidłowe wzorce ruchowe. Zawodnicy poznają podstawowe konkurencje lekkoatletyczne takie jak biegi sprinterskie, skok w dal oraz rzut piłeczką palantową.</p>
-  </div>
-</div>
-
-<div class="contact-section">
-  <h2 class="contact-header" id="targetElement">Trzy kroki aby dołączyć do Akademi Lekkiej Atletyki!</h2>
-  <div class="steps-section">
-    <div class="step-card">
-      <h4>1. SKONTAKTUJ SIĘ Z NAMI</h4>
-      <p>Zadzwoń lub napisz. Jeżeli chcesz, żebyśmy się z tobą skontaktowali, zostaw swój numer lub adres e-mail.</p>
-      <div class="contact-info">
-        <p><i class="fas fa-phone"></i>570 417 942</p>
-        <p><i class="fas fa-phone"></i>734 163 242</p>
-        <p><i class="fas fa-envelope"></i>wroclawala&#64;gmail.com</p>
-      </div>
-      <div class="contact-form-section">
-        <app-contact-form></app-contact-form>
-      </div>
-    </div>
-    <div class="step-card">
-      <h4>2. PRZYJDŹ NA TRENING</h4>
-      <p>Przekonaj się czy zajęcia odpowiadają twojemu dziecku. Pierwsze dwa treningi są <b>bezpłatne!</b></p>
-    </div>
-    <div class="step-card">
-      <h4>3. WYPEŁNIJ DOKUMENTY</h4>
-      <p>Trener przekaże Ci dokumenty. Po ich wypełnieniu twoje dziecko stanie się członkiem Akademii Lekkiej Atletyki Wrocław.</p>
-    </div>
-  </div>
-</div>
-
-<div class="schedule-section">
-  <div class="announcement-section">
-    <h2>Harmonogram</h2>
-    <p><b>Treningi ruszają 6 maja!</b></p>
-    <p>Roczniki 2017-2019:</p>
-    <p><b>Poniedziałki i środy 17:30-18:30</b></p>
-    <p>Roczniki 2014-2016:</p>
-    <p><b>Poniedziałki i środy 18:30-19:30</b></p>
-  </div>
-</div>
-
-<div class="location-section">
-  <div class="location-header">
-    <h2>Lokalizacja</h2>
-  </div>
-  <p>Treningi odbywają się na bieżni przy Szkole Podstawowej nr 91.</p>
-  <p class="street-name"><b>Ul. Stefanii Sempołowskiej 54</b></p>
-  <div class="google-map">
-    <iframe width="600" height="450" style="edge:0"load="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJk4cUeQHoD0cRx8d7Ix0Md5I&key=AIzaSyBEWXoAj03am_fiFUN9Qw8bILB8NYD86H8"></iframe>
-  </div>
-</div>
-
-<div class="footer-section">
-  <img class="ala-logo" src="assets/logo-ala.svg">
-  <div class="company-info">
-    <p>KRS: 0001095918</p>
-    <p>NIP: 8952270656</p>
-  </div>
-  <p>&copy; 2024 Akademia Lekkiej Atletyki Wrocław</p>
+<div class="landing-page-container">
+  <app-hero (scrollToTarget)="scrollToSteps()"></app-hero>
+  <app-features-section></app-features-section>
+  <app-info-card header="Jak wyglądają zajęcia?" info="Zajęcia mają formę ogólnorozwojowych treningów z elementami lekkiej atletyki. W ich trakcie dzieci rozwijają swoje zdolności motoryczne oraz budują prawidłowe wzorce ruchowe."></app-info-card>
+  <app-contact id="stepsToJoin"></app-contact>
+  <app-info-card header="Kiedy mogę przyjść na trening?" info="Treningi odbywają się w poniedziałki i środy o godzinie 17:30 (roczniki 2017-2019) i 18:30 (roczniki 2014-2016)."></app-info-card>
+  <app-location></app-location>
+  <app-footer></app-footer>
 </div>
