@@ -24,6 +24,10 @@
     margin: 0 5px;
   }
 
+  .logo-container p {
+    text-align: center;
+  }
+
 
   .top-bar .top-bar-content .logo-container .logo {
     align-self: center;
@@ -55,16 +59,16 @@
       justify-content: center;
     }
 
-    .top-bar .top-bar-content .logo-container {
-        /* margin-right: auto;
-        margin-left: auto; */
-      }
-
     .top-bar .contact-info {
       text-align: center;
     }
 
     .top-bar .contact-info p {
         display: none;
+      }
+
+    .top-bar .top-bar-content .logo-container .logo {
+        padding: 0 20px;
+        margin-right: 10px;
       }
   }
