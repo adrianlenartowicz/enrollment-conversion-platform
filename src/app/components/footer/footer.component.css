@@ -5,6 +5,7 @@
     flex-direction: column;
     border-top: 1px solid #ccc;
     max-height: 150px;
+    margin-top: 175px;
     margin-bottom: 125px;
 }
 
@@ -23,4 +24,5 @@
 
 .footer-section p {
     margin: 0;
+    text-align: center;
 }
