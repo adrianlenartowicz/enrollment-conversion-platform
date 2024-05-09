@@ -1,3 +1,7 @@
+.contact-section h2 {
+    margin-bottom: 0;
+}
+
 .contact-section {
     margin-top: 100px;
     padding: 0 20px;
@@ -23,7 +27,7 @@
 .contact-section .steps-section .step-card {
     width: 100%;
     max-width: 500px;
-    margin-bottom: 25px;
+    margin-top: 25px;
 }
 
 .contact-section .steps-section .contact-info {
