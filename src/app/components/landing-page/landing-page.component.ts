@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-landing-page',
@@ -6,11 +6,10 @@ import { Component, ElementRef } from '@angular/core';
   styleUrl: './landing-page.component.css'
 })
 export class LandingPageComponent {
-  constructor(private elementRef: ElementRef) {}
 
-  scrollToElement() {
-    const targetElement = this.elementRef.nativeElement.querySelector('#targetElement');
-    const additionalMargin = 80;
+  scrollToSteps() {
+    const targetElement = document.getElementById('stepsToJoin');
+    const additionalMargin = 40;
     if (targetElement) {
       window.scrollTo({
         top: targetElement.offsetTop - additionalMargin,

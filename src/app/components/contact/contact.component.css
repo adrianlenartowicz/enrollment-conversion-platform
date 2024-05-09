@@ -1,0 +1,57 @@
+.contact-section {
+    margin-top: 100px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    .contact-section {
+        margin-top: 100px;
+    }
+}
+
+.contact-section .steps-section {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-section .steps-section .step-card {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 25px;
+}
+
+.contact-section .steps-section .contact-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 30px;
+    align-items: center;
+}
+
+.contact-section .steps-section .contact-info p i {
+    margin-right: 5px;
+}
+
+@media (max-width: 767px) {
+    .contact-section .steps-section .contact-info {
+        flex-direction: column;
+    }
+
+    .contact-section .steps-section .contact-info p {
+        margin: 8px 0;
+    }
+}
+
+.contact-section .steps-section .step-card h4 {
+    font-size: 1.2rem;
+}
+
+.contact-form-section {
+    padding: 20px 0;
+}

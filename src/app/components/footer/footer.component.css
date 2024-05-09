@@ -1,0 +1,26 @@
+.footer-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-top: 1px solid #ccc;
+    max-height: 150px;
+    margin-bottom: 125px;
+}
+
+.footer-section .ala-logo {
+    margin: 0;
+    max-height: 225px;
+}
+
+.footer-section .company-info {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    text-align: center;
+    display: flex;
+    gap: 30px;
+}
+
+.footer-section p {
+    margin: 0;
+}

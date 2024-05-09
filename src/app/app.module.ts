@@ -5,12 +5,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { TopBarComponent } from './components/top-bar/top-bar.component';
+import { HeroComponent } from './components/hero/hero.component';
+import { FeaturesSectionComponent } from './components/features-section/features-section.component';
+import { InfoCardComponent } from './components/info-card/info-card.component';
+import { LocationComponent } from './components/location/location.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    TopBarComponent,
+    HeroComponent,
+    FeaturesSectionComponent,
+    InfoCardComponent,
+    LocationComponent,
+    FooterComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
