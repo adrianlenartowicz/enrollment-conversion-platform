@@ -1,3 +1,6 @@
+.contact-form .child-age-input {
+  margin-top: 10px;
+}
 
 .contact-form input {
   width: 100%;
@@ -10,7 +13,34 @@
 
 }
 
+.contact-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: inherit;
+}
+
 .contact-form input::placeholder {
+  text-align: center;
+}
+
+.contact-form input:hover, 
+.contact-form select:hover,
+.contact-form input:focus, 
+.contact-form select:focus {
+  border-color: #007bff; /* Highlight inputs and selects on hover or focus */
+  outline: none; /* Optional: removes the default focus outline */
+}
+
+.contact-form input:focus, 
+.contact-form select:focus {
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Adds a subtle glow to focused inputs */
+}
+
+.contact-form option {
   text-align: center;
 }
 
@@ -70,3 +100,4 @@
   font-size: 0.9rem;
   margin: 0;
 }
+

@@ -11,6 +11,10 @@
     text-align: center;
 }
 
+.contact-section .contact-infomation-text {
+    max-width: 500px;
+}
+
 @media (max-width: 767px) {
     .contact-section {
         margin-top: 100px;
@@ -57,5 +61,5 @@
 }
 
 .contact-form-section {
-    padding: 20px 0;
+    /* padding: 20px 0; */
 }
