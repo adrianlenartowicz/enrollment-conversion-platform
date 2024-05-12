@@ -9,7 +9,7 @@ export class LandingPageComponent {
 
   scrollToSteps() {
     const targetElement = document.getElementById('stepsToJoin');
-    const additionalMargin = 40;
+    const additionalMargin = 20;
     if (targetElement) {
       window.scrollTo({
         top: targetElement.offsetTop - additionalMargin,
