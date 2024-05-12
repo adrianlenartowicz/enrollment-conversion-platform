@@ -4,7 +4,7 @@
 
       <div class="contact-info">
         <label for="contact">Numer telefonu lub adres e-mail:</label>
-        <input type="text" formControlName="contact" id="contact">
+        <input type="text" formControlName="contact" id="contact" class="to-highlight">
         <div *ngIf="form.get('contact')!.invalid && wasButtonClicked">
           <div *ngIf="form.get('contact')!.errors?.['invalidContact']">
             <p [ngStyle]="{ 'color': 'red', 'margin-top': 0, 'margin-bottom': '20px' }">Nieprawidłowy numer lub adres e-mail</p>
@@ -13,7 +13,7 @@
       </div>
 
       <label for="childAge">Wiek dziecka:</label>
-      <select id="childAge" formControlName="childAge">
+      <select id="childAge" formControlName="childAge" class="to-highlight">
         <option value="" disabled selected></option>
         <option *ngFor="let age of ages" [value]="age">{{ age }}</option>
       </select>

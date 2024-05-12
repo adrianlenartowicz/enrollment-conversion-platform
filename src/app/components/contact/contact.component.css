@@ -72,19 +72,6 @@
     /* padding: 20px 0; */
 }
 
-.contact-section button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #6c757d; /* A softer, greyish color */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: inherit;
-    margin-top: 15px;
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-}
 
 .contact-section button a {
     color: inherit;
