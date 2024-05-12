@@ -33,7 +33,7 @@ export class ContactFormComponent implements OnInit {
     this.isSubmited = true;
     let formData: FormData = new FormData();
     formData.append('contact', this.form.get('contact')?.value);
-    // formData.append('childAge', this.form.get('childAge')?.value);
+    formData.append('childAge', this.form.get('childAge')?.value);
     formData.append('access_key', environment.formAccessKey);
 
     try {
