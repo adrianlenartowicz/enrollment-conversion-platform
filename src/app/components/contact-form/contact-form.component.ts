@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmailOrPhoneValidator } from './validators/email-or-phone.validator';
 import { MailService } from '../../services/mail.service';
 import { environment } from '../../../environments/environment';
+import { MetaPixelService } from '../../services/meta-pixel.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -17,7 +18,7 @@ export class ContactFormComponent implements OnInit {
   displayAgeRequirement: boolean = true;
   canDisplayRodoReminder: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private mailService: MailService) {};
+  constructor(private formBuilder: FormBuilder, private mailService: MailService, private metaPixelService: MetaPixelService) {};
 
   ngOnInit(): void {
     this.form = this.formBuilder.group(
@@ -51,6 +52,7 @@ export class ContactFormComponent implements OnInit {
   onSubmit() {
     if (this.form.valid) {
       this.submitEmail();
+      this.acknowledgeConversion();
     }
   }
 
@@ -58,6 +60,10 @@ export class ContactFormComponent implements OnInit {
     this.wasButtonClicked = true;
     if (this.form.get('contact')!.valid && this.form.get('childAge')!.valid)
       this.canDisplayRodoReminder = true;
+  }
+
+  acknowledgeConversion() {
+    this.metaPixelService.track('Lead', {contact: this.form.get('contact')?.value, childAge: this.form.get('childAge')?.value});
   }
 
 }
