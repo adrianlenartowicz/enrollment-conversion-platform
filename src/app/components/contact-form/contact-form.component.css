@@ -33,9 +33,9 @@
 }
 
 .contact-form .to-highlight:focus {
-  border-color: #e2635d; /* Same warm red for focus state */
-  box-shadow: 0 0 8px rgba(226, 99, 93, 0.5); /* Subtle glow effect on focus */
-  outline: none; /* Ensures no outline on focus */
+  border-color: #e2635d;
+  box-shadow: 0 0 8px rgba(226, 99, 93, 0.5);
+  outline: none;
 }
 
 .contact-form option {
@@ -72,6 +72,7 @@
 .contact-form .rodo-container input {
   margin-top: 15px;
   transform: scale(1.4);
+  accent-color: #e2635d;
 }
 
 .contact-form .rodo-container label {
