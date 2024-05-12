@@ -11,6 +11,14 @@ export class MetaPixelService {
   constructor() { }
 
   track(eventName: string, params: any = {}) {
-    fbq('track', eventName, params);
+    if (fbq) {
+      fbq('track', eventName, params);
+    }
+  }
+
+  trackCustom(eventName:string, params: any = {}) {
+    if (fbq) {
+      fbq('trackCustom', eventName, params);
+    }
   }
 }
