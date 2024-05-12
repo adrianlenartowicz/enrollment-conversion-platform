@@ -13,6 +13,9 @@ export class ContactFormComponent implements OnInit {
   isSubmited: boolean = false;
   wasButtonClicked: boolean = false;
   form!: FormGroup;
+  ages: number[] = Array.from({length: 8}, (_, i) => i + 5);
+  displayAgeRequirement: boolean = true;
+  canDisplayRodoReminder: boolean = false;
 
   constructor(private formBuilder: FormBuilder, private mailService: MailService) {};
 
@@ -20,7 +23,8 @@ export class ContactFormComponent implements OnInit {
     this.form = this.formBuilder.group(
       {
         contact: ['', [EmailOrPhoneValidator()]],
-        rodo: ['', Validators.requiredTrue]
+        rodo: ['', Validators.requiredTrue],
+        childAge: ['', Validators.required]
       }
     )
   }
@@ -29,6 +33,7 @@ export class ContactFormComponent implements OnInit {
     this.isSubmited = true;
     let formData: FormData = new FormData();
     formData.append('contact', this.form.get('contact')?.value);
+    // formData.append('childAge', this.form.get('childAge')?.value);
     formData.append('access_key', environment.formAccessKey);
 
     try {
@@ -51,6 +56,8 @@ export class ContactFormComponent implements OnInit {
 
   informAboutClick() {
     this.wasButtonClicked = true;
+    if (this.form.get('contact')!.valid && this.form.get('childAge')!.valid)
+      this.canDisplayRodoReminder = true;
   }
 
 }

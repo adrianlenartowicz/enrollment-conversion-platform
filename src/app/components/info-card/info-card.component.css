@@ -2,19 +2,34 @@
     display: flex;
     justify-content: center;
     margin-top: 125px;
+    padding: 0 20px;
 }
 
-.info-section .info-text {
+.info-section .info-card {
     text-align: center;
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* Jasne tło */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Subtelniejszy i głębszy cień */
     max-width: 500px;
-} 
+    border: 1px solid #e2e2e2; /* Dodanie subtelnej ramki */
+}
+
+.info-section .info-question {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.info-section .info-answer {
+    font-size: 1.2rem;
+    color: #333333; /* Ciemniejszy odcień szarości dla odpowiedzi */
+}
 
 @media (max-width: 767px) {
     .info-section {
-        margin-top: 100px;
+        margin-top: 85px;
+    }
+    .info-section .info-card {
+        padding: 20px;
     }
 }

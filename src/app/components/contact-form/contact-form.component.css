@@ -1,3 +1,6 @@
+.contact-form .child-age-input {
+  margin-top: 10px;
+}
 
 .contact-form input {
   width: 100%;
@@ -10,7 +13,32 @@
 
 }
 
+.contact-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: inherit;
+}
+
 .contact-form input::placeholder {
+  text-align: center;
+}
+
+.contact-form .to-highlight:hover {
+  border-color: #e2635d;
+    outline: none;
+}
+
+.contact-form .to-highlight:focus {
+  border-color: #e2635d; /* Same warm red for focus state */
+  box-shadow: 0 0 8px rgba(226, 99, 93, 0.5); /* Subtle glow effect on focus */
+  outline: none; /* Ensures no outline on focus */
+}
+
+.contact-form option {
   text-align: center;
 }
 
@@ -19,7 +47,7 @@
   display: block;
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #e2635d;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -34,7 +62,7 @@
 }
 
 .contact-form button:hover {
-  background-color: #0056b3;
+  background-color: #be514b;
 }
 
 .contact-form .rodo-container {
@@ -70,3 +98,4 @@
   font-size: 0.9rem;
   margin: 0;
 }
+
