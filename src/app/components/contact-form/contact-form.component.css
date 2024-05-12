@@ -27,15 +27,15 @@
   text-align: center;
 }
 
-.contact-form .to-highlight:hover, 
-.contact-form .to-highlight:focus {
+.contact-form .to-highlight:hover {
   border-color: #e2635d;
-  outline: none;
+    outline: none;
 }
 
-.contact-form .to-highlight:hover, 
 .contact-form .to-highlight:focus {
-  box-shadow: 0 0 5px #e2635d;
+  border-color: #e2635d; /* Same warm red for focus state */
+  box-shadow: 0 0 8px rgba(226, 99, 93, 0.5); /* Subtle glow effect on focus */
+  outline: none; /* Ensures no outline on focus */
 }
 
 .contact-form option {
