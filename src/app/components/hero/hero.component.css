@@ -3,15 +3,7 @@
     gap: 60px;
     justify-content: center;
     align-items: center;
-    /* margin-top for offsetting top-bar height */
-    margin-top: 80px;
     padding-top: 40px;
-}
-
-@media (max-width: 768px) {
-    .landing-page-hero {
-        margin-top: 40px;
-    }
 }
 
 .landing-page-hero .header-section {

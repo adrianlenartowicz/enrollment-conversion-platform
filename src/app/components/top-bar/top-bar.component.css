@@ -24,6 +24,14 @@
     margin: 0 5px;
   }
 
+
+  .top-bar .top-bar-content .logo-container a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
   .logo-container p {
     text-align: center;
   }
@@ -34,6 +42,16 @@
     width: 60px;
     height: auto;
     margin-right: 30px;
+  }
+
+  .top-bar .nav-items {
+    display: flex;
+    gap: 40px;
+  }
+
+  .top-bar .nav-items a {
+    text-decoration: none;
+    color: inherit;
   }
 
   .top-bar .contact-info  {

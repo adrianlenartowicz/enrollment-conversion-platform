@@ -12,6 +12,9 @@ import { InfoCardComponent } from './components/info-card/info-card.component';
 import { LocationComponent } from './components/location/location.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { PricingComponent } from './components/pricing/pricing.component';
+import { InstructorsComponent } from './components/instructors/instructors.component';
+import { SessionsComponent } from './components/sessions/sessions.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { ContactComponent } from './components/contact/contact.component';
     InfoCardComponent,
     LocationComponent,
     FooterComponent,
-    ContactComponent
+    ContactComponent,
+    PricingComponent,
+    InstructorsComponent,
+    SessionsComponent
   ],
   imports: [
     BrowserModule,
