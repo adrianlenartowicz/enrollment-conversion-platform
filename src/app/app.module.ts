@@ -15,6 +15,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { PricingComponent } from './components/pricing/pricing.component';
 import { InstructorsComponent } from './components/instructors/instructors.component';
 import { SessionsComponent } from './components/sessions/sessions.component';
+import { JoinStepsComponent } from './components/join-steps/join-steps.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SessionsComponent } from './components/sessions/sessions.component';
     ContactComponent,
     PricingComponent,
     InstructorsComponent,
-    SessionsComponent
+    SessionsComponent,
+    JoinStepsComponent
   ],
   imports: [
     BrowserModule,
