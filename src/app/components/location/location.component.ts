@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Placement } from '../../types/placement.type';
 
 @Component({
   selector: 'app-location',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './location.component.css'
 })
 export class LocationComponent {
-
+  @Input() placement: Placement = 'subpage';
 }
