@@ -69,6 +69,12 @@
   display: none;
 }
 
+.active-link {
+  font-weight: bold;
+  color: #007bff;
+}
+
+
 @media (max-width: 767px) {
   .top-bar {
     flex-direction: column;
@@ -128,12 +134,17 @@
     text-align: center;
     font-size: 17px;
     display: block;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1.5px solid #eee;
   }
 
   .top-bar .mobile-nav-items.open {
     transform: translateX(0);
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
 
+  }
+
+  .mobile-nav-items .active-link {
+    background-color: #f0f0f0;
+    border-left: 4px solid #e2635d;
   }
 }

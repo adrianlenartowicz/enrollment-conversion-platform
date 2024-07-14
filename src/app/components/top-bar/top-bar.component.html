@@ -23,10 +23,11 @@
     </div>
   </div>
   <div class="mobile-nav-items" [class.open]="isMobileMenuOpen">
-    <a routerLink="/lokalizacja">Lokalizacja</a>
-    <a routerLink="/zapisy">Zapisy</a>
-    <a routerLink="/cennik">Cennik</a>
-    <a routerLink="/trenerzy">Trenerzy</a>
-    <a routerLink="/zajęcia">Zajęcia</a>
+    <a routerLink="/" (click)="closeMobileMenu()" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Strona główna</a>
+    <a routerLink="/lokalizacja" (click)="closeMobileMenu()" routerLinkActive="active-link">Lokalizacja</a>
+    <a routerLink="/zapisy" (click)="closeMobileMenu()" routerLinkActive="active-link">Zapisy</a>
+    <a routerLink="/cennik" (click)="closeMobileMenu()" routerLinkActive="active-link">Cennik</a>
+    <a routerLink="/trenerzy" (click)="closeMobileMenu()" routerLinkActive="active-link">Trenerzy</a>
+    <a routerLink="/zajęcia" (click)="closeMobileMenu()" routerLinkActive="active-link">Zajęcia</a>
   </div>
 </div>
