@@ -6,15 +6,4 @@ import { Component } from '@angular/core';
   styleUrl: './landing-page.component.css'
 })
 export class LandingPageComponent {
-
-  scrollToSteps() {
-    const targetElement = document.getElementById('stepsToJoin');
-    const additionalMargin = 20;
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop - additionalMargin,
-        behavior: 'smooth'
-      });
-    }
-  }
 }

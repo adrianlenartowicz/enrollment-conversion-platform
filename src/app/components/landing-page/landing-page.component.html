@@ -1,58 +1,52 @@
 <div class="landing-page-container">
   <div class="landing-section">
     <div class="hero">
-      <app-hero (scrollToTarget)="scrollToSteps()"></app-hero>
+      <app-hero></app-hero>
     </div>
   </div>
-  
+
   <div class="landing-section">
     <div class="features-section">
       <app-features-section></app-features-section>
     </div>
   </div>
-  
+
   <div class="landing-section">
     <div class="info-card">
-      <app-info-card 
-        header="Jak wyglądają zajęcia?" 
+      <app-info-card
+        header="Jak wyglądają zajęcia?"
         info="Zajęcia mają formę ogólnorozwojowych treningów z elementami lekkiej atletyki. W ich trakcie dzieci rozwijają swoje zdolności motoryczne oraz budują prawidłowe wzorce ruchowe.">
       </app-info-card>
     </div>
   </div>
-  
+
   <div class="landing-section">
     <div class="contact">
-      <app-contact [placement]="'landing'" id="stepsToJoin"></app-contact>
+      <app-contact [placement]="'landing'"></app-contact>
     </div>
   </div>
-  
+
   <div class="landing-section">
     <div class="info-card">
-      <app-info-card 
-        header="Kiedy mogę przyjść na trening?" 
+      <app-info-card
+        header="Kiedy mogę przyjść na trening?"
         info="Treningi odbywają się w poniedziałki i środy o godzinie 17:30 - prosimy dzwonić przed przyjściem na pierwsze zajęcia.">
       </app-info-card>
     </div>
   </div>
-  
+
   <div class="landing-section">
     <div class="location">
       <app-location [placement]="'landing'"></app-location>
     </div>
   </div>
-  
+
   <div class="landing-section">
     <div class="info-card">
-      <app-info-card 
-        header="Ile kosztują zajęcia?" 
+      <app-info-card
+        header="Ile kosztują zajęcia?"
         info="Koszt zajęć wynosi 185 zł miesięcznie za dwa treningi w tygodniu lub 125 zł miesięcznie za jeden trening w tygodniu.">
       </app-info-card>
-    </div>
-  </div>
-  
-  <div class="landing-section">
-    <div class="footer">
-      <app-footer></app-footer>
     </div>
   </div>
 </div>

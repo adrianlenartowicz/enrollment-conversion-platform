@@ -11,11 +11,6 @@ export class HeroComponent {
 
   constructor(private metaPixelService: MetaPixelService) {}
 
-  onButtonClick() {
-    this.scrollToTarget.emit();
-    this.acknowledgeButtonClick();
-  }
-
   acknowledgeButtonClick() {
     this.metaPixelService.trackCustom('heroButtonClick');
   }
