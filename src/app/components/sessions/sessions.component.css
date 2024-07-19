@@ -1,0 +1,36 @@
+* {
+    /* margin: 0;
+    padding: 0; */
+}
+
+.sessions-section {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 0 0px;
+}
+
+.sessions-section .sessions-feature {
+    display: flex;
+    flex-direction: row;
+}
+
+.sessions-section .second {
+    flex-direction: row-reverse;
+}
+
+
+.sessions-section .sessions-feature .feature-image {
+    max-width: 50%;
+    padding: 6vw 10vw;
+}
+
+.sessions-feature .feature-description {
+    padding: 6vw 10vw;
+}
+
+.sessions-section .sessions-feature .feature-image img {
+    width: 100%;
+    height: auto;
+}
