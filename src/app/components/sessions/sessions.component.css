@@ -9,7 +9,6 @@
     justify-content: center;
     text-align: center;
     flex-direction: column;
-    padding: 0 20px;
 }
 
 .sessions-section .sessions-feature {
@@ -26,10 +25,10 @@
 .sessions-section .sessions-feature .feature-description,
 .sessions-section .sessions-feature .feature-image {
     flex: 1 1 50%;
-    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0 10px;
 }
 
 .sessions-section .sessions-feature .feature-description {
@@ -54,12 +53,13 @@
 }
 
 @media (max-width: 768px) {
+
     .sessions-section .sessions-feature {
         flex-direction: column;
     }
 
-    .sessions-section .sessions-feature .feature-image,
-    .sessions-section .sessions-feature .feature-description {
-        padding: 10px;
+    .sessions-section .sessions-feature .feature-description,
+    .sessions-section .sessions-feature .feature-image {
+        padding: 0;
     }
 }
