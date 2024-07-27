@@ -1,0 +1,19 @@
+.articles-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.section-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    gap: 85px;
+}
+
+/* Tablet and Mobile Devices */
+@media (max-width: 768px) {
+    .section-content {
+        flex-direction: column;
+    }
+}

@@ -16,6 +16,9 @@ import { PricingComponent } from './components/pricing/pricing.component';
 import { InstructorsComponent } from './components/instructors/instructors.component';
 import { SessionsComponent } from './components/sessions/sessions.component';
 import { JoinStepsComponent } from './components/join-steps/join-steps.component';
+import { ArticlesComponent } from './components/articles/articles.component';
+import { ArticleDetailComponent } from './components/article-detail/article-detail.component';
+import { ArticleCardComponent } from './components/article-card/article-card.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { JoinStepsComponent } from './components/join-steps/join-steps.component
     PricingComponent,
     InstructorsComponent,
     SessionsComponent,
-    JoinStepsComponent
+    JoinStepsComponent,
+    ArticlesComponent,
+    ArticleDetailComponent,
+    ArticleCardComponent
   ],
   imports: [
     BrowserModule,

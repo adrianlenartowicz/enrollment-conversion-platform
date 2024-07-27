@@ -1,0 +1,12 @@
+<div class="articles-section">
+    <div class="section-header">
+        <h2>Artykuły</h2>
+    </div>
+    <div class="section-content">
+        <app-article-card
+        *ngFor="let article of articles"
+        [header]="article.header"
+        [paragraph]="article.paragraph"
+        [image]="article.image"></app-article-card>
+    </div>
+</div>
