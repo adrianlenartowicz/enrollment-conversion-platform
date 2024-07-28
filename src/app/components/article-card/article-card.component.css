@@ -1,0 +1,37 @@
+:host {
+    flex: 1;
+
+}
+
+.article-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    height: 100%;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.article-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.article-image img {
+    display: block;
+    width: 100%;
+    max-height: 450px;
+    height: auto;
+    object-fit: cover;
+}
+
+.article-preview {
+   padding: 40px;
+   height: 100%;
+}
+
+.preview-header h4 {
+    font-size: 1.4rem;
+    margin: 0;
+}

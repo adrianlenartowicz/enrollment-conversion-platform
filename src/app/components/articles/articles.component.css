@@ -1,0 +1,27 @@
+.articles-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.articles-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    gap: 85px;
+}
+
+@media (max-width: 1000px) {
+    .articles-header {
+        margin-bottom: 0;
+    }
+
+    .section-content {
+        flex-direction: column;
+    }
+}

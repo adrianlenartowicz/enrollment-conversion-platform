@@ -1,18 +1,16 @@
 .info-section {
     display: flex;
     justify-content: center;
-    margin-top: 125px;
-    padding: 0 20px;
 }
 
 .info-section .info-card {
     text-align: center;
-    background-color: #ffffff; /* Jasne tło */
+    background-color: #ffffff;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Subtelniejszy i głębszy cień */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     max-width: 500px;
-    border: 1px solid #e2e2e2; /* Dodanie subtelnej ramki */
+    border: 1px solid #e2e2e2;
 }
 
 .info-section .info-question {
@@ -22,7 +20,7 @@
 
 .info-section .info-answer {
     font-size: 1.2rem;
-    color: #333333; /* Ciemniejszy odcień szarości dla odpowiedzi */
+    color: #333333;
 }
 
 @media (max-width: 767px) {

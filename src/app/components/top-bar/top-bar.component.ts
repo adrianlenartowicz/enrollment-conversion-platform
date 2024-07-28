@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrl: './top-bar.component.css'
 })
 export class TopBarComponent {
+  isMobileMenuOpen = false;
 
+
+  showMobileMenu() {
+    this.isMobileMenuOpen = true;
+  }
+
+  closeMobileMenu() {
+    this.isMobileMenuOpen = false;
+  }
 }

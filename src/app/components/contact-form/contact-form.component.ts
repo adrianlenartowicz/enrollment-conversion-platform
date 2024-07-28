@@ -14,8 +14,7 @@ export class ContactFormComponent implements OnInit {
   isSubmited: boolean = false;
   wasButtonClicked: boolean = false;
   form!: FormGroup;
-  ages: number[] = Array.from({length: 8}, (_, i) => i + 5);
-  displayAgeRequirement: boolean = true;
+  groups: string[] = ['U8: 5-7 lat', 'U10: 8-9 lat', 'U12: 10-11 lat', 'U14: 12-13 lat'];
   canDisplayRodoReminder: boolean = false;
 
   constructor(private formBuilder: FormBuilder, private mailService: MailService, private metaPixelService: MetaPixelService) {};
@@ -25,29 +24,28 @@ export class ContactFormComponent implements OnInit {
       {
         contact: ['', [EmailOrPhoneValidator()]],
         rodo: ['', Validators.requiredTrue],
-        childAge: ['', Validators.required]
+        group: ['', Validators.required]
       }
-    )
+    );
   }
 
   async submitEmail() {
     this.isSubmited = true;
     let formData: FormData = new FormData();
     formData.append('contact', this.form.get('contact')?.value);
-    formData.append('childAge', this.form.get('childAge')?.value);
+    formData.append('group', this.form.get('group')?.value); 
     formData.append('access_key', environment.formAccessKey);
 
     try {
       const res = await this.mailService.sendEmail(formData);
-      console.log(res)
+      console.log(res);
       if (!res.ok) {
         throw new Error();
       }
     } catch (err) {
-        console.log(err);
+      console.log(err);
     }
   }
-
 
   onSubmit() {
     if (this.form.valid) {
@@ -58,12 +56,11 @@ export class ContactFormComponent implements OnInit {
 
   informAboutClick() {
     this.wasButtonClicked = true;
-    if (this.form.get('contact')!.valid && this.form.get('childAge')!.valid)
+    if (this.form.get('contact')!.valid && this.form.get('group')!.valid)
       this.canDisplayRodoReminder = true;
   }
 
   acknowledgeConversion() {
-    this.metaPixelService.track('Lead', {contact: this.form.get('contact')?.value, childAge: this.form.get('childAge')?.value});
+    this.metaPixelService.track('Lead', {contact: this.form.get('contact')?.value, group: this.form.get('group')?.value});
   }
-
 }

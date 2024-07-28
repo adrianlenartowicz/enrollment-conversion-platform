@@ -12,6 +12,13 @@ import { InfoCardComponent } from './components/info-card/info-card.component';
 import { LocationComponent } from './components/location/location.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { PricingComponent } from './components/pricing/pricing.component';
+import { InstructorsComponent } from './components/instructors/instructors.component';
+import { SessionsComponent } from './components/sessions/sessions.component';
+import { JoinStepsComponent } from './components/join-steps/join-steps.component';
+import { ArticlesComponent } from './components/articles/articles.component';
+import { ArticleDetailComponent } from './components/article-detail/article-detail.component';
+import { ArticleCardComponent } from './components/article-card/article-card.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +31,14 @@ import { ContactComponent } from './components/contact/contact.component';
     InfoCardComponent,
     LocationComponent,
     FooterComponent,
-    ContactComponent
+    ContactComponent,
+    PricingComponent,
+    InstructorsComponent,
+    SessionsComponent,
+    JoinStepsComponent,
+    ArticlesComponent,
+    ArticleDetailComponent,
+    ArticleCardComponent
   ],
   imports: [
     BrowserModule,

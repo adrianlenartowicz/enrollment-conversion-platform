@@ -1,3 +1,11 @@
-.app {
-    font-family: 'Poppins';
+.sub-page {
+    margin-top: 125px;
+    margin-bottom: 75px;
+    padding: 0 10%;
+}
+
+@media (max-width: 768px) {
+    .sub-page {
+        padding: 0 5%;
+    }
 }

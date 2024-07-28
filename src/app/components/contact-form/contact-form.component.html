@@ -12,16 +12,16 @@
         </div>
       </div>
 
-      <label for="childAge">Wiek dziecka:</label>
-      <select id="childAge" formControlName="childAge" class="to-highlight">
+      <label for="group">Grupa wiekowa:</label>
+      <select id="group" formControlName="group" class="to-highlight">
         <option value="" disabled selected></option>
-        <option *ngFor="let age of ages" [value]="age">{{ age }}</option>
+        <option *ngFor="let group of groups" [value]="group">{{ group }}</option>
       </select>
-      <div *ngIf="!form.get('childAge')!.valid && wasButtonClicked">
-        <p [ngStyle]="{ 'color': 'red', 'margin-top': 0, 'margin-bottom': '20px' }">Proszę zaznaczyć wiek dziecka</p>
+      <div *ngIf="!form.get('group')!.valid && wasButtonClicked">
+        <p [ngStyle]="{ 'color': 'red', 'margin-top': 0, 'margin-bottom': '20px' }">Proszę zaznaczyć grupę wiekową</p>
       </div>
 
-      <div *ngIf="form.get('contact')!.valid && form.get('childAge')!.valid" class="rodo-container">      
+      <div *ngIf="form.get('contact')!.valid && form.get('group')!.valid" class="rodo-container">      
         <label for="rodo">
           Wyrażam zgodę na przetwarzanie moich danych osobowych podanych w powyższym formularzu w celu kontaktu przez Akademię Lekkiej Atletyki Wrocław sp. z o.o. oraz przez podmioty trzecie.
         </label>
