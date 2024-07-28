@@ -94,7 +94,13 @@
   display: none;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1400px) {
+  .top-bar .contact-info p {
+    display: none;
+  }
+}
+
+@media (max-width: 1400px) {
   .top-bar {
     flex-direction: column;
     align-items: center;
@@ -105,7 +111,7 @@
     align-items: center;
     padding: 10px 35px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
   }
 
   .top-bar .contact-info {

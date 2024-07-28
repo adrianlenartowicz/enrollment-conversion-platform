@@ -36,7 +36,7 @@ p {
 
   .price {
     margin-bottom: 1rem;
-    font-size: 30px;
+    font-size: 1.8rem;
   }
 
   ul.features {
@@ -48,7 +48,8 @@ p {
       .fas {
         margin-right: 4px;
       }
-      .fa-check-circle {
+      .fa-check-circle,
+      .fa-times-circle {
         color: #e2635d;
       }
     }
