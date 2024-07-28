@@ -1,5 +1,5 @@
 <div class="articles-section">
-    <div class="section-header">
+    <div class="articles-header">
         <h2>Artykuły</h2>
     </div>
     <div class="section-content">
@@ -7,6 +7,7 @@
         *ngFor="let article of articles"
         [header]="article.header"
         [paragraph]="article.paragraph"
-        [image]="article.image"></app-article-card>
+        [image]="article.image"
+        [id]="article.id"></app-article-card>
     </div>
 </div>

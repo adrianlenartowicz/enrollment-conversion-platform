@@ -1,1 +1,27 @@
-<p>article-detail works!</p>
+<div class="article-container">
+    <div *ngIf="article" class="article-detail">
+        <div class="back-button" [routerLink]="['/artykuły']">
+            <i class="fas fa-arrow-left"></i><span>Powrót do listy artykułów</span>
+        </div>
+        <article>
+            <div class="article-header">
+                <h1>{{ article.header }}</h1>
+            </div>
+            <div class="article-image">
+                <img [src]="article.image" alt="{{ article.header }}">
+            </div>
+            <div class="article-content" [innerHTML]="article.content"></div>
+        </article>
+    </div>
+    <div class="article-sidebar">
+            <h2>Treningi lekkoatletyczne od <span style="color: #e2635d;">5 roku życia</span>!</h2>
+            <div class="sign-up">
+                <p>Skorzystaj z dwóch bezpłatnych treningów:</p>
+                <button class="sign-up-button" [routerLink]="['/zapisy']">Wypróbuj bezpłatnie</button>
+            </div>
+            <div class="info">
+                <p>Przeczytaj o naszych zajęciach:</p>
+                <button class="info-button" [routerLink]="['/zajęcia']">Dowiedz się więcej</button>
+            </div>
+    </div>    
+</div>

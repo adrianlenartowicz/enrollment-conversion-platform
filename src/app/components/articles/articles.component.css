@@ -3,6 +3,11 @@
     flex-direction: column;
 }
 
+.articles-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
 .section-content {
     display: flex;
     flex-direction: row;
@@ -11,8 +16,7 @@
     gap: 85px;
 }
 
-/* Tablet and Mobile Devices */
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .section-content {
         flex-direction: column;
     }

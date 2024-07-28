@@ -8,6 +8,7 @@ import { InstructorsComponent } from './components/instructors/instructors.compo
 import { SessionsComponent } from './components/sessions/sessions.component';
 import { JoinStepsComponent } from './components/join-steps/join-steps.component';
 import { ArticlesComponent } from './components/articles/articles.component';
+import { ArticleDetailComponent } from './components/article-detail/article-detail.component';
 
 const routes: Routes = [
   {path: '', component: LandingPageComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'cennik', component: PricingComponent},
   {path: 'trenerzy', component: InstructorsComponent},
   {path: 'zajęcia', component: SessionsComponent},
-  {path: 'artykuły', component: ArticlesComponent}
+  {path: 'artykuły', component: ArticlesComponent},
+  {path: 'artykuły/:id', component: ArticleDetailComponent}
 ];
 
 @NgModule({
