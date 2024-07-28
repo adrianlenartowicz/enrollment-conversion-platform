@@ -76,6 +76,7 @@
 
 .article-sidebar .info-button {
     color: black;
+    border: 1px solid #e2635d;
 }
 
 .article-sidebar .sign-up-button {
