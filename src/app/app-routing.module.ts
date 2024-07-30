@@ -16,9 +16,9 @@ const routes: Routes = [
   {path: 'zapisy', component: JoinStepsComponent},
   {path: 'cennik', component: PricingComponent},
   {path: 'trenerzy', component: InstructorsComponent},
-  {path: 'zajęcia', component: SessionsComponent},
-  {path: 'artykuły', component: ArticlesComponent},
-  {path: 'artykuły/:id', component: ArticleDetailComponent}
+  {path: 'zajecia', component: SessionsComponent},
+  {path: 'artykuly', component: ArticlesComponent},
+  {path: 'artykuly/:id', component: ArticleDetailComponent}
 ];
 
 @NgModule({
