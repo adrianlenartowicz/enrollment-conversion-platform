@@ -111,3 +111,9 @@
         max-width: 200px;
     }
 }
+
+@media (max-width: 767px) {
+    .article-detail {
+        padding: 30px;
+    }
+}
