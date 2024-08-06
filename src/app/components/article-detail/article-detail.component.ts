@@ -1,16 +1,25 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ArticleService } from '../../services/article.service';
+import { TimerService } from '../../services/timer.service';
+import { MetaPixelService } from '../../services/meta-pixel.service';
+import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'app-article-detail',
   templateUrl: './article-detail.component.html',
-  styleUrl: './article-detail.component.css',
+  styleUrls: ['./article-detail.component.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class ArticleDetailComponent implements OnInit {
   article: any;
+  private conversionTracked = false;
 
-  constructor(private route: ActivatedRoute, private articleService: ArticleService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private articleService: ArticleService,
+    private timerService: TimerService,
+  ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -19,15 +28,15 @@ export class ArticleDetailComponent implements OnInit {
         this.article = this.articleService.getArticleById(articleId);
       }
     });
+    this.conversionTracked = this.checkConversionTracked();
+    if (!this.conversionTracked) {
+      this.timerService.startTimer();
+    }
   }
 
-  // formatTextToHtml(text: string): string {
-  //   const paragraphs = text.split('#').map(paragraph => `<p>${paragraph.trim()}</p>`);
-  //   return paragraphs.join('');
-  // }
 
-  // getFormattedHtml() {
-  //   return this.formatTextToHtml(this.article.content);
-  // }
 
+  private checkConversionTracked(): boolean {
+    return localStorage.getItem('conversionTracked') === 'true';
+  }
 }
