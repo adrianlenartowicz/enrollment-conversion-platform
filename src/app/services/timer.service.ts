@@ -20,7 +20,7 @@ export class TimerService {
       this.timerSubscription = interval(1000)
         .pipe(takeWhile(() => this.timerActive))
         .subscribe(() => {
-          if (this.timeSpentSubject.value > 30) {
+          if (this.timeSpentSubject.value > 40) {
             this.stopTimer();
             this.acknowledgeConvertion();
           }
@@ -43,7 +43,7 @@ export class TimerService {
 
   acknowledgeConvertion() {
     this.setConversionTracked();
-    this.metaPixelService.trackCustom('articleRead');
+    this.metaPixelService.trackCustom('timeSpentGoalMet');
   }
 
   private setConversionTracked() {

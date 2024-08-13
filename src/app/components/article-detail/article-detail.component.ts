@@ -1,9 +1,6 @@
 import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ArticleService } from '../../services/article.service';
-import { TimerService } from '../../services/timer.service';
-import { MetaPixelService } from '../../services/meta-pixel.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-article-detail',
@@ -13,12 +10,10 @@ import { Subscription } from 'rxjs';
 })
 export class ArticleDetailComponent implements OnInit {
   article: any;
-  private conversionTracked = false;
 
   constructor(
     private route: ActivatedRoute,
-    private articleService: ArticleService,
-    private timerService: TimerService,
+    private articleService: ArticleService
   ) {}
 
   ngOnInit(): void {
@@ -28,15 +23,5 @@ export class ArticleDetailComponent implements OnInit {
         this.article = this.articleService.getArticleById(articleId);
       }
     });
-    this.conversionTracked = this.checkConversionTracked();
-    if (!this.conversionTracked) {
-      this.timerService.startTimer();
-    }
-  }
-
-
-
-  private checkConversionTracked(): boolean {
-    return localStorage.getItem('conversionTracked') === 'true';
   }
 }
