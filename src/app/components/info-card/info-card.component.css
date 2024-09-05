@@ -18,9 +18,15 @@
     margin-bottom: 10px;
 }
 
-.info-section .info-answer {
+.info-section .info-answer,
+.info-section .second-info-answer {
     font-size: 1.2rem;
     color: #333333;
+    margin-bottom: 0px;
+}
+
+.info-section .second-info-answer {
+    margin-top: 5px;
 }
 
 @media (max-width: 767px) {

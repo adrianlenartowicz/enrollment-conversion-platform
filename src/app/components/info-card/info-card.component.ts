@@ -7,5 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class InfoCardComponent {
   @Input() info: string = '';
+  @Input() secondInfo: string = '';
   @Input() header: string = '';
+  
 }
