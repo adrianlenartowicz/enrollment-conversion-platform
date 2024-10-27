@@ -19,6 +19,9 @@ import { JoinStepsComponent } from './components/join-steps/join-steps.component
 import { ArticlesComponent } from './components/articles/articles.component';
 import { ArticleDetailComponent } from './components/article-detail/article-detail.component';
 import { ArticleCardComponent } from './components/article-card/article-card.component';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { environment } from '../environments/environment.development';
 
 @NgModule({
   declarations: [
@@ -43,9 +46,12 @@ import { ArticleCardComponent } from './components/article-card/article-card.com
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideFirestore(() => getFirestore()),
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
