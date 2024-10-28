@@ -12,8 +12,7 @@ export class FirestoreService {
     const collectionName = 'form-submissions';
       try {
         const colRef = collection(this.firestore, collectionName);
-        const docRef = await addDoc(colRef, submissionData);
-        console.log('Document written with ID: ', docRef.id);
+        await addDoc(colRef, submissionData);
       } catch (error) {
         console.error('Error adding document: ', error);
         throw error;
