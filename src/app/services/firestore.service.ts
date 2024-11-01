@@ -9,7 +9,7 @@ export class FirestoreService {
   constructor(private firestore: Firestore) { }
 
   async postFormSubmission(submissionData: any) {
-    const collectionName = 'form-submissions';
+    const collectionName = 'leads';
       try {
         const colRef = collection(this.firestore, collectionName);
         await addDoc(colRef, submissionData);
