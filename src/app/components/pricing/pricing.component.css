@@ -14,6 +14,27 @@ p {
   flex-direction: column;
 }
 
+.pricing .pricing-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pricing-header .announcement {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.pricing-header .announcement p {
+  margin: 0;
+}
+
+.fa-info-circle {
+  margin-right: 10px;
+}
+
 .pricing .pricing-content {
   margin-top: 50px;
   display: flex;

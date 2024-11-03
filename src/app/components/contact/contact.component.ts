@@ -14,7 +14,7 @@ export class ContactComponent implements OnInit {
 
   ngOnInit() {
     if (this.placement === 'landing') {
-      this.contactHeader = 'Odbierz dwa bezpłatne treningi próbne!'
+      this.contactHeader = 'Odbierz bezpłatny trening próbny!'
       this.contactSubheader = 'Wypełnij formularz'
     }
   }
