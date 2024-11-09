@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmailOrPhoneValidator } from './validators/email-or-phone.validator';
 import { MailService } from '../../services/mail.service';
 import { environment } from '../../../environments/environment';
 import { MetaPixelService } from '../../services/meta-pixel.service';
+
+type contactFormPlacement = 'landing' | 'section';
 
 @Component({
   selector: 'app-contact-form',
@@ -16,6 +18,7 @@ export class ContactFormComponent implements OnInit {
   form!: FormGroup;
   groups: string[] = ['U8: 5-7 lat', 'U10: 8-9 lat', 'U12: 10-11 lat', 'U14: 12-13 lat'];
   canDisplayRodoReminder: boolean = false;
+  @Input({required: true}) placement!: contactFormPlacement;
 
   constructor(private formBuilder: FormBuilder, private mailService: MailService, private metaPixelService: MetaPixelService) {};
 
@@ -33,7 +36,8 @@ export class ContactFormComponent implements OnInit {
     this.isSubmited = true;
     let formData: FormData = new FormData();
     formData.append('contact', this.form.get('contact')?.value);
-    formData.append('group', this.form.get('group')?.value); 
+    formData.append('group', this.form.get('group')?.value);
+    formData.append('placement', this.placement);
     formData.append('access_key', environment.formAccessKey);
 
     try {
