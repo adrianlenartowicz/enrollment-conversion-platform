@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'lokalizacja', component: LocationComponent},
   {path: 'zapisy', component: JoinStepsComponent},
   {path: 'cennik', component: PricingComponent},
-  // {path: 'trenerzy', component: InstructorsComponent},
+  {path: 'trenerzy', component: InstructorsComponent},
   {path: 'zajecia', component: SessionsComponent},
   {path: 'artykuly', component: ArticlesComponent},
   {path: 'artykuly/:id', component: ArticleDetailComponent}
