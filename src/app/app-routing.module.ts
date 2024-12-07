@@ -9,6 +9,7 @@ import { SessionsComponent } from './components/sessions/sessions.component';
 import { JoinStepsComponent } from './components/join-steps/join-steps.component';
 import { ArticlesComponent } from './components/articles/articles.component';
 import { ArticleDetailComponent } from './components/article-detail/article-detail.component';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
   {path: '', component: LandingPageComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: 'trenerzy', component: InstructorsComponent},
   {path: 'zajecia', component: SessionsComponent},
   {path: 'artykuly', component: ArticlesComponent},
-  {path: 'artykuly/:id', component: ArticleDetailComponent}
+  {path: 'artykuly/:id', component: ArticleDetailComponent},
+  {path: 'polityka-prywatnosci', component: PrivacyPolicyComponent}
 ];
 
 @NgModule({

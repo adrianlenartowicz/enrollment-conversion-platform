@@ -32,3 +32,37 @@
         margin-top: 200px;
     }
 }
+
+.privacy-policy {
+    margin-top: 10px;
+}
+
+.privacy-policy a {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    padding: 10px;
+    transition: color 0.3s, border-bottom 0.3s;
+    position: relative;
+  }
+  
+  .privacy-policy a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 50%;
+    bottom: -3px;
+    background-color: #e2635d;
+    transition: width 0.3s, left 0.3s;
+  }
+  
+  .privacy-policy a:hover::after {
+    width: 100%;
+    left: 0;
+  }
+  
+  .privacy-policy a.active-link::after {
+    width: 100%;
+    left: 0;
+  }

@@ -19,6 +19,7 @@ import { JoinStepsComponent } from './components/join-steps/join-steps.component
 import { ArticlesComponent } from './components/articles/articles.component';
 import { ArticleDetailComponent } from './components/article-detail/article-detail.component';
 import { ArticleCardComponent } from './components/article-card/article-card.component';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ArticleCardComponent } from './components/article-card/article-card.com
     JoinStepsComponent,
     ArticlesComponent,
     ArticleDetailComponent,
-    ArticleCardComponent
+    ArticleCardComponent,
+    PrivacyPolicyComponent
   ],
   imports: [
     BrowserModule,
