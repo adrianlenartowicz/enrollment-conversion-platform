@@ -19,13 +19,17 @@ export class ArticleDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      const articleId = params.get('id');
-      if (articleId) {
-        this.article = this.articleService.getArticleById(articleId);
-      }
-    });
+    const articleId = this.route.snapshot.paramMap.get('id');
+    if (articleId) {
+      this.article = this.articleService.getArticleById(articleId);
 
+      if (this.article) {
+        this.setMetaTags();
+      }
+    }
+  }
+
+  private setMetaTags() {
     this.metaService.updateTag({ property: 'og:title', content: this.article.header });
     this.metaService.updateTag({ property: 'og:description', content: this.article.paragraph });
     this.metaService.updateTag({ property: 'og:image', content: `${window.location.origin}/assets/articles/${this.article.imageFileName}` });
