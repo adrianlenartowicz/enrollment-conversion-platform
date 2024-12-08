@@ -32,6 +32,6 @@ export class ArticleDetailComponent implements OnInit {
   private setMetaTags() {
     this.metaService.updateTag({ property: 'og:title', content: this.article.header });
     this.metaService.updateTag({ property: 'og:description', content: this.article.paragraph });
-    this.metaService.updateTag({ property: 'og:image', content: `${window.location.origin}/assets/articles/${this.article.imageFileName}` });
+    this.metaService.updateTag({ property: 'og:image', content: `alawroc.pl/assets/articles/${this.article.imageFileName}` });
   }
 }
