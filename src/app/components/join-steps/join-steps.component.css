@@ -1,6 +1,7 @@
 .contact-section h2 {
     margin-bottom: 0;
 }
+
 .contact-section {
     margin-top: 100px;
     display: flex;
@@ -14,17 +15,20 @@
         margin-top: 100px;
     }
 }
+
 .contact-section .steps-section {
     max-width: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .contact-section .steps-section .step-card {
     width: 100%;
     max-width: 500px;
     margin-top: 25px;
 }
+
 .contact-section .steps-section .contact-info {
     display: flex;
     flex-direction: row;
@@ -32,17 +36,37 @@
     column-gap: 30px;
     align-items: center;
 }
-.contact-section .steps-section .contact-info p i {
+
+.contact-section .steps-section .contact-info i {
     margin-right: 5px;
 }
+
+.contact-section .steps-section .contact-info .email-adress {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.contact-section .steps-section .contact-info .phone-number {
+    display: flex;
+    align-items: center;
+}
+
+.contact-section .steps-section .contact-info a {
+    text-decoration: none;
+    color: inherit;
+}
+
 @media (max-width: 767px) {
     .contact-section .steps-section .contact-info {
         flex-direction: column;
     }
-    .contact-section .steps-section .contact-info p {
-        margin: 8px 0;
+
+    .contact-section .steps-section .contact-info .email-adress{
+        margin-top: 0;
     }
 }
+
 .contact-section .steps-section .step-card h4 {
     font-size: 1.2rem;
 }

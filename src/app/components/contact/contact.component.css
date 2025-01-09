@@ -44,11 +44,27 @@
     align-items: center;
 }
 
-.contact-section .steps-section .contact-info p {
-    margin-top: 0;
+.contact-section .steps-section .contact-info .email-adress {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
 
-.contact-section .steps-section .contact-info p i {
+.contact-section .steps-section .contact-info .phone-number {
+    display: flex;
+    align-items: center;
+}
+
+.contact-section .steps-section .contact-info a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.contact-section .steps-section .contact-info p {
+    margin: 0;
+}
+
+.contact-section .steps-section .contact-info i {
     margin-right: 5px;
 }
 
@@ -57,8 +73,8 @@
         flex-direction: column;
     }
 
-    .contact-section .steps-section .contact-info p {
-        margin: 8px 0;
+    .contact-section .steps-section .contact-info .email-adress{
+        margin-top: 15px;
     }
 }
 
