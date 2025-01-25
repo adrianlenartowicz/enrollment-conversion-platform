@@ -21,7 +21,9 @@
 .top-bar .top-bar-content .logo-container {
   display: flex;
   align-items: center;
-  margin: 0 5px;
+  margin-right: 25px;
+  padding 0 5px;
+  flex: 1;
 }
 
 .top-bar .top-bar-content .logo-container a {
@@ -45,6 +47,7 @@
 .top-bar .nav-items {
   display: flex;
   gap: 30px;
+  justify-content: center;
 }
 
 .top-bar .nav-items a {
@@ -80,6 +83,8 @@
 .top-bar .contact-info {
   display: flex;
   gap: 20px;
+  justify-content: end;
+  flex: 1;
 }
 
 .top-bar .contact-info p {
