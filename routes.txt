@@ -1,2 +1,8 @@
 /artykuly/kiedy-dziecko-powinno-zaczac-przygode-ze-sportem
 /artykuly/kiedy-zdecydowac-sie-na-zakupow-kolcow
+/lokalizacja
+/zapisy
+/cennik
+/trenerzy
+/zajecia
+/artykuly
