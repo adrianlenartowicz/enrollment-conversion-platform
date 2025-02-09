@@ -20,6 +20,27 @@ import { ArticlesComponent } from './components/articles/articles.component';
 import { ArticleDetailComponent } from './components/article-detail/article-detail.component';
 import { ArticleCardComponent } from './components/article-card/article-card.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { DefaultUrlSerializer } from '@angular/router';
+import { UrlSerializer } from '@angular/router';
+import { UrlTree } from '@angular/router';
+
+export class CustomUrlSerializer extends DefaultUrlSerializer {
+  override parse(url: string): UrlTree {
+    if (!url.endsWith('/')) {
+      url += '/'; // Dodaje ukośnik, jeśli go brakuje
+    }
+    return super.parse(url);
+  }
+
+  override serialize(tree: UrlTree): string {
+    let serialized = super.serialize(tree);
+    if (!serialized.endsWith('/')) {
+      serialized += '/';
+    }
+    return serialized;
+  }
+}
+
 
 @NgModule({
   declarations: [
@@ -48,7 +69,8 @@ import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-poli
     ReactiveFormsModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    { provide: UrlSerializer, useClass: CustomUrlSerializer }
   ],
   bootstrap: [AppComponent]
 })

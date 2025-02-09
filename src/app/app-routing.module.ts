@@ -12,19 +12,30 @@ import { ArticleDetailComponent } from './components/article-detail/article-deta
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
-  {path: '', component: LandingPageComponent},
-  {path: 'lokalizacja', component: LocationComponent},
-  {path: 'zapisy', component: JoinStepsComponent},
-  {path: 'cennik', component: PricingComponent},
-  {path: 'trenerzy', component: InstructorsComponent},
-  {path: 'zajecia', component: SessionsComponent},
-  {path: 'artykuly', component: ArticlesComponent},
-  {path: 'artykuly/:id', component: ArticleDetailComponent},
-  {path: 'polityka-prywatnosci', component: PrivacyPolicyComponent}
+  { path: '', component: LandingPageComponent, pathMatch: 'full' },
+  { path: 'lokalizacja', redirectTo: 'lokalizacja/', pathMatch: 'full' },
+  { path: 'lokalizacja/', component: LocationComponent },
+  { path: 'zapisy', redirectTo: 'zapisy/', pathMatch: 'full' },
+  { path: 'zapisy/', component: JoinStepsComponent },
+  { path: 'cennik', redirectTo: 'cennik/', pathMatch: 'full' },
+  { path: 'cennik/', component: PricingComponent },
+  { path: 'trenerzy', redirectTo: 'trenerzy/', pathMatch: 'full' },
+  { path: 'trenerzy/', component: InstructorsComponent },
+  { path: 'zajecia', redirectTo: 'zajecia/', pathMatch: 'full' },
+  { path: 'zajecia/', component: SessionsComponent },
+  { path: 'artykuly', redirectTo: 'artykuly/', pathMatch: 'full' },
+  { path: 'artykuly/', component: ArticlesComponent },
+  { path: 'artykuly/:id', redirectTo: 'artykuly/:id/', pathMatch: 'full' },
+  { path: 'artykuly/:id/', component: ArticleDetailComponent },
+  { path: 'polityka-prywatnosci', redirectTo: 'polityka-prywatnosci/', pathMatch: 'full' },
+  { path: 'polityka-prywatnosci/', component: PrivacyPolicyComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'top' })],
+  imports: [RouterModule.forRoot(routes, { 
+    scrollPositionRestoration: 'top',
+    enableTracing: true
+   })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
