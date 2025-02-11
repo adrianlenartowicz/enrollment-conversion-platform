@@ -9,33 +9,38 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://alawroc.pl/lokalizacja</loc>
+    <loc>https://alawroc.pl/lokalizacja/</loc>
     <lastmod>2025-02-06T09:54:05+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://alawroc.pl/zapisy</loc>
+    <loc>https://alawroc.pl/zapisy/</loc>
     <lastmod>2025-02-06T09:54:05+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://alawroc.pl/cennik</loc>
+    <loc>https://alawroc.pl/cennik/</loc>
     <lastmod>2025-02-06T09:54:06+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://alawroc.pl/trenerzy</loc>
+    <loc>https://alawroc.pl/trenerzy/</loc>
     <lastmod>2025-02-06T09:54:05+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://alawroc.pl/zajecia</loc>
+    <loc>https://alawroc.pl/zajecia/</loc>
     <lastmod>2025-02-06T09:54:05+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://alawroc.pl/artykuly</loc>
+    <loc>https://alawroc.pl/artykuly/</loc>
     <lastmod>2025-02-06T09:54:05+00:00</lastmod>
     <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://alawroc.pl/polityka-prywatnosci/</loc>
+    <lastmod>2025-02-06T09:54:05+00:00</lastmod>
+    <priority>0.50</priority>
   </url>
 </urlset>
