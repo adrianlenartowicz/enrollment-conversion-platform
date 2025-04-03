@@ -19,7 +19,7 @@ p {
   flex-direction: column;
   align-items: center;
 }
-.pricing-header .announcement {
+/* .pricing-header .announcement {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -33,7 +33,7 @@ p {
 
 .fa-info-circle {
   margin-right: 10px;
-}
+} */
 
 .pricing .pricing-content {
   margin-top: 50px;
