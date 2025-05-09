@@ -67,12 +67,25 @@
 }
 
 .contact-form .rodo-container {
-  margin: 10px 0;
+  margin: 20px 0;
+  text-align: center;
 }
 
-.contact-form .rodo-container input {
-  margin-top: 15px;
-  transform: scale(1.4);
+.contact-form .rodo-text {
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.contact-form .required {
+  color: red;
+  margin-right: 5px;
+}
+
+.contact-form .rodo-container input[type="checkbox"] {
+  display: block;
+  margin: 0 auto;
+  width: 20px;
+  height: 20px;
   accent-color: #e2635d;
 }
 

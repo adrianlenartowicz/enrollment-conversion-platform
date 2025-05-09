@@ -22,10 +22,11 @@
       </div>
 
       <div *ngIf="form.get('contact')!.valid && form.get('group')!.valid" class="rodo-container">      
-        <label for="rodo">
-          Wyrażam zgodę na przetwarzanie moich danych osobowych podanych w powyższym formularzu w celu kontaktu przez Akademię Lekkiej Atletyki Wrocław sp. z o.o. oraz przez podmioty trzecie.
-        </label>
-        <input type="checkbox" id="rodo" formControlName="rodo">
+        <p class="rodo-text">
+          <span class="required">*</span>
+          Wyrażam zgodę na przetwarzanie moich danych osobowych w celu kontaktu przez Akademię Lekkiej Atletyki Wrocław sp. z o.o. Formularz obsługuje Web3Forms jako podmiot przetwarzający.
+        </p>
+        <input type="checkbox" id="rodo" formControlName="rodo" />
       </div>
 
       <div *ngIf="canDisplayRodoReminder">
