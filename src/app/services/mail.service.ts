@@ -1,15 +1,14 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MailService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  sendEmail(formData: FormData): Promise<Response> {
-    return fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body: formData,
-    });
+  sendEmail(payload: any): Observable<any> {
+    return this.http.post(`http://localhost:3000/form`, payload);
   }
 }

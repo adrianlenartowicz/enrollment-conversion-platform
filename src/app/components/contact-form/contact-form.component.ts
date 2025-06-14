@@ -2,8 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmailOrPhoneValidator } from './validators/email-or-phone.validator';
 import { MailService } from '../../services/mail.service';
-import { environment } from '../../../environments/environment';
 import { MetaPixelService } from '../../services/meta-pixel.service';
+import { detectContactType } from './validators/email-or-phone.validator';
+import { firstValueFrom } from 'rxjs';
 
 type contactFormPlacement = 'landing' | 'section';
 
@@ -34,18 +35,21 @@ export class ContactFormComponent implements OnInit {
 
   async submitEmail() {
     this.isSubmited = true;
-    let formData: FormData = new FormData();
-    formData.append('contact', this.form.get('contact')?.value);
-    formData.append('group', this.form.get('group')?.value);
-    formData.append('placement', this.placement);
-    formData.append('access_key', environment.formAccessKey);
 
-    try {
-      const res = await this.mailService.sendEmail(formData);
+    const contact = this.form.get('contact')?.value;
+    const contactType = detectContactType(contact);
+
+    const payload = {
+      phoneNumber: contactType === 'phone' ? contact : undefined,
+      email: contactType === 'email' ? contact : undefined,
+      ageGroup: this.form.get('group')?.value,
+      placement: this.placement,
+    };
+
+
+  try {
+      const res = await firstValueFrom(this.mailService.sendEmail(payload));
       console.log(res);
-      if (!res.ok) {
-        throw new Error();
-      }
     } catch (err) {
       console.log(err);
     }
