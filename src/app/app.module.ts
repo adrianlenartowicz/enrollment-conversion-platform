@@ -23,7 +23,7 @@ import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-poli
 import { DefaultUrlSerializer } from '@angular/router';
 import { UrlSerializer } from '@angular/router';
 import { UrlTree } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 export class CustomUrlSerializer extends DefaultUrlSerializer {
   override parse(url: string): UrlTree {
@@ -43,36 +43,30 @@ export class CustomUrlSerializer extends DefaultUrlSerializer {
 }
 
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    LandingPageComponent,
-    ContactFormComponent,
-    TopBarComponent,
-    HeroComponent,
-    FeaturesSectionComponent,
-    InfoCardComponent,
-    LocationComponent,
-    FooterComponent,
-    ContactComponent,
-    PricingComponent,
-    InstructorsComponent,
-    SessionsComponent,
-    JoinStepsComponent,
-    ArticlesComponent,
-    ArticleDetailComponent,
-    ArticleCardComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule
-  ],
-  providers: [
-    provideClientHydration(),
-    { provide: UrlSerializer, useClass: CustomUrlSerializer }
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        LandingPageComponent,
+        ContactFormComponent,
+        TopBarComponent,
+        HeroComponent,
+        FeaturesSectionComponent,
+        InfoCardComponent,
+        LocationComponent,
+        FooterComponent,
+        ContactComponent,
+        PricingComponent,
+        InstructorsComponent,
+        SessionsComponent,
+        JoinStepsComponent,
+        ArticlesComponent,
+        ArticleDetailComponent,
+        ArticleCardComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule], providers: [
+        provideClientHydration(),
+        { provide: UrlSerializer, useClass: CustomUrlSerializer },
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }
