@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-info-card',
-  templateUrl: './info-card.component.html',
-  styleUrl: './info-card.component.css'
+    selector: 'app-info-card',
+    templateUrl: './info-card.component.html',
+    styleUrl: './info-card.component.css',
+    standalone: false
 })
 export class InfoCardComponent {
   @Input() info: string = '';

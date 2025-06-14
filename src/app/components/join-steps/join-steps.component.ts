@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-join-steps',
-  templateUrl: './join-steps.component.html',
-  styleUrl: './join-steps.component.css'
+    selector: 'app-join-steps',
+    templateUrl: './join-steps.component.html',
+    styleUrl: './join-steps.component.css',
+    standalone: false
 })
 export class JoinStepsComponent {
   constructor(private metaService: Meta, private titleService: Title) {

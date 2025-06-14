@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Placement } from '../../types/placement.type';
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrl: './contact.component.css'
+    selector: 'app-contact',
+    templateUrl: './contact.component.html',
+    styleUrl: './contact.component.css',
+    standalone: false
 })
 export class ContactComponent implements OnInit {
   @Input() placement: Placement = 'subpage';

@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-sessions',
-  templateUrl: './sessions.component.html',
-  styleUrl: './sessions.component.css'
+    selector: 'app-sessions',
+    templateUrl: './sessions.component.html',
+    styleUrl: './sessions.component.css',
+    standalone: false
 })
 export class SessionsComponent {
   constructor(private metaService: Meta, private titleService: Title) {

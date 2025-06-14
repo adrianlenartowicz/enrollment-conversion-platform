@@ -3,9 +3,10 @@ import { Placement } from '../../types/placement.type';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-location',
-  templateUrl: './location.component.html',
-  styleUrl: './location.component.css'
+    selector: 'app-location',
+    templateUrl: './location.component.html',
+    styleUrl: './location.component.css',
+    standalone: false
 })
 export class LocationComponent {
   @Input() placement: Placement = 'subpage';

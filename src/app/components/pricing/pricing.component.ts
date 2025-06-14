@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-pricing',
-  templateUrl: './pricing.component.html',
-  styleUrl: './pricing.component.css'
+    selector: 'app-pricing',
+    templateUrl: './pricing.component.html',
+    styleUrl: './pricing.component.css',
+    standalone: false
 })
 export class PricingComponent {
   constructor(private metaService: Meta, private titleService: Title) {

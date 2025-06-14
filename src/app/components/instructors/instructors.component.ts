@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-instructors',
-  templateUrl: './instructors.component.html',
-  styleUrl: './instructors.component.css'
+    selector: 'app-instructors',
+    templateUrl: './instructors.component.html',
+    styleUrl: './instructors.component.css',
+    standalone: false
 })
 export class InstructorsComponent {
   constructor(private metaService: Meta, private titleService: Title) {

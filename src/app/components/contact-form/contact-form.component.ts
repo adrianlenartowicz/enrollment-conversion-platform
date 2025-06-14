@@ -9,9 +9,10 @@ import { firstValueFrom } from 'rxjs';
 type contactFormPlacement = 'landing' | 'section';
 
 @Component({
-  selector: 'app-contact-form',
-  templateUrl: './contact-form.component.html',
-  styleUrls: ['./contact-form.component.css']
+    selector: 'app-contact-form',
+    templateUrl: './contact-form.component.html',
+    styleUrls: ['./contact-form.component.css'],
+    standalone: false
 })
 export class ContactFormComponent implements OnInit {
   isSubmited: boolean = false;

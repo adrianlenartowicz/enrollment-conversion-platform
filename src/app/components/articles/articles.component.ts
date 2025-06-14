@@ -3,9 +3,10 @@ import { ArticleService } from '../../services/article.service';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-articles',
-  templateUrl: './articles.component.html',
-  styleUrl: './articles.component.css'
+    selector: 'app-articles',
+    templateUrl: './articles.component.html',
+    styleUrl: './articles.component.css',
+    standalone: false
 })
 export class ArticlesComponent {
   articles = this.articleService.getArticles();

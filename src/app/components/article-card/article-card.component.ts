@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-article-card',
-  templateUrl: './article-card.component.html',
-  styleUrl: './article-card.component.css'
+    selector: 'app-article-card',
+    templateUrl: './article-card.component.html',
+    styleUrl: './article-card.component.css',
+    standalone: false
 })
 export class ArticleCardComponent {
   @Input() header: string = '';

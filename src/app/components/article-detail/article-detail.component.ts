@@ -4,10 +4,11 @@ import { ArticleService } from '../../services/article.service';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-article-detail',
-  templateUrl: './article-detail.component.html',
-  styleUrls: ['./article-detail.component.css'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'app-article-detail',
+    templateUrl: './article-detail.component.html',
+    styleUrls: ['./article-detail.component.css'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class ArticleDetailComponent implements OnInit {
   article: any;

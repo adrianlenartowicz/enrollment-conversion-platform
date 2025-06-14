@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-landing-page',
-  templateUrl: './landing-page.component.html',
-  styleUrl: './landing-page.component.css'
+    selector: 'app-landing-page',
+    templateUrl: './landing-page.component.html',
+    styleUrl: './landing-page.component.css',
+    standalone: false
 })
 export class LandingPageComponent {
     constructor(private metaService: Meta, private titleService: Title) {
