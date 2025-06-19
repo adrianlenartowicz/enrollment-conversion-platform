@@ -12,10 +12,6 @@ import { ArticleDetailComponent } from './components/article-detail/article-deta
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
-  { path: 'login/', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', loadComponent: () =>
-      import('./login-page/login-page.component').then(m => m.LoginPageComponent)
-  },
   { path: '', component: LandingPageComponent, pathMatch: 'full' },
   { path: 'lokalizacja', redirectTo: 'lokalizacja/', pathMatch: 'full' },
   { path: 'lokalizacja/', component: LocationComponent },
@@ -32,7 +28,15 @@ const routes: Routes = [
   { path: 'artykuly/:id', redirectTo: 'artykuly/:id/', pathMatch: 'full' },
   { path: 'artykuly/:id/', component: ArticleDetailComponent },
   { path: 'polityka-prywatnosci', redirectTo: 'polityka-prywatnosci/', pathMatch: 'full' },
-  { path: 'polityka-prywatnosci/', component: PrivacyPolicyComponent }
+  { path: 'polityka-prywatnosci/', component: PrivacyPolicyComponent },
+  { path: 'login/', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', loadComponent: () =>
+      import('./login-page/login-page.component').then(m => m.LoginPageComponent)
+  },
+  { path: 'dashboard/ ', redirectTo: 'dashboard/', pathMatch: 'full' },
+  { path: 'dashboard', loadComponent: () =>
+      import('./dashboard/dashboard.component').then(m => m.DashboardComponent)
+  }
 ];
 
 @NgModule({
