@@ -30,12 +30,16 @@ const routes: Routes = [
   { path: 'polityka-prywatnosci', redirectTo: 'polityka-prywatnosci/', pathMatch: 'full' },
   { path: 'polityka-prywatnosci/', component: PrivacyPolicyComponent },
   { path: 'login/', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', loadComponent: () =>
-      import('./login-page/login-page.component').then(m => m.LoginPageComponent)
+  { path: 'login', 
+    loadComponent: () => import('./login-page/login-page.component').then(m => m.LoginPageComponent)
   },
-  { path: 'dashboard/ ', redirectTo: 'dashboard/', pathMatch: 'full' },
-  { path: 'dashboard', loadComponent: () =>
-      import('./dashboard/dashboard.component').then(m => m.DashboardComponent)
+  { 
+    path: 'dashboard/ ', redirectTo: 'dashboard/', pathMatch: 'full' 
+  },
+  { 
+    path: 'dashboard', 
+    loadComponent: () => import('./dashboard/dashboard.component').then(m => m.DashboardComponent),
+    canActivate: [() => import('./login-page/guards/auth.guard').then(m => m.authGuard)]
   }
 ];
 
