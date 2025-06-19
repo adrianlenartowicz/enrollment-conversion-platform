@@ -12,6 +12,10 @@ import { ArticleDetailComponent } from './components/article-detail/article-deta
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
+  { path: 'login/', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', loadComponent: () =>
+      import('./login-page/login-page.component').then(m => m.LoginPageComponent)
+  },
   { path: '', component: LandingPageComponent, pathMatch: 'full' },
   { path: 'lokalizacja', redirectTo: 'lokalizacja/', pathMatch: 'full' },
   { path: 'lokalizacja/', component: LocationComponent },
