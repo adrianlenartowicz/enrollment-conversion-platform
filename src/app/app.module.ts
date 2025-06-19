@@ -19,11 +19,13 @@ import { JoinStepsComponent } from './components/join-steps/join-steps.component
 import { ArticlesComponent } from './components/articles/articles.component';
 import { ArticleDetailComponent } from './components/article-detail/article-detail.component';
 import { ArticleCardComponent } from './components/article-card/article-card.component';
-import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { DefaultUrlSerializer } from '@angular/router';
 import { UrlSerializer } from '@angular/router';
 import { UrlTree } from '@angular/router';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { providePrimeNG } from 'primeng/config';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import Aura from '@primeng/themes/aura';
 
 export class CustomUrlSerializer extends DefaultUrlSerializer {
   override parse(url: string): UrlTree {
@@ -43,7 +45,8 @@ export class CustomUrlSerializer extends DefaultUrlSerializer {
 }
 
 
-@NgModule({ declarations: [
+@NgModule({ 
+  declarations: [
         AppComponent,
         LandingPageComponent,
         ContactFormComponent,
@@ -62,11 +65,26 @@ export class CustomUrlSerializer extends DefaultUrlSerializer {
         ArticleDetailComponent,
         ArticleCardComponent
     ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
+    bootstrap: [AppComponent], 
+    imports: [
+        BrowserModule,
         AppRoutingModule,
-        ReactiveFormsModule], providers: [
+        ReactiveFormsModule
+    ], 
+    providers: 
+    [
         provideClientHydration(),
         { provide: UrlSerializer, useClass: CustomUrlSerializer },
-        provideHttpClient(withInterceptorsFromDi())
-    ] })
+        provideHttpClient(withInterceptorsFromDi()),
+        provideAnimationsAsync(),
+        providePrimeNG({
+          theme: {
+            preset: Aura,
+            options: {
+              darkModeSelector: false
+            }
+          }
+        })
+    ] 
+  })
 export class AppModule { }

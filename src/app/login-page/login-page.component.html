@@ -1,1 +1,21 @@
-<p>login-page works!</p>
+<p-card header="Login">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="p-field">
+        <p-iftalabel>
+            <input pInputText id="username" type="text" formControlName="username"/>
+            <label for="username">Username</label>
+        </p-iftalabel>
+    </div>
+    <div class="p-field">
+        <p-iftalabel variant="on">
+            <p-password inputId="password" formControlName="password" [feedback]="false" [toggleMask]="true"/>
+            <label for="password">Password</label>
+        </p-iftalabel>
+    </div>
+    <div class="p-field-checkbox">
+      <p-checkbox inputId="remember"></p-checkbox>
+      <label for="remember">Remember me</label>
+    </div>
+    <button pButton type="submit" label="Login" [disabled]="loginForm.invalid"></button>
+  </form>
+</p-card>
