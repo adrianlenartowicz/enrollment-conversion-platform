@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { EmailOrPhoneValidator } from './validators/email-or-phone.validator';
+import { EmailValidator } from './validators/email.validator';
+import { PhoneValidator } from './validators/phone.validator';
 import { MailService } from '../../services/mail.service';
 import { environment } from '../../../environments/environment';
 import { MetaPixelService } from '../../services/meta-pixel.service';
@@ -16,7 +17,11 @@ export class ContactFormComponent implements OnInit {
   isSubmited: boolean = false;
   wasButtonClicked: boolean = false;
   form!: FormGroup;
-  groups: string[] = ['U8: 5-7 lat', 'U10: 8-9 lat', 'U12: 10-11 lat', 'U14: 12-13 lat'];
+  groups = [
+    { label: '5-7 lat', value: '5-7' },
+    { label: '8-10 lat', value: '8-10' },
+    { label: '11-13 lat', value: '11-13' }
+  ];
   canDisplayRodoReminder: boolean = false;
   @Input({required: true}) placement!: contactFormPlacement;
 
@@ -25,7 +30,8 @@ export class ContactFormComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.formBuilder.group(
       {
-        contact: ['', [EmailOrPhoneValidator()]],
+        phone: ['', [PhoneValidator()]],
+        email: ['', [EmailValidator()]],
         rodo: ['', Validators.requiredTrue],
         group: ['', Validators.required]
       }
@@ -35,7 +41,8 @@ export class ContactFormComponent implements OnInit {
   async submitEmail() {
     this.isSubmited = true;
     let formData: FormData = new FormData();
-    formData.append('contact', this.form.get('contact')?.value);
+    formData.append('phone', this.form.get('phone')?.value);
+    formData.append('email', this.form.get('email')?.value);
     formData.append('group', this.form.get('group')?.value);
     formData.append('placement', this.placement);
     formData.append('access_key', environment.formAccessKey);
@@ -60,7 +67,7 @@ export class ContactFormComponent implements OnInit {
 
   informAboutClick() {
     this.wasButtonClicked = true;
-    if (this.form.get('contact')!.valid && this.form.get('group')!.valid)
+    if (this.form.get('phone')!.valid && this.form.get('email')!.valid && this.form.get('group')!.valid)
       this.canDisplayRodoReminder = true;
   }
 
