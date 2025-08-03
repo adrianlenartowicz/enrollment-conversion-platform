@@ -10,6 +10,7 @@ import { JoinStepsComponent } from './components/join-steps/join-steps.component
 import { ArticlesComponent } from './components/articles/articles.component';
 import { ArticleDetailComponent } from './components/article-detail/article-detail.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { ConfirmFirstTrainingComponent } from './components/confirm-first-training/confirm-first-training.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent, pathMatch: 'full' },
@@ -28,7 +29,9 @@ const routes: Routes = [
   { path: 'artykuly/:id', redirectTo: 'artykuly/:id/', pathMatch: 'full' },
   { path: 'artykuly/:id/', component: ArticleDetailComponent },
   { path: 'polityka-prywatnosci', redirectTo: 'polityka-prywatnosci/', pathMatch: 'full' },
-  { path: 'polityka-prywatnosci/', component: PrivacyPolicyComponent }
+  { path: 'polityka-prywatnosci/', component: PrivacyPolicyComponent },
+  { path: 'confirm-first-training', redirectTo: 'confirm-first-training/', pathMatch: 'full' },
+  { path: 'confirm-first-training/', component: ConfirmFirstTrainingComponent },
 ];
 
 @NgModule({

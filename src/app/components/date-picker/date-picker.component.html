@@ -1,0 +1,12 @@
+<div class="date-picker">
+  <button class="picker-button" (click)="toggleDropdown()">
+    {{ selectedOption }}
+    <span class="arrow" [class.open]="isOpen">&#9662;</span>
+  </button>
+
+  <ul *ngIf="isOpen" class="picker-menu">
+    <li *ngFor="let option of options" (click)="selectOption(option)">
+      {{ option }}
+    </li>
+  </ul>
+</div>

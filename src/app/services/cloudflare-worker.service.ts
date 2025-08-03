@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CloudflareWorkerService {
-  private workerUrl: string = 'https://forms-cloudflare-hubspot.wroclawala.workers.dev/';
+  private contactWorkerUrl: string = 'https://forms-cloudflare-hubspot.wroclawala.workers.dev/';
+  private confirmFirstTrainingWorkerUrl: string = 'https://confirm-first-training.wroclawala.workers.dev/';
   
 constructor(private httpClient: HttpClient) { }
 
@@ -14,6 +15,13 @@ constructor(private httpClient: HttpClient) { }
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
   });
-    return this.httpClient.post(this.workerUrl, formData, { headers });
+    return this.httpClient.post(this.contactWorkerUrl, formData, { headers });
+  }
+
+  sendFirstTrainingConfirmation(formData: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.httpClient.post(this.confirmFirstTrainingWorkerUrl, formData, { headers });
   }
 }

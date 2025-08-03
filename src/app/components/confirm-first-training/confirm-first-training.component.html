@@ -1,0 +1,24 @@
+<div class="contact-section">
+  <h2 class="contact-header">Potwierdź bezpłatny trening próbny!</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="steps-section">
+    <div class="step-card">
+      <h4>1. Wybierz dzień</h4>
+      <p>Powiedz nam w jaki dzień chciałbyś skorzystać z bezpłatnego treningu próbnego</p>
+      <div class="datepicker">
+        <app-date-picker (dateSelected)="onDateSelected($event)"></app-date-picker>
+      </div>
+      <div *ngIf="isSubmitted && form.get('date')?.invalid" class="error" [ngStyle]="{ 'color': 'red', 'margin-top': 0 }">Wybierz dzień</div>
+    </div>
+    <div class="step-card">
+      <h4>2. Podaj imię dziecka</h4>
+      <p>Ułatwi to trenerowi rozpoznanie dziecka i przygotowanie się na spotkanie.</p>
+      <div class="contact-info">
+        <input type="text" formControlName="firstName" class="to-highlight" placeholder="Imię dziecka">
+      </div>
+      <div *ngIf="isSubmitted && form.get('firstName')?.invalid" class="error" [ngStyle]="{ 'color': 'red', 'margin-top': 0, 'margin-bottom': '20px' }">Podaj imię dziecka</div>
+    </div>
+    <button class="button" type="submit">Potwierdzam</button>
+    <div *ngIf="isSuccess" class="success">Dane zostały wysłane!</div>
+    <div *ngIf="isError" class="error">Wystąpił błąd podczas wysyłania.</div>
+  </form>
+</div>
