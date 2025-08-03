@@ -63,7 +63,6 @@ export class ContactFormComponent implements OnInit {
     }
 
     try {
-      const data  = {}
       const res = this.cloudflareWorkerService.sendContactForm({
         phone: this.form.get('phone')?.value,
         email: this.form.get('email')?.value,
