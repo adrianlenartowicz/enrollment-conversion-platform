@@ -5,6 +5,7 @@ import { PhoneValidator } from './validators/phone.validator';
 import { MailService } from '../../services/mail.service';
 import { environment } from '../../../environments/environment';
 import { MetaPixelService } from '../../services/meta-pixel.service';
+import { CloudflareWorkerService } from '../../services/cloudflare-worker.service';
 
 type contactFormPlacement = 'landing' | 'section';
 
@@ -25,7 +26,12 @@ export class ContactFormComponent implements OnInit {
   canDisplayRodoReminder: boolean = false;
   @Input({required: true}) placement!: contactFormPlacement;
 
-  constructor(private formBuilder: FormBuilder, private mailService: MailService, private metaPixelService: MetaPixelService) {};
+  constructor(
+    private formBuilder: FormBuilder, 
+    private mailService: MailService, 
+    private metaPixelService: MetaPixelService,
+    private cloudflareWorkerService: CloudflareWorkerService
+  ) { };
 
   ngOnInit(): void {
     this.form = this.formBuilder.group(
@@ -46,15 +52,33 @@ export class ContactFormComponent implements OnInit {
     formData.append('group', this.form.get('group')?.value);
     formData.append('placement', this.placement);
     formData.append('access_key', environment.formAccessKey);
-
+    
     try {
       const res = await this.mailService.sendEmail(formData);
-      console.log(res);
       if (!res.ok) {
         throw new Error();
       }
     } catch (err) {
       console.log(err);
+    }
+
+    try {
+      const data  = {}
+      const res = this.cloudflareWorkerService.sendContactForm({
+        phone: this.form.get('phone')?.value,
+        email: this.form.get('email')?.value,
+        group: this.form.get('group')?.value,
+      });
+      res.subscribe({
+        next: (response) => {
+          console.log(response);
+        },
+        error: (err) => {
+          console.error('Error sending contact form via Cloudflare Worker:', err);
+        }
+      });
+    } catch (err) {
+      console.error('Error sending contact form:', err);
     }
   }
 
