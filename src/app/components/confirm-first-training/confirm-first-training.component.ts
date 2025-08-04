@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CloudflareWorkerService } from './../../services/cloudflare-worker.service';
+import { on } from 'node:events';
 
 @Component({
   selector: 'app-confirm-first-training',
@@ -10,6 +11,7 @@ import { CloudflareWorkerService } from './../../services/cloudflare-worker.serv
 })
 export class ConfirmFirstTrainingComponent {
   form: FormGroup;
+  wasButtonClicked: boolean = false;
   isSubmitted = false;
   isSuccess = false;
   isError = false;
@@ -35,10 +37,16 @@ export class ConfirmFirstTrainingComponent {
     this.form.patchValue({ trainingDay: date });
   }
 
+  informAboutClick() {
+    this.wasButtonClicked = true;
+     if (this.form.valid) {
+      this.onSubmit();
+    }
+  }
+
   onSubmit() {
     this.isSubmitted = true;
-    if (this.form.valid) {
-      const payload = {
+    const payload = {
         ...this.form.value,
         token: this.token
       };
@@ -47,11 +55,11 @@ export class ConfirmFirstTrainingComponent {
           this.isSuccess = true;
           this.isError = false;
         },
-        error: () => {
+        error: (error) => {
           this.isSuccess = false;
           this.isError = true;
+          console.error('Error submitting confirmation:', error);
         }
       });
-    }
   }
 }
