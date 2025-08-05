@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmailValidator } from './validators/email.validator';
 import { PhoneValidator } from './validators/phone.validator';
@@ -14,7 +14,7 @@ type contactFormPlacement = 'landing' | 'section';
   templateUrl: './contact-form.component.html',
   styleUrls: ['./contact-form.component.css']
 })
-export class ContactFormComponent implements OnInit {
+export class ContactFormComponent implements OnInit, AfterViewChecked {
   isSubmited: boolean = false;
   wasButtonClicked: boolean = false;
   form!: FormGroup;
@@ -25,6 +25,7 @@ export class ContactFormComponent implements OnInit {
   ];
   canDisplayRodoReminder: boolean = false;
   @Input({required: true}) placement!: contactFormPlacement;
+  @ViewChild('thankYouMessage') thankYouMessage!: ElementRef;
 
   constructor(
     private formBuilder: FormBuilder, 
@@ -96,5 +97,18 @@ export class ContactFormComponent implements OnInit {
 
   acknowledgeConversion() {
     this.metaPixelService.track('Lead', {contact: this.form.get('contact')?.value, group: this.form.get('group')?.value});
+  }
+
+  ngAfterViewChecked(): void {
+    if (this.isSubmited && this.thankYouMessage) {
+      const yOffset = -120;
+      const elementPosition = this.thankYouMessage.nativeElement.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition + yOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
   }
 }
