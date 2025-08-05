@@ -3,11 +3,21 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
       <div class="contact-info">
-        <label for="contact">Numer telefonu lub adres e-mail:</label>
-        <input type="text" formControlName="contact" id="contact" class="to-highlight">
-        <div *ngIf="form.get('contact')!.invalid && wasButtonClicked">
-          <div *ngIf="form.get('contact')!.errors?.['invalidContact']">
-            <p [ngStyle]="{ 'color': 'red', 'margin-top': 0, 'margin-bottom': '20px' }">Nieprawidłowy numer lub adres e-mail</p>
+        <label for="contact">Numer telefonu:</label>
+        <input type="tel" formControlName="phone" id="phone" class="to-highlight">
+        <div *ngIf="form.get('phone')!.invalid && wasButtonClicked">
+          <div *ngIf="form.get('phone')!.errors?.['invalidContact']">
+            <p [ngStyle]="{ 'color': 'red', 'margin-top': 0, 'margin-bottom': '20px' }">Nieprawidłowy numer telefonu</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-info">
+        <label for="contact">Adres email:</label>
+        <input type="email" formControlName="email" id="email" class="to-highlight">
+        <div *ngIf="form.get('email')!.invalid && wasButtonClicked">
+          <div *ngIf="form.get('email')!.errors?.['invalidContact']">
+            <p [ngStyle]="{ 'color': 'red', 'margin-top': 0, 'margin-bottom': '20px' }">Nieprawidłowy adres email</p>
           </div>
         </div>
       </div>
@@ -15,16 +25,16 @@
       <label for="group">Grupa wiekowa:</label>
       <select id="group" formControlName="group" class="to-highlight">
         <option value="" disabled selected></option>
-        <option *ngFor="let group of groups" [value]="group">{{ group }}</option>
+        <option *ngFor="let group of groups" [value]="group.value">{{ group.label }}</option>
       </select>
       <div *ngIf="!form.get('group')!.valid && wasButtonClicked">
         <p [ngStyle]="{ 'color': 'red', 'margin-top': 0, 'margin-bottom': '20px' }">Proszę zaznaczyć grupę wiekową</p>
       </div>
 
-      <div *ngIf="form.get('contact')!.valid && form.get('group')!.valid" class="rodo-container">      
+      <div *ngIf="form.get('phone')!.valid && form.get('email')!.valid && form.get('group')!.valid" class="rodo-container">      
         <p class="rodo-text">
           <span class="required">*</span>
-          Wyrażam zgodę na przetwarzanie moich danych osobowych w celu kontaktu przez Akademię Lekkiej Atletyki Wrocław sp. z o.o. Formularz obsługuje Web3Forms jako podmiot przetwarzający.
+          Wyrażam zgodę na przetwarzanie moich danych osobowych w celu kontaktu przez Akademię Lekkiej Atletyki Wrocław sp. z o.o. Szczegóły dotyczące przetwarzania danych osobowych znajdują się w <a href="https://www.alawroc.pl/polityka-prywatnosci" target="_blank">Polityce Prywatności</a>.
         </p>
         <input type="checkbox" id="rodo" formControlName="rodo" />
       </div>
@@ -39,6 +49,6 @@
     </form>
   </div>
 </ng-container>
-<div *ngIf="isSubmited" class="thank-you-message">
-  <p>Twój formularz został wysłany. Skontaktujemy się z Tobą w ciągu najbliższych dni.</p>
+<div *ngIf="isSubmited" class="thank-you-message" #thankYouMessage>
+  <p>Przesłaliśmy szczegóły na twój adres email. Jeżeli nie otrzymasz wiadomości w ciągu kilku minut, skontaktujemy się z tobą telefonicznie.</p>
 </div>

@@ -23,6 +23,9 @@ import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-poli
 import { DefaultUrlSerializer } from '@angular/router';
 import { UrlSerializer } from '@angular/router';
 import { UrlTree } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { ConfirmFirstTrainingComponent } from './components/confirm-first-training/confirm-first-training.component';
+import { DatePickerComponent } from './components/date-picker/date-picker.component';
 
 export class CustomUrlSerializer extends DefaultUrlSerializer {
   override parse(url: string): UrlTree {
@@ -61,12 +64,15 @@ export class CustomUrlSerializer extends DefaultUrlSerializer {
     ArticlesComponent,
     ArticleDetailComponent,
     ArticleCardComponent,
-    PrivacyPolicyComponent
+    PrivacyPolicyComponent,
+    ConfirmFirstTrainingComponent,
+    DatePickerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration(),

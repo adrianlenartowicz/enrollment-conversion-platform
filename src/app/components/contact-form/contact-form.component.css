@@ -2,7 +2,7 @@
   margin-top: 10px;
 }
 
-.contact-form input {
+.contact-info input {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
@@ -83,7 +83,7 @@
 
 .contact-form .rodo-container input[type="checkbox"] {
   display: block;
-  margin: 0 auto;
+  margin: 20px auto;
   width: 20px;
   height: 20px;
   accent-color: #e2635d;

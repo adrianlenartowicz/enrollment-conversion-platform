@@ -1,0 +1,156 @@
+.contact-section h2 {
+    margin-bottom: 0;
+}
+
+.contact-section {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.contact-info input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: inherit;
+  text-align: center;
+
+}
+
+.datepicker,
+.contact-info,
+.button {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.contact-section button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #e2635d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: inherit;
+  margin-top: 35px;
+}
+
+@media (max-width: 767px) {
+    .contact-section {
+        margin-top: 100px;
+    }
+}
+
+.contact-section .steps-section {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-section .steps-section .step-card {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 25px;
+}
+
+
+
+@media (max-width: 767px) {
+}
+
+.contact-section .steps-section .step-card h4 {
+    font-size: 1.2rem;
+}
+
+.contact-form-section {
+    padding: 20px 0;
+}
+
+.thank-you-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 30px;
+    align-items: center;
+}
+
+.contact-info .email-adress {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.contact-info .phone-number {
+    display: flex;
+    align-items: center;
+    min-width: 111px;
+}
+
+.contact-info a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.contact-info p {
+    margin: 0;
+}
+
+.contact-info i {
+    margin-right: 5px;
+}
+
+@media (max-width: 767px) {
+    .contact-info {
+        flex-direction: column;
+    }
+
+    .contact-info .email-adress{
+        margin-top: 15px;
+    }
+}
+
+.location-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.location-section .google-map {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.location-section .google-map iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}

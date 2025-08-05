@@ -7,3 +7,4 @@
 /zajecia
 /artykuly
 /polityka-prywatnosci
+/confirm-first-training
