@@ -9,6 +9,6 @@ import { Meta, Title } from '@angular/platform-browser';
 export class JoinStepsComponent {
   constructor(private metaService: Meta, private titleService: Title) {
     this.titleService.setTitle('Zapisy na treningi lekkoatletyczne dla dzieci | Akademia Lekkiej Atletyki Wrocław');
-    this.metaService.updateTag({ name: 'description', content: 'Pierwszy miesiąc zajęć BEZ OPŁAT! Zapisz swoje dziecko na treningi lekkoatletyczne we Wrocławiu!' });
+    this.metaService.updateTag({ name: 'description', content: 'Pierwszy trening BEZ OPŁAT! Zapisz swoje dziecko na treningi lekkoatletyczne we Wrocławiu!' });
   }
 }

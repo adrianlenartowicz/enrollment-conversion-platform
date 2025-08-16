@@ -9,6 +9,6 @@ import { Meta, Title } from '@angular/platform-browser';
 export class LandingPageComponent {
     constructor(private metaService: Meta, private titleService: Title) {
       this.titleService.setTitle('Lekkoatletyka dla dzieci | Akademia Lekkiej Atletyki Wrocław');
-      this.metaService.updateTag({ name: 'description', content: 'Lekkoatletyka dla dzieci we Wrocławiu. Pierwszy miesiąc BEZ OPŁAT! Skontaktuj się z nami i umów się na zajęcia próbne już dziś!' });
+      this.metaService.updateTag({ name: 'description', content: 'Lekkoatletyka dla dzieci we Wrocławiu. Pierwszy trening BEZ OPŁAT! Skontaktuj się z nami i umów się na zajęcia próbne już dziś!' });
     }
 }
