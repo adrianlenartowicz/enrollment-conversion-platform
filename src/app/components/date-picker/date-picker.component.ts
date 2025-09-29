@@ -8,7 +8,17 @@ import { Component, ElementRef, HostListener, Output, EventEmitter } from '@angu
 export class DatePickerComponent {
   isOpen = false;
   selectedOption = 'Wybierz dzień';
-  options = ['3 września (śr)', '8 września (pon)', '10 września (śr)', '15 września (pon)', '17 września (śr)', '22 września (pon)', '24 września (śr)'];
+  options = [
+    '1 października (śr)', 
+    '6 października (pon)', 
+    '8 października (śr)', 
+    '13 października (pon)', 
+    '15 października (śr)', 
+    '20 października (pon)', 
+    '22 października (śr)',
+    '27 października (pon)', 
+    '29 października (śr)'
+  ];
   @Output() dateSelected = new EventEmitter<string>();
 
   constructor(private eRef: ElementRef) {}
