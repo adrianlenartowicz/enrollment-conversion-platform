@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NXWQ3JNM');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="utf-8">
   <meta property="og:title" content="">
   <meta property="og:description" content="">
@@ -15,116 +22,97 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Google tag (gtag.js) -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-MMKHPYGLWY"></script>
+  <link rel="stylesheet" id="silktide-consent-manager-css" href="assets/cookie-banner/silktide-consent-manager.css">
+  <script src="assets/cookie-banner/silktide-consent-manager.js"></script>
   <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-MMKHPYGLWY');
-  </script> -->
-  <!-- Meta Pixel Code -->
-  <!-- <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '2006153519779814');
-  fbq('track', 'PageView');
-  </script> -->
-  <!-- End Meta Pixel Code -->
-<link rel="stylesheet" id="silktide-consent-manager-css" href="assets/cookie-banner/silktide-consent-manager.css">
-<script src="assets/cookie-banner/silktide-consent-manager.js"></script>
-<script>
-silktideCookieBannerManager.updateCookieBannerConfig({
-  background: {
-    showBackground: true
-  },
-  cookieIcon: {
-    position: "bottomLeft"
-  },
-  cookieTypes: [
-    {
-      id: "niezb_dne",
-      name: "Niezbędne",
-      description: "<p>Te pliki cookie są niezbędne do prawidłowego działania strony internetowej i nie można ich wyłączyć. Pomagają w takich działaniach jak logowanie oraz zapisywanie Twoich preferencji dotyczących prywatności.</p>",
-      required: true,
-      onAccept: function() {
-        console.log('Add logic for the required Niezbędne here');
-      }
+  silktideCookieBannerManager.updateCookieBannerConfig({
+    background: {
+      showBackground: true
     },
-    {
-      id: "analityczne",
-      name: "Analityczne",
-      description: "<p>Te pliki cookie pomagają nam ulepszać stronę, śledząc, które podstrony są najpopularniejsze oraz w jaki sposób odwiedzający poruszają się po witrynie.</p>",
-      required: false,
-      onAccept: function() {
-        gtag('consent', 'update', {
-          analytics_storage: 'granted',
-        });
-        dataLayer.push({
-          'event': 'consent_accepted_analityczne',
-        });
+    cookieIcon: {
+      position: "bottomLeft"
+    },
+    cookieTypes: [
+      {
+        id: "niezb_dne",
+        name: "Niezbędne",
+        description: "<p>Te pliki cookie są niezbędne do prawidłowego działania strony internetowej i nie można ich wyłączyć. Pomagają w takich działaniach jak logowanie oraz zapisywanie Twoich preferencji dotyczących prywatności.</p>",
+        required: true,
+        onAccept: function() {
+          console.log('Add logic for the required Niezbędne here');
+        }
       },
-      onReject: function() {
-        gtag('consent', 'update', {
-          analytics_storage: 'denied',
-        });
-      }
-    },
-    {
-      id: "reklamowe",
-      name: "Reklamowe",
-      description: "<p>Te pliki cookie zapewniają dodatkowe funkcje i personalizację, aby poprawić Twoje doświadczenie podczas korzystania ze strony. Mogą być ustawiane przez nas lub przez partnerów, z których usług korzystamy.</p>",
-      required: false,
-      onAccept: function() {
-        gtag('consent', 'update', {
-          ad_storage: 'granted',
-          ad_user_data: 'granted',
-          ad_personalization: 'granted',
-        });
-        dataLayer.push({
-          'event': 'consent_accepted_reklamowe',
-        });
+      {
+        id: "analityczne",
+        name: "Analityczne",
+        description: "<p>Te pliki cookie pomagają nam ulepszać stronę, śledząc, które podstrony są najpopularniejsze oraz w jaki sposób odwiedzający poruszają się po witrynie.</p>",
+        required: false,
+        onAccept: function() {
+          gtag('consent', 'update', {
+            analytics_storage: 'granted',
+          });
+          dataLayer.push({
+            'event': 'consent_accepted_analityczne',
+          });
+        },
+        onReject: function() {
+          gtag('consent', 'update', {
+            analytics_storage: 'denied',
+          });
+        }
       },
-      onReject: function() {
-        gtag('consent', 'update', {
-          ad_storage: 'denied',
-          ad_user_data: 'denied',
-          ad_personalization: 'denied',
-        });
+      {
+        id: "reklamowe",
+        name: "Reklamowe",
+        description: "<p>Te pliki cookie zapewniają dodatkowe funkcje i personalizację, aby poprawić Twoje doświadczenie podczas korzystania ze strony. Mogą być ustawiane przez nas lub przez partnerów, z których usług korzystamy.</p>",
+        required: false,
+        onAccept: function() {
+          gtag('consent', 'update', {
+            ad_storage: 'granted',
+            ad_user_data: 'granted',
+            ad_personalization: 'granted',
+          });
+          dataLayer.push({
+            'event': 'consent_accepted_reklamowe',
+          });
+        },
+        onReject: function() {
+          gtag('consent', 'update', {
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+          });
+        }
       }
-    }
-  ],
-  text: {
-    banner: {
-      description: "<p>Używamy plików cookie na naszej stronie, aby poprawić Twoje doświadczenie użytkownika, dostarczać spersonalizowane treści oraz analizować ruch na stronie <a href=\"https://your-website.com/cookie-policy\" target=\"_blank\">Cookie Policy.</a></p>",
-      acceptAllButtonText: "Zaakceptuj wszystkie",
-      acceptAllButtonAccessibleLabel: "Zaakceptuj wszystkie pliki cookie",
-      rejectNonEssentialButtonText: "Odrzuć opcjonalne",
-      rejectNonEssentialButtonAccessibleLabel: "Odrzuć opcjonalne",
-      preferencesButtonText: "Preferencje",
-      preferencesButtonAccessibleLabel: "Preferencje"
+    ],
+    text: {
+      banner: {
+        description: "<p>Używamy plików cookie na naszej stronie, aby poprawić Twoje doświadczenie użytkownika, dostarczać spersonalizowane treści oraz analizować ruch na stronie <a href=\"https://your-website.com/cookie-policy\" target=\"_blank\">Cookie Policy.</a></p>",
+        acceptAllButtonText: "Zaakceptuj wszystkie",
+        acceptAllButtonAccessibleLabel: "Zaakceptuj wszystkie pliki cookie",
+        rejectNonEssentialButtonText: "Odrzuć opcjonalne",
+        rejectNonEssentialButtonAccessibleLabel: "Odrzuć opcjonalne",
+        preferencesButtonText: "Preferencje",
+        preferencesButtonAccessibleLabel: "Preferencje"
+      },
+      preferences: {
+        title: "Dostosuj swoje preferencje dotyczące plików cookie",
+        description: "<p>Szanujemy Twoje prawo do prywatności. Możesz zdecydować, aby nie zezwalać na niektóre typy plików cookie. Twoje preferencje dotyczące plików cookie będą obowiązywać w całej naszej witrynie.</p>",
+        creditLinkText: "Get this banner for free",
+        creditLinkAccessibleLabel: "Get this banner for free"
+      }
     },
-    preferences: {
-      title: "Dostosuj swoje preferencje dotyczące plików cookie",
-      description: "<p>Szanujemy Twoje prawo do prywatności. Możesz zdecydować, aby nie zezwalać na niektóre typy plików cookie. Twoje preferencje dotyczące plików cookie będą obowiązywać w całej naszej witrynie.</p>",
-      creditLinkText: "Get this banner for free",
-      creditLinkAccessibleLabel: "Get this banner for free"
+    position: {
+      banner: "bottomLeft"
     }
-  },
-  position: {
-    banner: "bottomLeft"
-  }
-});
-</script>
+  });
+  </script>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXWQ3JNM"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <app-root></app-root>
   <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=995528094754366&ev=PageView&noscript=1"
