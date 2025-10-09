@@ -1,45 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta property="og:title" content="">
-  <meta property="og:description" content="">
-  <meta property="og:image" content="">
-  <title>Lekkoatletyka dla dzieci | Akademia Lekkiej Atletyki Wrocław</title>
-  <meta name="description" content="Lekkoatletyka dla dzieci we Wrocławiu. Pierwszy trening BEZ OPŁAT! Skontaktuj się z nami i umów się na zajęcia próbne już dziś!">
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="assets/logo-ala-transparent.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Google tag (gtag.js) -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-MMKHPYGLWY"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+Consent Manager Installation Instructions
 
-  gtag('config', 'G-MMKHPYGLWY');
-  </script> -->
-  <!-- Meta Pixel Code -->
-  <!-- <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '2006153519779814');
-  fbq('track', 'PageView');
-  </script> -->
-  <!-- End Meta Pixel Code -->
-<link rel="stylesheet" id="silktide-consent-manager-css" href="assets/cookie-banner/silktide-consent-manager.css">
-<script src="assets/cookie-banner/silktide-consent-manager.js"></script>
+1. Extract the contents of this zip file
+2. Place the files in your website directory
+3. Add the following code to your HTML page, inside the <head> tag:
+
+<link rel="stylesheet" id="silktide-consent-manager-css" href="path-to-css/silktide-consent-manager.css">
+<script src="path-to-js/silktide-consent-manager.js"></script>
 <script>
 silktideCookieBannerManager.updateCookieBannerConfig({
   background: {
@@ -123,15 +89,3 @@ silktideCookieBannerManager.updateCookieBannerConfig({
   }
 });
 </script>
-</head>
-<body>
-  <app-root></app-root>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=995528094754366&ev=PageView&noscript=1"
-    />
-  </noscript>
-  <!-- Start of HubSpot Embed Code -->
-  <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/146638915.js"></script>
-  <!-- End of HubSpot Embed Code -->
-</body>
-</html>
