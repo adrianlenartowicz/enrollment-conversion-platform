@@ -1,4 +1,23 @@
 <!DOCTYPE html><html lang="en" data-critters-container><head>
+  <script>
+  // Initialize the dataLayer
+  window.dataLayer = window.dataLayer || [];
+
+  // Create the gtag function that pushes to the dataLayer
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  // Set consent defaults
+  gtag('consent', 'default', {
+    analytics_storage: localStorage.getItem('silktideCookieChoice_analytics') === 'true' ? 'granted' : 'denied',
+    ad_storage: localStorage.getItem('silktideCookieChoice_marketing') === 'true' ? 'granted' : 'denied',
+    ad_user_data: localStorage.getItem('silktideCookieChoice_marketing') === 'true' ? 'granted' : 'denied',
+    ad_personalization: localStorage.getItem('silktideCookieChoice_marketing') === 'true' ? 'granted' : 'denied',
+    functionality_storage: localStorage.getItem('silktideCookieChoice_necessary') === 'true' ? 'granted' : 'denied',
+    security_storage: localStorage.getItem('silktideCookieChoice_necessary') === 'true' ? 'granted' : 'denied'
+  });
+  </script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -119,4 +138,4 @@
   <!-- End of HubSpot Embed Code -->
 <script src="polyfills-RT5I6R6G.js" type="module"></script><script src="main-5K4WKCMF.js" type="module"></script>
 
-<script id="ng-state" type="application/json">{"__nghData__":[{"t":{"25":"t0","26":"t1"},"c":{"25":[{"i":"t0","r":1}],"26":[]}},{"t":{"5":"t5"},"c":{"5":[]}},{"t":{"0":"t4","1":"t10"},"c":{"0":[{"i":"t4","r":1,"t":{"11":"t6","19":"t7","22":"t8","23":"t9"},"c":{"11":[],"19":[],"22":[],"23":[]}}],"1":[]}},{},{"c":{"2":[{"i":"c3338469055","r":1}]}}]}</script></body></html>
+<script id="ng-state" type="application/json">{"__nghData__":[{"t":{"25":"t0","26":"t1"},"c":{"25":[{"i":"t0","r":1}],"26":[]}},{"t":{"5":"t4"},"c":{"5":[]}},{"t":{"0":"t3","1":"t9"},"c":{"0":[{"i":"t3","r":1,"t":{"11":"t5","19":"t6","22":"t7","23":"t8"},"c":{"11":[],"19":[],"22":[],"23":[]}}],"1":[]}},{},{"c":{"2":[{"i":"c3338469055","r":1}]}}]}</script></body></html>
