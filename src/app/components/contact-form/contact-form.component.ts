@@ -8,6 +8,12 @@ import { MetaPixelService } from '../../services/meta-pixel.service';
 import { CloudflareWorkerService } from '../../services/cloudflare-worker.service';
 
 type contactFormPlacement = 'landing' | 'section';
+declare global {
+  interface Window {
+    dataLayer: any[];
+  }
+}
+window.dataLayer = window.dataLayer || [];
 
 @Component({
   selector: 'app-contact-form',
@@ -96,6 +102,7 @@ export class ContactFormComponent implements OnInit, AfterViewChecked {
   }
 
   acknowledgeConversion() {
+    window.dataLayer.push({'event': 'formSubmission', 'formType': 'contact'});
     this.metaPixelService.track('Lead', {contact: this.form.get('contact')?.value, group: this.form.get('group')?.value});
   }
 
