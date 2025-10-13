@@ -22,7 +22,7 @@
     <div *ngIf="isError" class="error">Wystąpił błąd podczas wysyłania.</div>
   </form>
 </div>
-<div class="thank-you-message" *ngIf="isSubmitted && isSuccess && !isError">
+<div class="thank-you-message" id="thank-you-message" *ngIf="isSubmitted && isSuccess && !isError">
   <h2>Dziękujemy, do zobaczenia na treningu!</h2>
   <div class="contact-info">
           <div class="phone-number">
