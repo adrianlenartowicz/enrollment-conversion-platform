@@ -8,20 +8,12 @@ import { Component, ElementRef, HostListener, Output, EventEmitter } from '@angu
 export class DatePickerComponent {
   isOpen = false;
   selectedOption = 'Wybierz dzień';
-  options = [
-    '1 października (śr)', 
-    '6 października (pon)', 
-    '8 października (śr)', 
-    '13 października (pon)', 
-    '15 października (śr)', 
-    '20 października (pon)', 
-    '22 października (śr)',
-    '27 października (pon)', 
-    '29 października (śr)'
-  ];
+  options: string[] = [];
   @Output() dateSelected = new EventEmitter<string>();
 
-  constructor(private eRef: ElementRef) {}
+  constructor(private eRef: ElementRef) {
+    this.options = this.generateNextDates(10);
+  }
   
   toggleDropdown() {
     this.isOpen = !this.isOpen;
@@ -38,5 +30,29 @@ export class DatePickerComponent {
     if (!this.eRef.nativeElement.contains(event.target)) {
       this.isOpen = false;
     }
+  }
+
+  private generateNextDates(count: number): string[] {
+    const results: string[] = [];
+    const monthNames = [
+      'stycznia','lutego','marca','kwietnia','maja','czerwca',
+      'lipca','sierpnia','września','października','listopada','grudnia'
+    ];
+    const weekdayAbbrev: Record<number,string> = { 1: 'pon', 3: 'śr' };
+
+    const isDesired = (dayIndex: number) => dayIndex === 1 || dayIndex === 3;
+
+    const d = new Date();
+    while (results.length < count) {
+      const day = d.getDay();
+      if (isDesired(day)) {
+        const dayNum = d.getDate();
+        const month = monthNames[d.getMonth()];
+        const abbrev = weekdayAbbrev[day] ?? '';
+        results.push(`${dayNum} ${month} (${abbrev})`);
+      }
+      d.setDate(d.getDate() + 1);
+    }
+    return results;
   }
 }
