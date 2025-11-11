@@ -21,9 +21,9 @@
         media="print" onload="this.media='all'">
 
   <link rel="stylesheet" 
-        href="https://fonts.googleapis.com/icon?family=Material+Icons" 
-        media="print" onload="this.media='all'">
-
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+      media="print" onload="this.media='all'" crossorigin="anonymous" referrerpolicy="no-referrer">
+      
   <link rel="preload" href="assets/cookie-banner/silktide-consent-manager.css" as="style" onload="this.rel='stylesheet'">
 </head>
 <body>
@@ -43,7 +43,7 @@
         function gtag() {
           dataLayer.push(arguments);
         }
-      
+
         gtag('consent', 'default', {
           analytics_storage: localStorage.getItem('silktideCookieChoice_analytics') === 'true' ? 'granted' : 'denied',
           ad_storage: localStorage.getItem('silktideCookieChoice_marketing') === 'true' ? 'granted' : 'denied',
@@ -64,6 +64,7 @@
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
       })(window,document,'script','dataLayer', GTM_ID);
       
+
       const noscript = document.createElement('noscript');
       noscript.innerHTML = `<iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
       document.body.appendChild(noscript);
