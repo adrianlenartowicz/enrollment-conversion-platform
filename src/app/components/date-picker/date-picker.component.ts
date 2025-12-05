@@ -11,10 +11,14 @@ export class DatePickerComponent {
   options: string[] = [];
   @Output() dateSelected = new EventEmitter<string>();
 
+private excludedDates: string[] = [
+  '12-22', '12-24', '12-29', '12-31', '01-01', '01-06', '05-01', '05-03', '11-01', '11-11'                 
+];
+
   constructor(private eRef: ElementRef) {
     this.options = this.generateNextDates(10);
   }
-  
+
   toggleDropdown() {
     this.isOpen = !this.isOpen;
   }
@@ -35,17 +39,21 @@ export class DatePickerComponent {
   private generateNextDates(count: number): string[] {
     const results: string[] = [];
     const monthNames = [
-      'stycznia','lutego','marca','kwietnia','maja','czerwca',
-      'lipca','sierpnia','września','października','listopada','grudnia'
+      'stycznia', 'lutego', 'marca', 'kwietnia', 'maja', 'czerwca',
+      'lipca', 'sierpnia', 'września', 'października', 'listopada', 'grudnia'
     ];
-    const weekdayAbbrev: Record<number,string> = { 1: 'pon', 3: 'śr' };
+    const weekdayAbbrev: Record<number, string> = { 1: 'pon', 3: 'śr' };
 
     const isDesired = (dayIndex: number) => dayIndex === 1 || dayIndex === 3;
+    const isExcluded = (date: Date) => {
+      const monthDay = `${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+      return this.excludedDates.includes(monthDay);
+    };
 
     const d = new Date();
     while (results.length < count) {
       const day = d.getDay();
-      if (isDesired(day)) {
+      if (isDesired(day) && !isExcluded(d)) {
         const dayNum = d.getDate();
         const month = monthNames[d.getMonth()];
         const abbrev = weekdayAbbrev[day] ?? '';
