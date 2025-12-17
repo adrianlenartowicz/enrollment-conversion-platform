@@ -71,7 +71,9 @@ export class ContactFormComponent implements OnInit, AfterViewChecked {
       });
       res.subscribe({
         next: (response) => {
-          console.log(response);
+           if (response?.success === true) {
+             this.acknowledgeConversion();
+          }
         },
         error: (err) => {
           console.error('Error sending contact form via Cloudflare Worker:', err);
@@ -85,7 +87,6 @@ export class ContactFormComponent implements OnInit, AfterViewChecked {
   onSubmit() {
     if (this.form.valid) {
       this.submitEmail();
-      this.acknowledgeConversion();
     }
   }
 
@@ -95,7 +96,11 @@ export class ContactFormComponent implements OnInit, AfterViewChecked {
       this.canDisplayRodoReminder = true;
   }
 
-  acknowledgeConversion() {
+  acknowledgeConversion() {     
+    (window as any).dataLayer = (window as any).dataLayer || [];
+    (window as any).dataLayer.push({
+      event: 'form_submit_success'
+    });
     this.metaPixelService.track('Lead', {contact: this.form.get('contact')?.value, group: this.form.get('group')?.value});
   }
 
