@@ -20,133 +20,136 @@
       
   <link rel="preload" href="assets/cookie-banner/silktide-consent-manager.css" as="style" onload="this.rel='stylesheet'">
 
+  <!-- CONSENT MODE: DEFAULT (MUSI BYĆ PRZED GTM) -->
   <script>
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push(['consent', 'default', {
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('consent', 'default', {
       analytics_storage: 'denied',
       ad_storage: 'denied',
       ad_user_data: 'denied',
       ad_personalization: 'denied',
       functionality_storage: 'granted',
       security_storage: 'granted'
-    }]);
+    });
   </script>
 <style>body,button{margin:0;padding:0;font-family:Poppins}h2{font-size:2rem}
 </style><link rel="stylesheet" href="styles-NQ2MC5A7.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-NQ2MC5A7.css"></noscript><style ng-app-id="ng">.sub-page[_ngcontent-ng-c2100863973]{margin-top:125px;margin-bottom:75px;padding:0 10%}@media (max-width: 768px){.sub-page[_ngcontent-ng-c2100863973]{padding:0 5%}}</style><style ng-app-id="ng">.top-bar[_ngcontent-ng-c584237706]{width:100%;display:flex;align-items:center;position:fixed;top:0;background-color:#fff;border-bottom:1px solid #ccc;z-index:1000;min-height:72px}.top-bar[_ngcontent-ng-c584237706]   .top-bar-content[_ngcontent-ng-c584237706]{width:100%;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:10px 25px}.top-bar[_ngcontent-ng-c584237706]   .top-bar-content[_ngcontent-ng-c584237706]   .logo-container[_ngcontent-ng-c584237706]{display:flex;align-items:center;margin-right:25px;padding 0 5px;flex:1}.top-bar[_ngcontent-ng-c584237706]   .top-bar-content[_ngcontent-ng-c584237706]   .logo-container[_ngcontent-ng-c584237706]   a[_ngcontent-ng-c584237706]{display:flex;align-items:center;text-decoration:none;color:inherit}.logo-container[_ngcontent-ng-c584237706]   p[_ngcontent-ng-c584237706]{text-align:center}.top-bar[_ngcontent-ng-c584237706]   .top-bar-content[_ngcontent-ng-c584237706]   .logo-container[_ngcontent-ng-c584237706]   .logo[_ngcontent-ng-c584237706]{align-self:center;width:60px;height:auto;margin-right:30px}.top-bar[_ngcontent-ng-c584237706]   .nav-items[_ngcontent-ng-c584237706]{display:flex;gap:30px;justify-content:center}.top-bar[_ngcontent-ng-c584237706]   .nav-items[_ngcontent-ng-c584237706]   a[_ngcontent-ng-c584237706]{text-decoration:none;color:#333;font-size:1rem;padding:10px;transition:color .3s,border-bottom .3s;position:relative}.top-bar[_ngcontent-ng-c584237706]   .nav-items[_ngcontent-ng-c584237706]   a[_ngcontent-ng-c584237706]:after{content:"";position:absolute;width:0;height:2px;left:50%;bottom:-3px;background-color:#e2635d;transition:width .3s,left .3s}.top-bar[_ngcontent-ng-c584237706]   .nav-items[_ngcontent-ng-c584237706]   a[_ngcontent-ng-c584237706]:hover:after{width:100%;left:0}.top-bar[_ngcontent-ng-c584237706]   .nav-items[_ngcontent-ng-c584237706]   a.active-link[_ngcontent-ng-c584237706]:after{width:100%;left:0}.top-bar[_ngcontent-ng-c584237706]   .contact-info[_ngcontent-ng-c584237706]{display:flex;gap:20px;justify-content:end;flex:1}.top-bar[_ngcontent-ng-c584237706]   .contact-info[_ngcontent-ng-c584237706]   p[_ngcontent-ng-c584237706]{margin:0}.top-bar[_ngcontent-ng-c584237706]   .top-bar-content[_ngcontent-ng-c584237706]   .mobile-menu-icons[_ngcontent-ng-c584237706], .top-bar[_ngcontent-ng-c584237706]   .mobile-nav-items[_ngcontent-ng-c584237706]{display:none}@media (max-width: 1400px){.top-bar[_ngcontent-ng-c584237706]   .contact-info[_ngcontent-ng-c584237706]   p[_ngcontent-ng-c584237706]{display:none}}@media (max-width: 1400px){.top-bar[_ngcontent-ng-c584237706]{flex-direction:column;align-items:center;font-size:.9rem;min-height:92px}.top-bar[_ngcontent-ng-c584237706]   .top-bar-content[_ngcontent-ng-c584237706]{align-items:center;padding:10px 35px;display:flex;justify-content:space-between}.top-bar[_ngcontent-ng-c584237706]   .contact-info[_ngcontent-ng-c584237706]{text-align:center;display:none}.top-bar[_ngcontent-ng-c584237706]   .top-bar-content[_ngcontent-ng-c584237706]   .logo-container[_ngcontent-ng-c584237706]   .logo[_ngcontent-ng-c584237706]{padding:0 20px;margin-right:10px}.top-bar[_ngcontent-ng-c584237706]   .top-bar-content[_ngcontent-ng-c584237706]   .nav-items[_ngcontent-ng-c584237706]{display:none}.top-bar[_ngcontent-ng-c584237706]   .top-bar-content[_ngcontent-ng-c584237706]   .mobile-menu-icons[_ngcontent-ng-c584237706]{display:block;cursor:pointer;font-size:26px;padding:0 20px}.top-bar[_ngcontent-ng-c584237706]   .mobile-nav-items[_ngcontent-ng-c584237706]{display:block;position:fixed;top:0;left:0;width:75%;max-width:300px;height:100%;background-color:#fff;transform:translate(-100%);transition:transform .3s ease-in-out;z-index:999}.top-bar[_ngcontent-ng-c584237706]   .mobile-nav-items[_ngcontent-ng-c584237706]   a[_ngcontent-ng-c584237706]{padding:14px 16px;text-decoration:none;color:#000;text-align:center;font-size:17px;display:block;border-bottom:1.5px solid #eee}.top-bar[_ngcontent-ng-c584237706]   .mobile-nav-items.open[_ngcontent-ng-c584237706]{transform:translate(0);box-shadow:2px 0 5px #00000080}.mobile-nav-items[_ngcontent-ng-c584237706]   .active-link[_ngcontent-ng-c584237706]{background-color:#f0f0f0;border-left:4px solid #e2635d}}</style><style ng-app-id="ng">.footer-section[_ngcontent-ng-c1723234579]{display:flex;justify-content:center;align-items:center;flex-direction:column;border-top:1px solid #ccc;max-height:150px;margin-top:275px;margin-bottom:125px}.footer-section[_ngcontent-ng-c1723234579]   .ala-logo[_ngcontent-ng-c1723234579]{margin:0;max-height:225px}.footer-section[_ngcontent-ng-c1723234579]   .company-info[_ngcontent-ng-c1723234579]{margin-top:25px;margin-bottom:10px;text-align:center;display:flex;gap:30px}.footer-section[_ngcontent-ng-c1723234579]   p[_ngcontent-ng-c1723234579]{margin:0;text-align:center}@media (max-width: 767px){.footer-section[_ngcontent-ng-c1723234579]{margin-top:200px}}.privacy-policy[_ngcontent-ng-c1723234579]{margin-top:10px}.privacy-policy[_ngcontent-ng-c1723234579]   a[_ngcontent-ng-c1723234579]{text-decoration:none;color:#000;font-size:1rem;padding:10px;transition:color .3s,border-bottom .3s;position:relative}.privacy-policy[_ngcontent-ng-c1723234579]   a[_ngcontent-ng-c1723234579]:after{content:"";position:absolute;width:0;height:2px;left:50%;bottom:-3px;background-color:#e2635d;transition:width .3s,left .3s}.privacy-policy[_ngcontent-ng-c1723234579]   a[_ngcontent-ng-c1723234579]:hover:after{width:100%;left:0}.privacy-policy[_ngcontent-ng-c1723234579]   a.active-link[_ngcontent-ng-c1723234579]:after{width:100%;left:0}</style><style ng-app-id="ng">.article-container{display:flex;max-width:1500px;margin:0 auto}.fa-arrow-left{margin-right:10px}.back-button{transition:color .3s}.back-button:hover{color:#e2635d;cursor:pointer}.article-detail{box-shadow:0 8px 16px #0003;border-radius:50px;padding:50px;margin-right:50px;min-width:50%}.article-sidebar{padding:50px}.article-header{font-size:1.9rem}.article-image img,.article-content img{display:block;width:100%;max-height:450px;height:auto;object-fit:cover}.article-content ol{font-size:.7rem;padding-left:0;margin-left:0;list-style-position:inside}.article-sidebar .info-button,.article-sidebar .sign-up-button{display:block;width:100%;min-height:50px;padding:10px 15px;margin:10px 0;color:#fff;text-align:center;text-decoration:none;border:none;cursor:pointer;font-size:1rem;transition:background .3s,transform .3s,box-shadow .3s;border-radius:20px;box-shadow:0 4px 6px #0000001a}.article-sidebar .info-button{color:#000;border:1px solid #e2635d}.article-sidebar .sign-up-button{background:linear-gradient(45deg,#d35450,#e2635d)}.article-sidebar .info-button:hover,.article-sidebar .sign-up-button:hover{transform:scale(1.05);box-shadow:0 6px 8px #0003}.info{margin-top:30px}@media (max-width: 1400px){.article-container{flex-direction:column}.article-detail{margin:0}.article-detail h1{font-size:1.6rem}.article-sidebar .info-button,.article-sidebar .sign-up-button{max-width:200px}}@media (max-width: 767px){.article-detail{padding:30px}}
 </style></head>
+
 <body><!--nghm-->
   <app-root _nghost-ng-c2100863973 ng-version="17.3.3" ngh="3" ng-server-context="ssg"><app-top-bar _ngcontent-ng-c2100863973 _nghost-ng-c584237706 ngh="0"><div _ngcontent-ng-c584237706 class="top-bar"><div _ngcontent-ng-c584237706 class="top-bar-content"><div _ngcontent-ng-c584237706 class="logo-container"><a _ngcontent-ng-c584237706 routerlink="/" aria-label="Home" href="/"><img _ngcontent-ng-c584237706 src="assets/logo-ala.svg" alt="logo" class="logo"><p _ngcontent-ng-c584237706>Akademia Lekkiej Atletyki Wrocław</p></a></div><div _ngcontent-ng-c584237706 class="nav-items"><a _ngcontent-ng-c584237706 routerlink="/lokalizacja/" href="/lokalizacja/">Lokalizacja</a><a _ngcontent-ng-c584237706 routerlink="/zapisy/" href="/zapisy/">Zapisy</a><a _ngcontent-ng-c584237706 routerlink="/cennik/" href="/cennik/">Cennik</a><a _ngcontent-ng-c584237706 routerlink="/zajecia/" href="/zajecia/">Zajęcia</a><a _ngcontent-ng-c584237706 routerlink="/artykuly/" href="/artykuly/">Artykuły</a></div><div _ngcontent-ng-c584237706 class="contact-info"><div _ngcontent-ng-c584237706 class="phone-icon"><i _ngcontent-ng-c584237706 class="fas fa-phone"></i></div><div _ngcontent-ng-c584237706 class="phone-number"><p _ngcontent-ng-c584237706>+48 459 119 894</p></div></div><div _ngcontent-ng-c584237706 class="mobile-menu-icons"><i _ngcontent-ng-c584237706 class="fas fa-bars"></i><!----><!----></div></div><div _ngcontent-ng-c584237706 class="mobile-nav-items"><a _ngcontent-ng-c584237706 routerlink="/" routerlinkactive="active-link" href="/" class>Strona główna</a><a _ngcontent-ng-c584237706 routerlink="/lokalizacja/" routerlinkactive="active-link" href="/lokalizacja/" class>Lokalizacja</a><a _ngcontent-ng-c584237706 routerlink="/zapisy/" routerlinkactive="active-link" href="/zapisy/" class>Zapisy</a><a _ngcontent-ng-c584237706 routerlink="/cennik/" routerlinkactive="active-link" href="/cennik/" class>Cennik</a><a _ngcontent-ng-c584237706 routerlink="/zajecia/" routerlinkactive="active-link" href="/zajecia/" class>Zajęcia</a><a _ngcontent-ng-c584237706 routerlink="/artykuly/" routerlinkactive="active-link" href="/artykuly/" class="active-link">Artykuły</a></div></div></app-top-bar><div _ngcontent-ng-c2100863973 class="sub-page"><router-outlet _ngcontent-ng-c2100863973></router-outlet><app-article-detail ngh="1"><div class="article-container"><div class="article-detail"><div class="back-button" tabindex="0"><i class="fas fa-arrow-left"></i><span>Powrót do listy artykułów</span></div><article><div class="article-header"><h1>Kiedy dziecko powinno zacząć swoją przygodę ze sportem?</h1></div><div class="article-image"><img alt="Kiedy dziecko powinno zacząć swoją przygodę ze sportem?" src="../../../assets/articles/article-1-wide.png"></div><div class="article-content"><p>Wielu rodziców zadaje sobie pytanie, w jakim wieku zapisać dziecko na pierwsze zajęcia sportowe. Czy powinno to nastąpić w przedszkolu? W zerówce? A może to jeszcze za wcześnie?</p><h3>Ile powinny trenować dzieci?</h3><p>Zgodnie z zaleceniami WHO dzieci i młodzież w wieku od 5 do 17 lat powinny poświęcać minimum 60 minut dziennie na ćwiczenia o umiarkowanej lub wysokiej intensywności. Wymagające ćwiczenia oraz te ukierunkowane na wzmocnienie mięśni i kości powinny być wykonywane przynajmniej 3 razy w tygodniu. Według rekomendacji Polskiego Towarzystwa Medycyny Sportowej dzieci do ukończenia 6 roku życia powinny podejmować się dyscyplin sportu opartych na naturalnych formach ruchu w formie gier i zabaw ruchowych.</p><h3>Jak sport wpływa na zdrowie dziecka?</h3><p>Według WHO sport jest kluczowym elementem dbania o zdrowie dzieci. Regularne ćwiczenia oprócz poprawy sprawności fizycznej wpływają na: zdrowie kardio metaboliczne (ciśnienie krwi, dyslipidemię i insulinooporność), zdrowie kości, funkcje poznawcze (wyniki w nauce, funkcje wykonawcze), zdrowie psychiczne (zmniejszenie objawów depresji).</p><h3>Rozwój cech motorycznych dziecka</h3><p>Mając na uwadze dobro i rozwój dziecka trzeba zwrócić uwagę na kilka ważnych aspektów dojrzewania młodego organizmu. Większość dzieci uczy się podstawowej motoryki w wieku od 3 do 5 lat. To wtedy maluch zaczyna biegać, skakać i rzucać. Regularne ćwiczenia pozytywnie wpływają na kształtowanie równowagi, szybkości i siły. Dzieci, które od wczesnych lat życia uprawiają sport, efektywniej rozwijają swoją koordynację ruchową. Ważne jest więc, aby nie przegapić tego kluczowego momentu i dać dziecku szansę na rozwój jego pełnego potencjału w późniejszych latach życia.</p><h3>Zdobywanie doświadczenia</h3><p>Oprócz walorów rozwojowych sport w wieku dziecięcym ma także inne zalety. Zapoznając dziecko ze sportem, zwiększamy jego szansę na sukces w wieku nastoletnim i dorosłym. Plastyczność mózgu maleje wraz z wiekiem. Dlatego zaczynając aktywność fizyczną w młodym wieku, łatwiej jest dziecku przyswoić poprawne wzorce ruchowe oraz technikę. Dodatkowo umożliwiamy dziecku zdobywanie istotnego doświadczenia. Im później zacznie, tym krótsza będzie jego nauka.</p><img src="../../../assets/articles/article-1-wide-secondary.png"><h3>Sport pomaga budować dobre nawyki u dzieci</h3><p>Kolejną zaletą wczesnej adaptacji ze sportem są przyswajane przez dziecko przyzwyczajenia. Uprawiając sport od najmłodszych lat, dzieci uczą się zdrowych nawyków, które zostaną z nimi w przyszłości. Jest to szczególnie ważne w kontekście powszechnego problemu otyłości. Osoby, które w dzieciństwie nie uprawiały sportu, częściej zmagają się z tą chorobą w dorosłym życiu.</p><h3>Jak sport kształtuje charakter dziecka?</h3><p>Sport uczy dzieci wytrwałości, cierpliwości i zaangażowania. Pomaga także budować pewność siebie i radzić sobie z wyzwaniami. Jest to idealny sposób na kształtowanie charakteru. Dziecko poznaje swoje mocne strony i uczy się zarówno samodzielności, jak i pracy zespołowej. Dzieci w wieku od 3 do 7 lat są wulkanami energii, a odpowiednia dawka ruchu pomaga im się wyciszyć. Sportowa rywalizacja zapoznaje dziecko z wieloma emocjami, ucząc go słodkiego smaku wygranej, jak i goryczy przegranej.</p><h3>Podsumowanie</h3><p>Pomimo wielu zalet wczesnego zapoznania ze sportem, najważniejsze jest słuchanie i obserwowanie swojej pociechy. Tempo rozwoju każdego dziecka jest inne. Początek sportowej przygody powinien być dostosowany do możliwości dziecka. Dzieci powinny przede wszystkim bawić się sportem, a nadmierna presja może je zniechęcić do aktywności.</p><h4>Piśmiennictwo</h4><ol><li>Kostka T., Furgał W., Gawroński W., Bugajski A., Czamara A., Klukowski K., Krysztofiak H., Lewicki R., Szyguła Z., Tomaszewski W., Trzaska T., Widuchowski J., Ziemba A., Jegier A., Rekomendacje Polskiego Towarzystwa Medycyny Sportowej dotyczące kryteriów wiekowych przy kwalifikacji dzieci i młodzieży do treningu i zawodów w poszczególnych dyscyplinach sportowych, ,,Medycyna Sportowa’’, nr. 1(4), vol. 27, 2011, s.79-81</li><li>Malec Z., Modrzejewska J., Otyłość a jakość życia dziecka,"Nauczyciel i Szkoła" , nr. 1/2, 2007, s. 150-155</li><li>Wytyczne WHO dotyczące aktywności fizycznej i siedzącego trybu życia: omówienie. Kopenhaga: Biuro Regionalne WHO na Europę, 2021</li><li>Birch L., Parker L., Burns A., Early Childhood Obesity Prevention Policies, National Academies Press, Washington, D.C. 2011</li><li>Tyler S., Human Behavior and the Social Environment I, University of Arkansas, Fayetteville, 2020</li></ol></div></article></div><!----><div class="article-sidebar"><h2>Treningi lekkoatletyczne od <span style="color: #e2635d;">5 roku życia</span>!</h2><div class="sign-up"><p>Skorzystaj z BEZPŁATNEGO treningu próbnego:</p><button class="sign-up-button" tabindex="0">Wypróbuj bezpłatnie</button></div><div class="info"><p>Przeczytaj o naszych zajęciach:</p><button class="info-button" tabindex="0">Dowiedz się więcej</button></div></div></div></app-article-detail><!----></div><app-footer _ngcontent-ng-c2100863973 _nghost-ng-c1723234579 ngh="2"><div _ngcontent-ng-c1723234579 class="footer-section"><img _ngcontent-ng-c1723234579 src="assets/logo-ala.svg" class="ala-logo"><div _ngcontent-ng-c1723234579 class="company-info"><p _ngcontent-ng-c1723234579>KRS: 0001095918</p><p _ngcontent-ng-c1723234579>NIP: 8952270656</p></div><p _ngcontent-ng-c1723234579>© 2024 Akademia Lekkiej Atletyki Wrocław</p><div _ngcontent-ng-c1723234579 class="privacy-policy"><p _ngcontent-ng-c1723234579><a _ngcontent-ng-c1723234579 routerlink="/polityka-prywatnosci/" href="/polityka-prywatnosci/">Polityka prywatności</a></p></div></div></app-footer></app-root>
 
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=995528094754366&amp;ev=PageView&amp;noscript=1">
+  <noscript>
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=995528094754366&amp;ev=PageView&amp;noscript=1">
   </noscript>
 
+  <!-- GOOGLE TAG MANAGER -->
   <script>
     const GTM_ID = 'GTM-NXWQ3JNM'; 
 
-    function loadGTM() {
-      (function(w,d,s,l,i){
-        w[l]=w[l]||[];
-        w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-        var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-        j.async=true;
-        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-        f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer', GTM_ID);
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer',GTM_ID);
 
-      const noscript = document.createElement('noscript');
-      noscript.innerHTML = `<iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
-      document.body.appendChild(noscript);
-    }
+    const noscript = document.createElement('noscript');
+    noscript.innerHTML = `<iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
+    document.body.appendChild(noscript);
+  </script>
 
-    function loadSilktide() {
-      const silktideScript = document.createElement('script');
-      silktideScript.src = 'assets/cookie-banner/silktide-consent-manager.js';
-      
-      silktideScript.onload = function() {
-          silktideCookieBannerManager.updateCookieBannerConfig({
-            background: {
-              showBackground: true
+  <!-- SILKTIDE COOKIE BANNER -->
+  <script>
+    const silktideScript = document.createElement('script');
+    silktideScript.src = 'assets/cookie-banner/silktide-consent-manager.js';
+
+    silktideScript.onload = function() {
+      silktideCookieBannerManager.updateCookieBannerConfig({
+        background: {
+          showBackground: true
+        },
+        cookieIcon: {
+          position: "bottomLeft"
+        },
+        cookieTypes: [
+          {
+            id: "niezb_dne",
+            name: "Niezbędne",
+            description: "<p>Te pliki cookie są niezbędne do prawidłowego działania strony internetowej i nie można ich wyłączyć. Pomagają w takich działaniach jak logowanie oraz zapisywanie Twoich preferencji dotyczących prywatności.</p>",
+            required: true
+          },
+          {
+            id: "analityczne",
+            name: "Analityczne",
+            description: "<p>Te pliki cookie pomagają nam ulepszać stronę, śledząc, które podstrony są najpopularniejsze oraz w jaki sposób odwiedzający poruszają się po witrynie.</p>",
+            required: false,
+            onAccept: function() {
+              gtag('consent', 'update', {
+                analytics_storage: 'granted'
+              });
+              dataLayer.push({ event: 'consent_accepted_analityczne' });
             },
-            cookieIcon: {
-              position: "bottomLeft"
-            },
-            cookieTypes: [
-              {
-                id: "niezb_dne",
-                name: "Niezbędne",
-                description: "<p>Te pliki cookie są niezbędne do prawidłowego działania strony internetowej i nie można ich wyłączyć. Pomagają w takich działaniach jak logowanie oraz zapisywanie Twoich preferencji dotyczących prywatności.</p>",
-                required: true
-              },
-              {
-                id: "analityczne",
-                name: "Analityczne",
-                description: "<p>Te pliki cookie pomagają nam ulepszać stronę, śledząc, które podstrony są najpopularniejsze oraz w jaki sposób odwiedzający poruszają się po witrynie.</p>",
-                required: false,
-                onAccept: function() {
-                  window.dataLayer.push(['consent', 'update', {
-                    analytics_storage: 'granted'
-                  }]);
-                  window.dataLayer.push({ event: 'consent_accepted_analityczne' });
-                },
-                onReject: function() {
-                  window.dataLayer.push(['consent', 'update', {
-                    analytics_storage: 'denied'
-                  }]);
-                }
-              },
-              {
-                id: "reklamowe",
-                name: "Reklamowe",
-                description: "<p>Te pliki cookie zapewniają dodatkowe funkcje i personalizację, aby poprawić Twoje doświadczenie podczas korzystania ze strony. Mogą być ustawiane przez nas lub przez partnerów, z których usług korzystamy.</p>",
-                required: false,
-                onAccept: function() {
-                  window.dataLayer.push(['consent', 'update', {
-                    ad_storage: 'granted',
-                    ad_user_data: 'granted',
-                    ad_personalization: 'granted'
-                  }]);
-                  window.dataLayer.push({ event: 'consent_accepted_reklamowe' });
-                },
-                onReject: function() {
-                  window.dataLayer.push(['consent', 'update', {
-                    ad_storage: 'denied',
-                    ad_user_data: 'denied',
-                    ad_personalization: 'denied'
-                  }]);
-                }
-              }
-            ],
-            text: {
-              banner: {
-                description: "<p>Używamy plików cookie na naszej stronie, aby poprawić Twoje doświadczenie użytkownika, dostarczać spersonalizowane treści oraz analizować ruch na stronie <a href=\"https://your-website.com/cookie-policy\" target=\"_blank\">Cookie Policy.</a></p>",
-                acceptAllButtonText: "Zaakceptuj wszystkie",
-                acceptAllButtonAccessibleLabel: "Zaakceptuj wszystkie pliki cookie",
-                rejectNonEssentialButtonText: "Odrzuć opcjonalne",
-                rejectNonEssentialButtonAccessibleLabel: "Odrzuć opcjonalne",
-                preferencesButtonText: "Preferencje",
-                preferencesButtonAccessibleLabel: "Preferencje"
-              },
-              preferences: {
-                title: "Dostosuj swoje preferencje dotyczące plików cookie",
-                description: "<p>Szanujemy Twoje prawo do prywatności. Możesz zdecydować, aby nie zezwalać na niektóre typy plików cookie. Twoje preferencje dotyczące plików cookie będą obowiązywać w całej naszej witrynie.</p>",
-                creditLinkText: "Get this banner for free",
-                creditLinkAccessibleLabel: "Get this banner for free"
-              }
-            },
-            position: {
-              banner: "bottomLeft"
+            onReject: function() {
+              gtag('consent', 'update', {
+                analytics_storage: 'denied'
+              });
             }
-          });
-      };
-      
-      document.body.appendChild(silktideScript);
-    }
+          },
+          {
+            id: "reklamowe",
+            name: "Reklamowe",
+            description: "<p>Te pliki cookie zapewniają dodatkowe funkcje i personalizację, aby poprawić Twoje doświadczenie podczas korzystania ze strony. Mogą być ustawiane przez nas lub przez partnerów, z których usług korzystamy.</p>",
+            required: false,
+            onAccept: function() {
+              gtag('consent', 'update', {
+                ad_storage: 'granted',
+                ad_user_data: 'granted',
+                ad_personalization: 'granted'
+              });
+              dataLayer.push({ event: 'consent_accepted_reklamowe' });
+            },
+            onReject: function() {
+              gtag('consent', 'update', {
+                ad_storage: 'denied',
+                ad_user_data: 'denied',
+                ad_personalization: 'denied'
+              });
+            }
+          }
+        ],
+        text: {
+          banner: {
+            description: "<p>Używamy plików cookie na naszej stronie, aby poprawić Twoje doświadczenie użytkownika, dostarczać spersonalizowane treści oraz analizować ruch na stronie <a href=\"https://your-website.com/cookie-policy\" target=\"_blank\">Cookie Policy.</a></p>",
+            acceptAllButtonText: "Zaakceptuj wszystkie",
+            acceptAllButtonAccessibleLabel: "Zaakceptuj wszystkie pliki cookie",
+            rejectNonEssentialButtonText: "Odrzuć opcjonalne",
+            rejectNonEssentialButtonAccessibleLabel: "Odrzuć opcjonalne",
+            preferencesButtonText: "Preferencje",
+            preferencesButtonAccessibleLabel: "Preferencje"
+          },
+          preferences: {
+            title: "Dostosuj swoje preferencje dotyczące plików cookie",
+            description: "<p>Szanujemy Twoje prawo do prywatności. Możesz zdecydować, aby nie zezwalać na niektóre typy plików cookie. Twoje preferencje dotyczące plików cookie będą obowiązywać w całej naszej witrynie.</p>",
+            creditLinkText: "Get this banner for free",
+            creditLinkAccessibleLabel: "Get this banner for free"
+          }
+        },
+        position: {
+          banner: "bottomLeft"
+        }
+      });
+    };
 
-    document.addEventListener('DOMContentLoaded', function () {
-      loadGTM(); 
-      setTimeout(loadSilktide, 500); 
-    });
+    document.body.appendChild(silktideScript);
   </script>
 <script src="polyfills-RT5I6R6G.js" type="module"></script><script src="main-LQKX6BKH.js" type="module"></script>
 
