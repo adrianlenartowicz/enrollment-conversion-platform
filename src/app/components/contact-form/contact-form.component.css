@@ -114,3 +114,11 @@
   margin: 0;
 }
 
+.form-context-note {
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: #777;
+  text-align: center;
+  line-height: 1.4;
+}
+
