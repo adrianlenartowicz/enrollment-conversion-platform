@@ -28,7 +28,7 @@ export class ConfirmFirstTrainingComponent {
     });
 
     this.route.queryParamMap.subscribe(params => {
-      this.token = params.get('token')!.trim().replace(/\/+$/, "");
+      this.token = params.get('token')?.trim() || null;
     });
   }
   

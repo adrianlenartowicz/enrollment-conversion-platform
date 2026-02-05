@@ -20,30 +20,9 @@ import { ArticlesComponent } from './components/articles/articles.component';
 import { ArticleDetailComponent } from './components/article-detail/article-detail.component';
 import { ArticleCardComponent } from './components/article-card/article-card.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
-import { DefaultUrlSerializer } from '@angular/router';
-import { UrlSerializer } from '@angular/router';
-import { UrlTree } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfirmFirstTrainingComponent } from './components/confirm-first-training/confirm-first-training.component';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
-
-export class CustomUrlSerializer extends DefaultUrlSerializer {
-  override parse(url: string): UrlTree {
-    if (!url.endsWith('/')) {
-      url += '/'; // Dodaje ukośnik, jeśli go brakuje
-    }
-    return super.parse(url);
-  }
-
-  override serialize(tree: UrlTree): string {
-    let serialized = super.serialize(tree);
-    if (!serialized.endsWith('/')) {
-      serialized += '/';
-    }
-    return serialized;
-  }
-}
-
 
 @NgModule({
   declarations: [
@@ -75,8 +54,7 @@ export class CustomUrlSerializer extends DefaultUrlSerializer {
     HttpClientModule
   ],
   providers: [
-    provideClientHydration(),
-    { provide: UrlSerializer, useClass: CustomUrlSerializer }
+    provideClientHydration()
   ],
   bootstrap: [AppComponent]
 })
