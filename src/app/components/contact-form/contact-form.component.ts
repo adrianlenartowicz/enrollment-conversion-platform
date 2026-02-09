@@ -9,6 +9,8 @@ import { CloudflareWorkerService } from '../../services/cloudflare-worker.servic
 
 type contactFormPlacement = 'landing' | 'section';
 
+const STORAGE_CONVERSION_DEBUG_KEY = 'tracking_debug';
+
 @Component({
   selector: 'app-contact-form',
   templateUrl: './contact-form.component.html',
@@ -35,25 +37,29 @@ export class ContactFormComponent implements OnInit, AfterViewChecked {
   ) { };
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group(
-      {
+    this.form = this.formBuilder.group({
         phone: ['', [PhoneValidator()]],
         email: ['', [EmailValidator()]],
         rodo: ['', Validators.requiredTrue],
         group: ['', Validators.required]
-      }
-    );
+    });
+  }
+
+  private getTrackingDebug() {
+    const raw = localStorage.getItem(STORAGE_CONVERSION_DEBUG_KEY);
+    return raw ? JSON.parse(raw) : null;
   }
 
   async submitEmail() {
     this.isSubmited = true;
+
     let formData: FormData = new FormData();
     formData.append('phone', this.form.get('phone')?.value);
     formData.append('email', this.form.get('email')?.value);
     formData.append('group', this.form.get('group')?.value);
     formData.append('placement', this.placement);
     formData.append('access_key', environment.formAccessKey);
-    
+
     try {
       const res = await this.mailService.sendEmail(formData);
       if (!res.ok) {
@@ -62,17 +68,24 @@ export class ContactFormComponent implements OnInit, AfterViewChecked {
     } catch (err) {
       console.log(err);
     }
+    
+    const trackingDebug = this.getTrackingDebug();
 
     try {
       const res = this.cloudflareWorkerService.sendContactForm({
         phone: this.form.get('phone')?.value,
         email: this.form.get('email')?.value,
         group: this.form.get('group')?.value,
+        placement: this.placement,
+        tracking: {
+          debug: trackingDebug
+        }
       });
+
       res.subscribe({
         next: (response) => {
-           if (response?.success === true) {
-             this.acknowledgeConversion();
+          if (response?.success === true) {
+            this.acknowledgeConversion();
           }
         },
         error: (err) => {
@@ -92,22 +105,33 @@ export class ContactFormComponent implements OnInit, AfterViewChecked {
 
   informAboutClick() {
     this.wasButtonClicked = true;
-    if (this.form.get('phone')!.valid && this.form.get('email')!.valid && this.form.get('group')!.valid)
+    if (
+      this.form.get('phone')!.valid &&
+      this.form.get('email')!.valid &&
+      this.form.get('group')!.valid
+    ) {
       this.canDisplayRodoReminder = true;
+    }
   }
 
-  acknowledgeConversion() {     
+  acknowledgeConversion() {
     (window as any).dataLayer = (window as any).dataLayer || [];
     (window as any).dataLayer.push({
       event: 'form_submit_success'
     });
-    this.metaPixelService.track('Lead', {contact: this.form.get('contact')?.value, group: this.form.get('group')?.value});
+
+    this.metaPixelService.track('Lead', {
+      contact: this.form.get('contact')?.value,
+      group: this.form.get('group')?.value
+    });
   }
 
   ngAfterViewChecked(): void {
     if (this.isSubmited && this.thankYouMessage) {
       const yOffset = -120;
-      const elementPosition = this.thankYouMessage.nativeElement.getBoundingClientRect().top + window.pageYOffset;
+      const elementPosition =
+        this.thankYouMessage.nativeElement.getBoundingClientRect().top +
+        window.pageYOffset;
       const offsetPosition = elementPosition + yOffset;
 
       window.scrollTo({
