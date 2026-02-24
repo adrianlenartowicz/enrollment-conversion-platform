@@ -8,7 +8,7 @@
                 <h1>{{ article.header }}</h1>
             </div>
             <div class="article-image">
-                <img [src]="article.image" alt="{{ article.header }}">
+                <img [src]="article.image" alt="{{ article.header }}" loading="lazy" decoding="async">
             </div>
             <div class="article-content" [innerHTML]="article.content"></div>
         </article>

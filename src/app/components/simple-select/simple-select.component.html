@@ -1,0 +1,20 @@
+<div class="simple-select">
+  <button
+    type="button"
+    class="simple-select-button"
+    [class.open]="isOpen"
+    [class.invalid]="invalid"
+    (click)="toggleDropdown()"
+    [attr.aria-expanded]="isOpen"
+    [attr.id]="buttonId || null"
+  >
+    <span [class.placeholder]="!hasSelection">{{ selectedLabel }}</span>
+    <span class="arrow" [class.open]="isOpen">&#9662;</span>
+  </button>
+
+  <ul *ngIf="isOpen" class="simple-select-menu" role="listbox">
+    <li *ngFor="let option of options" (click)="selectOption(option)" role="option">
+      {{ option.label }}
+    </li>
+  </ul>
+</div>

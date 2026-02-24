@@ -2,12 +2,22 @@ import { AbstractControl, ValidatorFn } from '@angular/forms';
 
 export function PhoneValidator(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {
-    const value = control.value;
-    const phoneRegex = /^\d{9}$/;
+    const rawValue = control.value;
+    const value = String(rawValue ?? '').trim();
 
-    if (!phoneRegex.test(value)) {
-      return { 'invalidContact': { value: value } };
+    if (!value) {
+      return null;
     }
+
+    const normalized = value
+      .replace(/\s+/g, '')
+      .replace(/^(\+48|48)/, '');
+
+    const phoneRegex = /^\d{9}$/;
+    if (!phoneRegex.test(normalized)) {
+      return { invalidPhone: true };
+    }
+
     return null;
   };
 }

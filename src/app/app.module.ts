@@ -23,6 +23,7 @@ import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-poli
 import { HttpClientModule } from '@angular/common/http';
 import { ConfirmFirstTrainingComponent } from './components/confirm-first-training/confirm-first-training.component';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
+import { SimpleSelectComponent } from './components/simple-select/simple-select.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { DatePickerComponent } from './components/date-picker/date-picker.compon
     ArticleCardComponent,
     PrivacyPolicyComponent,
     ConfirmFirstTrainingComponent,
-    DatePickerComponent
+    DatePickerComponent,
+    SimpleSelectComponent
   ],
   imports: [
     BrowserModule,

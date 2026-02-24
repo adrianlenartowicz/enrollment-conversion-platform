@@ -1,58 +1,87 @@
-<ng-container *ngIf="!isSubmited">
-  <div class="contact-form">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+<div class="contact-form">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
 
-      <div class="contact-info">
-        <label for="contact">Numer telefonu:</label>
-        <input type="tel" formControlName="phone" id="phone" class="to-highlight">
-        <div *ngIf="form.get('phone')!.invalid && wasButtonClicked">
-          <div *ngIf="form.get('phone')!.errors?.['invalidContact']">
-            <p [ngStyle]="{ 'color': 'red', 'margin-top': 0, 'margin-bottom': '20px' }">Nieprawidłowy numer telefonu</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-info">
-        <label for="contact">Adres email:</label>
-        <input type="email" formControlName="email" id="email" class="to-highlight">
-        <div *ngIf="form.get('email')!.invalid && wasButtonClicked">
-          <div *ngIf="form.get('email')!.errors?.['invalidContact']">
-            <p [ngStyle]="{ 'color': 'red', 'margin-top': 0, 'margin-bottom': '20px' }">Nieprawidłowy adres email</p>
-          </div>
-        </div>
-      </div>
-
-      <label for="group">Grupa wiekowa:</label>
-      <select id="group" formControlName="group" class="to-highlight">
-        <option value="" disabled selected></option>
-        <option *ngFor="let group of groups" [value]="group.value">{{ group.label }}</option>
-      </select>
-      <div *ngIf="!form.get('group')!.valid && wasButtonClicked">
-        <p [ngStyle]="{ 'color': 'red', 'margin-top': 0, 'margin-bottom': '20px' }">Proszę zaznaczyć grupę wiekową</p>
-      </div>
-
-      <div *ngIf="form.get('phone')!.valid && form.get('email')!.valid && form.get('group')!.valid" class="rodo-container">      
-        <p class="rodo-text">
-          <span class="required">*</span>
-          Wyrażam zgodę na przetwarzanie moich danych osobowych w celu kontaktu przez Akademię Lekkiej Atletyki Wrocław sp. z o.o. Szczegóły dotyczące przetwarzania danych osobowych znajdują się w <a href="https://www.alawroc.pl/polityka-prywatnosci" target="_blank">Polityce Prywatności</a>.
+      <div class="contact-field">
+        <label for="group">Grupa wiekowa dziecka</label>
+        <app-simple-select
+          [buttonId]="'group'"
+          [options]="groups"
+          [placeholder]="'Wybierz grupę'"
+          [selectedValue]="groupControl.value"
+          [invalid]="groupControl.invalid && (groupControl.touched || wasButtonClicked)"
+          (valueSelected)="onGroupSelected($event)"
+        ></app-simple-select>
+        <p class="field-error" *ngIf="groupControl.invalid && (groupControl.touched || wasButtonClicked)">
+          Wybierz grupę wiekową.
         </p>
+      </div>
+
+      <div class="contact-field">
+        <label for="phone">Telefon</label>
+        <input
+          id="phone"
+          type="tel"
+          formControlName="phone"
+          class="to-highlight"
+          inputmode="numeric"
+          autocomplete="tel"
+          placeholder="np. 501 234 567"
+        />
+        <p class="field-error" *ngIf="phoneControl.errors?.['required'] && (phoneControl.touched || wasButtonClicked)">
+          Podaj numer telefonu.
+        </p>
+        <p class="field-error" *ngIf="phoneControl.errors?.['invalidPhone'] && (phoneControl.touched || wasButtonClicked)">
+          Wpisz poprawny numer telefonu (9 cyfr, np. 501234567).
+        </p>
+      </div>
+
+      <div class="contact-field">
+        <label for="email">E-mail</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          class="to-highlight"
+          autocomplete="email"
+          placeholder="np. rodzic@gmail.com"
+        />
+        <p class="field-error" *ngIf="emailControl.errors?.['required'] && (emailControl.touched || wasButtonClicked)">
+          Podaj adres e-mail.
+        </p>
+        <p class="field-error" *ngIf="emailControl.errors?.['invalidEmail'] && (emailControl.touched || wasButtonClicked)">
+          Wpisz poprawny adres e-mail.
+        </p>
+      </div>
+
+      <div class="rodo-container" *ngIf="shouldShowRodo">
         <input type="checkbox" id="rodo" formControlName="rodo" />
+        <label for="rodo" class="rodo-text">
+          <span class="required">*</span>
+          Wyrażam zgodę na przetwarzanie moich danych osobowych w celu kontaktu przez Akademię Lekkiej Atletyki Wrocław sp. z o.o.
+          Szczegóły znajdują się w
+          <a href="https://www.alawroc.pl/polityka-prywatnosci" target="_blank" rel="noopener noreferrer">Polityce Prywatności</a>.
+        </label>
       </div>
 
-      <div *ngIf="canDisplayRodoReminder">
-        <div *ngIf="form.get('rodo')!.invalid">
-          <p [ngStyle]="{ 'color': 'red', 'margin-top': 0, 'margin-bottom': '20px' }">Zaakceptuj zgodę</p>
-        </div>
-      </div>
-
-      <button type="submit" (click)="informAboutClick()">Proszę o kontakt</button>
-
-      <p class="form-context-note">
-        Z doświadczenia wiemy, że dzieci chętniej trenują, gdy mogą przychodzić na zajęcia z kolegą lub koleżanką.
+      <p class="field-error" *ngIf="shouldShowRodo && rodoControl.invalid && (rodoControl.touched || wasButtonClicked)">
+        Zaakceptuj zgodę, abyśmy mogli się z Tobą skontaktować.
       </p>
-    </form>
-  </div>
-</ng-container>
-<div *ngIf="isSubmited" class="thank-you-message" #thankYouMessage>
-  <p>Przesłaliśmy szczegóły na twój adres email. Jeżeli nie otrzymasz wiadomości w ciągu kilku minut, skontaktujemy się z tobą telefonicznie.</p>
+
+      <button type="submit" [disabled]="isSubmitting">
+        {{ isSubmitting ? 'Wysyłanie...' : 'Wyślij i odbierz bezpłatny trening' }}
+      </button>
+
+      <div *ngIf="submitError" class="submit-error" role="alert">
+        <strong>Nie udało się wysłać formularza.</strong>
+        <span>
+          Spróbuj ponownie za chwilę lub zadzwoń do nas bezpośrednio pod numer:
+          <a href="tel:459119894">459 119 894</a>.
+        </span>
+      </div>
+
+      <div class="conversion-trust" aria-label="Co dalej po wysłaniu formularza">
+        <p>Po wysłaniu formularza otrzymasz e-mail z wyborem terminu.</p>
+        <p>Jeśli nie wybierzesz terminu, oddzwonimy i odpowiemy na twoje pytania.</p>
+      </div>
+  </form>
 </div>

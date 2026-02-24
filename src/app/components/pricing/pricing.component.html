@@ -1,51 +1,98 @@
-    <div class="pricing">
-      <div class="pricing-header">
-        <h2>Cennik</h2>
-        <!-- <div class="announcement">
-          <i class="fas fa-info-circle"></i>
-          <p>Od listopada do marca treningi odbywają się raz w tygodniu w środy o godzinie 17:00</p>
-        </div> -->
+﻿<section class="py-6 md:py-8 lg:py-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 md:space-y-8">
+    <header class="text-center">
+      <span class="inline-flex items-center justify-center rounded-full bg-[#ffe7e4] px-3 py-1 text-xs font-bold tracking-wide text-[#b43f37]">
+        Pierwszy trening bezpłatny
+      </span>
+      <h1 class="mt-3 text-3xl md:text-4xl font-extrabold text-gray-900">Cennik zajęć</h1>
+      <p class="mt-3 max-w-3xl mx-auto text-gray-600 leading-relaxed">
+        Jasne pakiety, bez ukrytych kosztów.
+      </p>
+    </header>
+
+    <section class="rounded-2xl border border-[#d6e6ff] bg-[#eef6ff] p-5 md:p-6 text-[#0f172a] text-center max-w-4xl mx-auto" aria-label="Informacja o rozliczeniu">
+      <p class="font-semibold">Opłata ma charakter miesięcznego abonamentu za udział w programie treningowym.</p>
+      <p class="mt-2 text-sm text-slate-600">
+        Liczba zajęć w danym miesiącu może się różnić w zależności od kalendarza (święta, ferie).
+      </p>
+    </section>
+
+    <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6" aria-label="Pakiety cenowe">
+      <article
+        *ngFor="let plan of plans"
+        class="relative rounded-2xl border p-5 md:p-6 bg-white transition-all"
+        [ngClass]="plan.recommended ? 'border-[#E0584F] shadow-[0_14px_34px_rgba(224,88,79,0.17)] xl:-translate-y-1' : 'border-gray-200 shadow-sm'"
+      >
+        <span
+          *ngIf="plan.recommended"
+          class="absolute -top-2.5 right-4 rounded-full bg-[#E0584F] px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white"
+        >
+          Najczęściej wybierany
+        </span>
+
+        <h2 class="text-xl font-bold text-gray-900">{{ plan.name }}</h2>
+
+        <div class="mt-3 flex items-end gap-1">
+          <span class="text-4xl font-extrabold text-gray-900 leading-none">{{ plan.price }}</span>
+          <span class="pb-1 text-sm text-gray-500">{{ plan.period }}</span>
+        </div>
+
+        <ul class="mt-4 mb-6 space-y-2.5">
+          <li *ngFor="let feature of plan.features" class="flex items-start gap-2 text-sm text-gray-700 leading-relaxed">
+            <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-[#E0584F]"></span>
+            <span>{{ feature }}</span>
+          </li>
+        </ul>
+
+        <a
+          class="inline-flex w-full min-h-11 items-center justify-center rounded-lg bg-[#E0584F] px-4 py-3 font-bold text-white transition-colors hover:bg-[#c9453c]"
+          routerLink="/zapisy"
+        >
+          Umów bezpłatny trening
+        </a>
+      </article>
+    </section>
+
+    <section class="rounded-2xl border border-gray-200 bg-white p-5 md:p-6" aria-label="Co zawiera każdy plan">
+      <h2 class="text-2xl font-bold text-gray-900">W każdym pakiecie otrzymujesz</h2>
+      <ul class="mt-4 grid gap-2 text-gray-700">
+        <li *ngFor="let item of includedInEachPlan" class="flex items-start gap-2">
+          <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-[#E0584F]"></span>
+          <span>{{ item }}</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="rounded-2xl border border-gray-200 bg-white p-5 md:p-6" aria-label="Najczęstsze pytania">
+      <h2 class="text-2xl font-bold text-gray-900">Najczęstsze pytania</h2>
+      <div class="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-3">
+        <article *ngFor="let item of faqItems" class="rounded-xl border border-gray-100 bg-gray-50 p-4">
+          <h3 class="text-base font-bold text-gray-900">{{ item.question }}</h3>
+          <p class="mt-2 text-sm text-gray-600 leading-relaxed">{{ item.answer }}</p>
+        </article>
       </div>
-      <div class="pricing-content">
-        <div class="plan">
-          <h4>Jeden trening w tygodniu</h4>
-          <div class="price">150 zł/miesiąc</div>
-          <ul class="features">
-            <li><i class="fas fa-check-circle"></i> Opieka profesjonalnego trenera</li>
-            <li><i class="fas fa-check-circle"></i> Infrastruktura oraz sprzęt treningowy</li>
-            <li><i class="fas fa-check-circle"></i> Godzinne zajęcia grupowe raz w tygodniu</li>
-            <li><i class="fas fa-check-circle"></i> Diagnostyka i testy funkcjonalne wykonywane przez fizjoterapeutę</li>
-            <li><i class="fas fa-check-circle"></i> Kwartalne testy sprawnościowe i ocena postawy</li>
-            <li><i class="fas fa-check-circle"></i> Koszulka Akademii ALA Wrocław</li>
-          </ul>
-          <button [routerLink]="['/zapisy']">Wypróbuj</button>
-        </div>
-        <div class="plan popular">
-          <span>Najpopularniejsze</span>
-          <h4>Dwa treningi w tygodniu</h4>
-          <div class="price">230 zł/miesiąc</div>
-          <ul class="features">
-            <li><i class="fas fa-check-circle"></i> Opieka profesjonalnego trenera</li>
-            <li><i class="fas fa-check-circle"></i> Infrastruktura oraz sprzęt treningowy</li>
-            <li><i class="fas fa-check-circle"></i> Godzinne zajęcia grupowe dwa razy w tygodniu</li>
-            <li><i class="fas fa-check-circle"></i> Diagnostyka i testy funkcjonalne wykonywane przez fizjoterapeutę</li>
-            <li><i class="fas fa-check-circle"></i> Kwartalne testy sprawnościowe i ocena postawy</li>
-            <li><i class="fas fa-check-circle"></i> Koszulka Akademii ALA Wrocław</li>
-          </ul>
-          <button [routerLink]="['/zapisy']">Wypróbuj</button>
-        </div>
-        <div class="plan">
-          <h4>Rodzeństwo dwa razy w tygodniu</h4>
-          <div class="price">385 zł/miesiąc</div>
-          <ul class="features">
-            <li><i class="fas fa-check-circle"></i> Opieka profesjonalnego trenera</li>
-            <li><i class="fas fa-check-circle"></i> Infrastruktura oraz sprzęt treningowy</li>
-            <li><i class="fas fa-check-circle"></i> Godzinne zajęcia grupowe dwa razy w tygodniu</li>
-            <li><i class="fas fa-check-circle"></i> Diagnostyka i testy funkcjonalne wykonywane przez fizjoterapeutę</li>
-            <li><i class="fas fa-check-circle"></i> Kwartalne testy sprawnościowe i ocena postawy</li>
-            <li><i class="fas fa-check-circle"></i> Koszulka Akademii ALA Wrocław</li>
-          </ul>
-          <button [routerLink]="['/zapisy']">Wypróbuj</button>
-        </div>
+    </section>
+
+    <section class="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 text-center" aria-label="Kontakt i zapis">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-900">Masz pytania przed zapisem?</h2>
+      <p class="mt-2 text-gray-600">Napisz lub zadzwoń. Pomożemy dobrać plan i termin pierwszych zajęć.</p>
+      <div class="mt-5 flex flex-wrap items-center justify-center gap-3">
+        <a
+          class="inline-flex min-h-11 items-center justify-center rounded-lg bg-[#E0584F] px-5 py-3 font-bold text-white transition-colors hover:bg-[#c9453c]"
+          routerLink="/zapisy"
+        >
+          Bezpłatny trening próbny
+        </a>
+        <a
+          class="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-5 py-3 font-bold text-gray-700 transition-colors hover:border-[#E0584F] hover:text-[#b43f37]"
+          href="tel:459119894"
+        >
+          <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.43-5.15-3.75-6.58-6.59l1.97-1.57c.3-.29.4-.72.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3.3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .72-.63.72-1.19v-3.44c0-.54-.45-.99-.99-.99z" />
+          </svg>
+          Zadzwoń: 459 119 894
+        </a>
       </div>
-    </div>
+    </section>
+  </div>
+</section>
