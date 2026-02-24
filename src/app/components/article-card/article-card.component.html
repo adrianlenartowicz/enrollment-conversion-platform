@@ -1,6 +1,13 @@
 <div class="article-card" [routerLink]="['/artykuly', id]">
     <div class="article-image">
-        <img [src]="image" [alt]="header" loading="lazy" decoding="async">
+        <img
+            [src]="image"
+            [attr.srcset]="imageSrcset || null"
+            sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 360px"
+            [alt]="header"
+            loading="lazy"
+            decoding="async"
+        >
     </div>
     <div class="article-preview">
         <div class="preview-header">

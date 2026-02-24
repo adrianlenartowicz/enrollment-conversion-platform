@@ -9,5 +9,6 @@ export class ArticleCardComponent {
   @Input() header: string = '';
   @Input() paragraph: string = '';
   @Input() image: string = '';
+  @Input() imageSrcset?: string;
   @Input() id: string = '';
 }

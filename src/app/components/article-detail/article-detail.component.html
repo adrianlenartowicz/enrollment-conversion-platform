@@ -8,7 +8,14 @@
                 <h1>{{ article.header }}</h1>
             </div>
             <div class="article-image">
-                <img [src]="article.image" alt="{{ article.header }}" loading="lazy" decoding="async">
+                <img
+                  [src]="article.image"
+                  [attr.srcset]="article.imageSrcset || null"
+                  sizes="(max-width: 1024px) 100vw, 720px"
+                  alt="{{ article.header }}"
+                  loading="lazy"
+                  decoding="async"
+                >
             </div>
             <div class="article-content" [innerHTML]="article.content"></div>
         </article>

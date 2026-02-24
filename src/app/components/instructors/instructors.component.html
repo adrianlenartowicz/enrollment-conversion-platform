@@ -56,7 +56,15 @@
         >
           <div *ngFor="let image of coachImages" class="min-w-[75%] sm:min-w-[60%] md:min-w-[45%] lg:min-w-[70%] snap-center">
             <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-gray-100 shadow-lg border border-gray-100">
-              <img [src]="image.src" [alt]="image.alt" class="h-full w-full object-cover" loading="lazy" decoding="async" />
+              <img
+                [src]="image.src"
+                [attr.srcset]="image.srcset || null"
+                [attr.sizes]="image.sizes || null"
+                [alt]="image.alt"
+                class="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </div>
         </div>

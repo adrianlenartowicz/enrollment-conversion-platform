@@ -12,10 +12,29 @@ export class InstructorsComponent implements AfterViewInit, OnDestroy {
   private autoScrollTimer: ReturnType<typeof setInterval> | null = null;
 
   coachImages = [
-    { src: 'assets/natalia-1.jpeg', alt: 'Trenerka Natalia podczas treningu' },
-    { src: 'assets/natalia-2.jpeg', alt: 'Trenerka Natalia z grupą dzieci' },
-    { src: 'assets/natalia-3.jpeg', alt: 'Trenerka Natalia na stadionie' },
-    { src: 'assets/natalia-4.jpeg', alt: 'Trenerka Natalia w trakcie zajęć' }
+    {
+      src: 'assets/optimized/natalia-1-720.jpg',
+      srcset: 'assets/optimized/natalia-1-480.jpg 480w, assets/optimized/natalia-1-720.jpg 720w, assets/optimized/natalia-1-960.jpg 960w',
+      sizes: '(max-width: 640px) 75vw, (max-width: 1024px) 60vw, 420px',
+      alt: 'Trenerka Natalia podczas treningu'
+    },
+    {
+      src: 'assets/optimized/natalia-2-720.jpg',
+      srcset: 'assets/optimized/natalia-2-480.jpg 480w, assets/optimized/natalia-2-720.jpg 720w, assets/optimized/natalia-2-960.jpg 960w',
+      sizes: '(max-width: 640px) 75vw, (max-width: 1024px) 60vw, 420px',
+      alt: 'Trenerka Natalia z grupą dzieci'
+    },
+    {
+      src: 'assets/natalia-3.jpeg',
+      sizes: '(max-width: 640px) 75vw, (max-width: 1024px) 60vw, 420px',
+      alt: 'Trenerka Natalia na stadionie'
+    },
+    {
+      src: 'assets/optimized/natalia-4-720.jpg',
+      srcset: 'assets/optimized/natalia-4-480.jpg 480w, assets/optimized/natalia-4-720.jpg 720w, assets/optimized/natalia-4-960.jpg 960w',
+      sizes: '(max-width: 640px) 75vw, (max-width: 1024px) 60vw, 420px',
+      alt: 'Trenerka Natalia w trakcie zajęć'
+    }
   ];
 
   constructor(
