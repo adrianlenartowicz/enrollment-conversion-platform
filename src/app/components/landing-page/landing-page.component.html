@@ -66,7 +66,7 @@
 
         <div class="hidden lg:flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
           <button
-            (click)="scrollToSection('contact')"
+            routerLink="/zapisy"
             class="px-8 py-4 bg-[#E0584F] hover:bg-[#c9453c] text-white font-bold text-lg rounded shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
           >
             Odbierz zaproszenie na darmowy trening
@@ -362,7 +362,7 @@
           </li>
         </ul>
         <button
-          (click)="scrollToSection('contact')"
+          routerLink="/zapisy"
           class="w-full py-3 rounded-lg font-bold transition-colors border"
           [ngClass]="plan.recommended ? 'border-transparent bg-[#E0584F] text-white hover:bg-[#c9453c]' : 'border-gray-300 bg-gray-100 text-gray-800 hover:bg-gray-200'"
         >
@@ -495,7 +495,7 @@
 </footer>
 
 <div class="lg:hidden fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur border-t border-gray-200 p-3 z-50 shadow-[0_-5px_15px_rgba(0,0,0,0.1)]">
-  <button (click)="scrollToSection('contact')" class="w-full bg-[#E0584F] hover:bg-[#c9453c] text-white font-bold py-3 rounded-lg text-lg shadow-md flex items-center justify-center gap-2">
+  <button routerLink="/zapisy" class="w-full bg-[#E0584F] hover:bg-[#c9453c] text-white font-bold py-3 rounded-lg text-lg shadow-md flex items-center justify-center gap-2">
     <span>Odbierz bezpłatny trening</span>
     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -586,7 +586,7 @@
           </div>
         </div>
         <div class="mt-6 text-center">
-          <button (click)="toggleReportModal(); scrollToSection('contact')" class="bg-[#E0584F] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#c9453c] transition-colors shadow-md">
+          <button (click)="toggleReportModal()" routerLink="/zapisy" class="bg-[#E0584F] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#c9453c] transition-colors shadow-md">
             Chcę taki raport dla dziecka
           </button>
         </div>
