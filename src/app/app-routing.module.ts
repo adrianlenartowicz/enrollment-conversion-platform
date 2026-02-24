@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: '', component: LandingPageComponent },
 
   { path: 'lokalizacja', component: LocationComponent },
+  { path: 'trenerzy', component: InstructorsComponent },
   { path: 'zapisy', component: JoinStepsComponent },
   { path: 'cennik', component: PricingComponent },
   { path: 'zajecia', component: SessionsComponent },
@@ -30,8 +31,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { 
-    scrollPositionRestoration: 'top',
-    enableTracing: true
+    scrollPositionRestoration: 'top'
    })],
   exports: [RouterModule]
 })

@@ -1,0 +1,90 @@
+.simple-select {
+  position: relative;
+  width: 100%;
+  font: inherit;
+}
+
+.simple-select-button {
+  width: 100%;
+  min-height: 46px;
+  padding: 11px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.95rem;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.simple-select-button:hover {
+  background-color: #f9fafb;
+}
+
+.simple-select-button:focus {
+  outline: none;
+  border-color: #e2635d;
+  box-shadow: 0 0 0 3px rgba(226, 99, 93, 0.15);
+}
+
+.simple-select-button.invalid {
+  border-color: #c0392b;
+}
+
+.simple-select-button .placeholder {
+  color: #9ca3af;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+  color: #6b7280;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+.simple-select-menu {
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.25rem 0;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  z-index: 20;
+  font: inherit;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.simple-select-menu li {
+  padding: 0.65rem 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.simple-select-menu li:hover {
+  background-color: #f3f4f6;
+}
+
+@media (max-width: 600px) {
+  .simple-select-button {
+    padding: 0.65rem 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  .simple-select-menu li {
+    padding: 0.65rem 0.9rem;
+    font-size: 0.95rem;
+  }
+}

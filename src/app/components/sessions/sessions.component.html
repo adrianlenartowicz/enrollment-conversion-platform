@@ -1,209 +1,74 @@
-<div class="sessions-section">
-    <div class="sessions-header">
-        <h1>Zajęcia lekkoatletyczne dla dzieci</h1>
-    </div>
+<section class="py-8 md:py-10 lg:py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 md:space-y-12">
+    <header class="text-center">
+      <h1 class="mt-3 text-3xl md:text-4xl font-extrabold text-gray-900">Zajęcia lekkoatletyczne dla dzieci</h1>
+    </header>
 
-    <div class="features-container">
-        <div class="feature">
-            <div class="circle">
-                <p>5-10 lat</p>
-            </div>
-        </div>
-        <div class="feature">
-            <div class="circle">
-                <p>60 minut zajęć</p>
-            </div>          
-        </div>
-        <div class="feature">
-            <div class="circle">
-                <p>1 lub 2 razy w tygodniu</p>
-            </div>          
-        </div>
-        <div class="feature">
-            <div class="circle">
-                <p>Grupy do 15 osób</p>
-            </div>          
-        </div>
-    </div>
+    <section class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4" aria-label="Najważniejsze informacje">
+      <article *ngFor="let item of highlights" class="rounded-2xl border border-gray-200 bg-white p-4 md:p-5 text-center">
+        <p class="text-xs md:text-sm font-semibold text-gray-500 uppercase tracking-wide">{{ item.label }}</p>
+        <p class="mt-2 text-base md:text-lg font-bold text-gray-900">{{ item.value }}</p>
+      </article>
+    </section>
 
+    <section class="rounded-2xl border border-gray-200 bg-white p-5 md:p-7 lg:p-8" aria-label="Umiejętności motoryczne">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center">Umiejętności motoryczne</h2>
+      <p class="mt-2 text-center text-gray-600 max-w-xl mx-auto">
+        W czasie treningów dzieci pracują nad rozwojem podstawowych cech motorycznych takich jak szybkość, wytrzymałość, siła, oraz koordynacja.
+      </p>
 
-    <div class="characteristics-description">
-        <h2>UMIEJĘTNOŚCI MOTORYCZNE</h2>
-        <p>W czasie treningów dzieci pracują nad rozwojem podstawowych cech motorycznych takich jak szybkość, wytrzymałość, siła, oraz koordynacja.</p>
-    </div>
+      <div class="mt-6 md:mt-7 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+        <article *ngFor="let area of motorAreas" class="rounded-2xl border border-gray-200 bg-white p-5 md:p-6 shadow-sm">
+          <h3 class="text-xl font-bold text-gray-900 text-center">{{ area.title }}</h3>
+          <div class="mt-2 text-left">
+            <p class="text-sm text-gray-600 pl-5">{{ area.description }}</p>
+            <ul class="mt-3 list-disc pl-5 space-y-1.5 text-sm text-gray-700 marker:text-[#E0584F]">
+              <li *ngFor="let exercise of area.exercises">{{ exercise }}</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
 
-    <div class="motor-skills-container">
-        <div class="characteristics-table">
+    <section class="rounded-2xl border border-gray-200 bg-white p-5 md:p-7 lg:p-8" aria-label="Rozwój charakteru">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center">Kształtowanie charakteru</h2>
+      <p class="mt-2 text-center text-gray-600 max-w-xl mx-auto">
+        Lekkoatletyka to lekcja, że rozwój to proces, w którym najważniejsze jest stawanie się lepszym od samego siebie. To idea, którą dzieci przenoszą na wszystkie aspekty swojego życia.
+      </p>
 
-            <div class="characteristic-card">
-                <div class="title">
-                    <h3>SZYBKOŚĆ</h3>
-                </div>
-                <div class="exercises-container">
-                    <div class="exercise exercise-odd">
-                        <p>Dynamiczne gry i zabawy ruchowe</p>
-                    </div>
-                    <div class="exercise exercise-even">
-                        <p>Sprinty na krótkich dystansach</p>
-                    </div>
-                    <div class="exercise exercise-odd">
-                        <p>Starty z różnych pozycji</p>
-                    </div>
-                    <div class="exercise exercise-even">
-                        <p>Starty z reakcją na sygnał</p>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="characteristic-card">
-                <div class="title">
-                    <h3>WYTRZYMAŁOŚĆ</h3>
-                </div>
-                <div class="exercises-container">
-                    <div class="exercise exercise-odd">
-                        <p>Aktywne zabawy i gry zespołowe</p>
-                    </div>
-                    <div class="exercise exercise-even">
-                        <p>Ćwiczenia z utrzymaniem tempa</p>
-                    </div>
-                    <div class="exercise exercise-odd">
-                        <p>Biegi na długich dystansach</p>
-                    </div>
-                    <div class="exercise exercise-even">
-                        <p>Biegi o zróżnicowanej intensywności</p>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="characteristic-card">
-                <div class="title">
-                    <h3>SIŁA</h3>
-                </div>
-                <div class="exercises-container">
-                    <div class="exercise exercise-odd">
-                        <p>Ćwiczenia i zabawy siłowe</p>
-                    </div>
-                    <div class="exercise exercise-even">
-                        <p>Ćwiczenia wzmacniające mięśnie posturalne</p>
-                    </div>
-                    <div class="exercise exercise-odd">
-                        <p>Ćwiczenia z własną masą ciała</p>
-                    </div>
-                    <div class="exercise exercise-even">
-                        <p>Rzuty</p>
-                    </div>
-                </div>
-            </div>
+      <div class="mt-6 md:mt-7 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 lg:flex lg:flex-wrap lg:justify-center">
+        <article *ngFor="let item of characterAreas" class="rounded-2xl border border-gray-200 bg-white p-5 md:p-6 shadow-sm w-full lg:w-[320px] xl:w-[340px]">
+          <div class="border-l-4 border-[#E0584F]/30 pl-4">
+            <h3 class="text-lg font-bold text-gray-900">{{ item.title }}</h3>
+            <p class="mt-2 text-sm text-gray-700 leading-relaxed">{{ item.description }}</p>
+          </div>
+        </article>
+      </div>
+    </section>
 
-            
-            <div class="characteristic-card mobile-coordination-table">
-                <div class="title">
-                    <h3>KOORDYNACJA</h3>
-                </div>
-                <div class="exercises-container">
-                    <div class="exercise exercise-odd">
-                        <p>Gry i zabawy koordynacyjne</p>
-                    </div>
-                    <div class="exercise exercise-even">
-                        <p>Ćwiczenia na płotkach</p>
-                    </div>
-                    <div class="exercise exercise-odd">
-                        <p>Tory przeszkód</p>
-                    </div>
-                    <div class="exercise exercise-even">
-                        <p>Kształtowanie prawidłowej techniki biegów, skoków i rzutów</p>
-                    </div>
-                </div>
-            </div>
-    
-        </div>
-    
-        <div class="coordination-table desktop-coordination-table">
-            <div class="wide-characteristic-card">
-                <div class="title">
-                    <h3>KOORDYNACJA</h3>
-                </div>
-                <div class="exercises-container">
-                    <div class="exercise exercise-odd">
-                        <p>Gry i zabawy koordynacyjne</p>
-                    </div>
-                    <div class="exercise exercise-even">
-                        <p>Ćwiczenia na płotkach</p>
-                    </div>
-                    <div class="exercise exercise-odd">
-                        <p>Tory przeszkód</p>
-                    </div>
-                    <div class="exercise exercise-even">
-                        <p>Kształtowanie prawidłowej techniki biegów, skoków i rzutów</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="characteristics-description">
-        <h2>KSZTAŁTOWANIE CHARAKTERU</h2>
-        <p>Lekkoatletyka to lekcja, że rozwój to proces, w którym najważniejsze jest stawanie się lepszym od samego siebie. To idea, którą dzieci przenoszą na wszystkie aspekty swojego życia.</p>
-    </div>
-
-    <div class="character-container">
-        <div class="character-table">
-            <div class="title">
-                <h3>CHARAKTER</h3>
-            </div>
-            <div class="character-row character-row-odd">
-                <div class="character-title">
-                    <h3>DETERMINACJA</h3>
-                </div>
-                <div class="character-description">
-                    <p>Podczas treningów dzieci uczą się radzenia sobie ze zmęczeniem i wytrwałości w trudnych momentach, rozwijając determinację oraz świadomość, że sukces wymaga konsekwencji, systematyczności i wewnętrznej motywacji.</p>
-                </div>
-            </div>
-            <div class="character-row character-row-even">
-                <div class="character-title">
-                    <h3>WSPÓŁPRACA</h3>
-                </div>
-                <div class="character-description">
-                    <p>Zabawy i ćwiczenia zespołowe uczą dzieci współpracy i odpowiedzialności. Biegi sztafetowe pokazują, że sukces zależy od wspólnego wysiłku, a zaangażowanie każdego uczestnika prowadzi do osiągnięcia celu.</p>
-                </div>
-            </div>
-            <div class="character-row character-row-odd">
-                <div class="character-title">
-                    <h3>RYWALIZACJA</h3>
-                </div>
-                <div class="character-description">
-                    <p>W czasie zajęć dzieci uczą się zdrowej rywalizacji w przyjaznej atmosferze. Doświadczając zarówno sukcesów, jak i porażek, rozwijają umiejętność radzenia sobie z emocjami, budując pewność siebie i szacunek do innych.</p>
-                </div>
-            </div>
-            <div class="character-row character-row-even">
-                <div class="character-title">
-                    <h3>SAMODZIELNOŚĆ</h3>
-                </div>
-                <div class="character-description">
-                    <p>Lekkoatletyka, jako sport indywidualny, uczy dzieci niezależności i odpowiedzialności za swoje wyniki. Postęp zależy od ich własnej pracy i zaangażowania, co pozwala im zrozumieć, że sukcesy i porażki są efektem ich wysiłku.</p>
-                </div>
-            </div>
-            <div class="character-row character-row-odd">
-                <div class="character-title">
-                    <h3>PEWNOŚĆ SIEBIE</h3>
-                </div>
-                <div class="character-description">
-                    <p>Lekkoatletyka, dzięki różnorodnym konkurencjom, daje każdemu dziecku szansę na odkrycie swoich mocnych stron. Wspieramy młodych sportowców, pomagając im rozwijać talent niezależnie od ich predyspozycji.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="article-sidebar">
-        <h2>Treningi lekkoatletyczne od <span style="color: #e2635d;">5 roku życia</span>!</h2>
-        <div class="sign-up">
-            <p>Skorzystaj z <b>BEZPŁATNEGO</b> treningu próbnego!:</p>
-            <button class="sign-up-button" [routerLink]="['/zapisy']">Wypróbuj bezpłatnie</button>
-        </div>
-        <div class="info">
-            <p>Zobacz gdzie trenujemy:</p>
-            <button class="info-button" [routerLink]="['/lokalizacja']">Sprawdź lokalizacje</button>
-        </div>
-</div>
-
-</div>
+    <section class="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 text-center" aria-label="Call to action">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-900">Sprawdź zajęcia w praktyce</h2>
+      <p class="mt-2 text-gray-600">Umów bezpłatny trening próbny i zobacz, jak dziecko odnajduje się na naszych zajęciach.</p>
+      <div class="mt-5 flex flex-wrap items-center justify-center gap-3">
+        <a
+          class="inline-flex min-h-11 items-center justify-center rounded-lg bg-[#E0584F] px-5 py-3 font-bold text-white transition-colors hover:bg-[#c9453c]"
+          routerLink="/zapisy"
+        >
+          Zapisz dziecko
+        </a>
+        <a
+          class="inline-flex min-h-11 items-center justify-center rounded-lg border border-gray-200 bg-white px-5 py-3 font-bold text-gray-700 transition-colors hover:border-[#E0584F] hover:text-[#b43f37]"
+          routerLink="/cennik"
+        >
+          Zobacz cennik
+        </a>
+        <a
+          class="inline-flex min-h-11 items-center justify-center rounded-lg border border-gray-200 bg-white px-5 py-3 font-bold text-gray-700 transition-colors hover:border-[#E0584F] hover:text-[#b43f37]"
+          routerLink="/lokalizacja"
+        >
+          Sprawdź lokalizację
+        </a>
+      </div>
+    </section>
+  </div>
+</section>

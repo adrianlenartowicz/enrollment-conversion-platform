@@ -1,22 +1,107 @@
-<div class="location-section">
-    <div class="location-header">
-      <h2>Lokalizacja</h2>
-    </div>
-    <p>Treningi odbywają się na bieżni przy Szkole Podstawowej nr 91. Od listopada do marca zajęcia prowadzone są na sali.</p>
-    <p class="street-name"><b>Ul. Stefanii Sempołowskiej 54</b></p>
-    <div class="google-map">
-      <iframe width="600" height="450" style="border:0" load="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJk4cUeQHoD0cRx8d7Ix0Md5I&key=AIzaSyBEWXoAj03am_fiFUN9Qw8bILB8NYD86H8"></iframe>
-    </div>
+<section class="py-6 md:py-8 lg:py-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 md:space-y-8">
+    <header class="text-center">
+      <h1 class="mt-3 text-3xl md:text-4xl font-extrabold text-gray-900">Lokalizacja zajęć</h1>
+      <p class="mt-3 max-w-3xl mx-auto text-gray-600 leading-relaxed">
+        Treningi odbywają się Szkole Podstawowej nr 91 we Wrocławiu.
+      </p>
+    </header>
 
-    <ng-container *ngIf="placement === 'subpage'">
-      <p class="second-map-description">Wejście od ulicy Piotra Norblina (na bieżnię):</p>
-      <div class="google-map">
-        <iframe width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"src="https://www.google.com/maps/embed?pb=!4v1720870513671!6m8!1m7!1sZXCZOhg2fLbum0L3Ie0Xbw!2m2!1d51.10285799771516!2d17.10929768880831!3f354.53224621202025!4f-1.3548564065376212!5f1.5077024739559617"></iframe>
-      </div>
+    <section class="grid grid-cols-1 gap-4 md:gap-6" aria-label="Informacje o lokalizacji">
+      <article class="rounded-2xl border border-gray-200 bg-white p-5 md:p-6 text-center">
+        <h2 class="text-lg font-bold text-gray-900">Adres</h2>
+        <p class="mt-2 text-gray-700">ul. Stefanii Sempołowskiej 54, Wrocław</p>
+        <div class="mt-4">
+          <div class="inline-flex flex-wrap items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
+            Aktualny sezon:
+            <span *ngIf="isSummerSeason" class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-[11px] font-semibold text-green-800">
+              Letni
+            </span>
+            <span *ngIf="!isSummerSeason" class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-[11px] font-semibold text-blue-800">
+              Zimowy
+            </span>
+          </div>
+          <div class="mt-3 flex flex-wrap justify-center gap-6 text-center max-w-2xl mx-auto">
+            <div class="flex flex-col items-center gap-1 text-center">
+              <div class="flex items-center justify-center gap-2">
+                <span class="h-2 w-2 rounded-full bg-[#E0584F] flex-shrink-0"></span>
+                <p class="text-sm font-semibold text-gray-900">Sezon letni</p>
+              </div>
+              <p class="text-sm text-gray-700">Bieżnia tartanowa przy SP 91</p>
+            </div>
+            <div class="flex flex-col items-center gap-1 text-center">
+              <div class="flex items-center justify-center gap-2">
+                <span class="h-2 w-2 rounded-full bg-[#E0584F] flex-shrink-0"></span>
+                <p class="text-sm font-semibold text-gray-900">Sezon zimowy</p>
+              </div>
+              <p class="text-sm text-gray-700">Sala sportowa w SP 91</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
 
-      <p class="second-map-description">Wejście od ulicy Stefanii Sempołowskiej (na salę):</p>
-      <div class="google-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!4v1720872061551!6m8!1m7!1sf-sNb_gAOcyQr-eZvUgBlQ!2m2!1d51.1027760885261!2d17.11025900871237!3f358.49542865447285!4f-0.01289436942182931!5f1.543477489944903" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <section class="rounded-2xl border border-gray-200 bg-white p-4 md:p-6 text-center" aria-label="Mapa główna">
+      <h2 class="text-2xl font-bold text-gray-900">Mapa dojazdu</h2>
+      <p class="mt-2 text-gray-600">Najprościej wpisać w nawigacji: <span class="font-semibold text-gray-900"><br>Akademia Lekkiej Atletyki Wrocław</span>.</p>
+      <div class="mt-4 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+        <iframe
+          title="Mapa lokalizacji ALA Wrocław"
+          class="w-full h-[300px] md:h-[420px]"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Akademia+Lekkiej+Atletyki+Wrocław&output=embed"
+        ></iframe>
       </div>
-    </ng-container>
+    </section>
+
+    <section *ngIf="placement === 'subpage'" class="space-y-4 md:space-y-6" aria-label="Mapy wejść">
+      <h2 class="text-2xl font-bold text-gray-900 text-center">Jak wejść na obiekt?</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+        <article *ngFor="let map of entranceMaps" class="rounded-2xl border border-gray-200 bg-white p-4 md:p-5">
+          <div class="flex flex-wrap items-center gap-2">
+            <h3 class="text-lg font-bold text-gray-900">{{ map.title.replace('Wejście od ', '') }}</h3>
+            <span
+              class="inline-flex items-center rounded-full px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wide"
+              [ngClass]="map.description.includes('bieżnię') ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800'"
+            >
+              {{ map.description.includes('bieżnię') ? 'Bieżnia' : 'Sala' }}
+            </span>
+          </div>
+          <p class="mt-2 text-sm text-gray-700">{{ map.description }}</p>
+          <div class="mt-3 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+            <iframe
+              [title]="map.title"
+              class="w-full h-[260px] md:h-[360px]"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              [src]="map.src"
+            ></iframe>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-900">Masz pytanie o dojazd lub grupę?</h2>
+      <p class="mt-2 text-gray-600">Skontaktuj się z nami, a pomożemy wybrać najlepszy termin i miejsce wejścia.</p>
+      <div class="mt-5 flex flex-wrap items-center justify-center gap-3">
+        <a
+          class="inline-flex min-h-11 items-center justify-center rounded-lg bg-[#E0584F] px-5 py-3 font-bold text-white transition-colors hover:bg-[#c9453c]"
+          routerLink="/zapisy"
+        >
+          Bezpłatny trening próbny
+        </a>
+        <a
+          class="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-5 py-3 font-bold text-gray-700 transition-colors hover:border-[#E0584F] hover:text-[#b43f37]"
+          href="tel:459119894"
+        >
+          <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.43-5.15-3.75-6.58-6.59l1.97-1.57c.3-.29.4-.72.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3.3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .72-.63.72-1.19v-3.44c0-.54-.45-.99-.99-.99z" />
+          </svg>
+          Zadzwoń: 459 119 894
+        </a>
+      </div>
+    </section>
   </div>
+</section>

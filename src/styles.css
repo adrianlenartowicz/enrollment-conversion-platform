@@ -1,9 +1,24 @@
 body, input, button {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins';
+    font-family: 'Inter', sans-serif;
 }
 
 h2 {
     font-size: 2rem;
+}
+
+@media (max-width: 1023.98px) {
+    body.has-mobile-sticky-cta #silktide-banner.bottomLeft,
+    body.has-mobile-sticky-cta #silktide-banner.bottomCenter {
+        bottom: calc(96px + env(safe-area-inset-bottom));
+    }
+
+    body.has-mobile-sticky-cta #silktide-cookie-icon {
+        bottom: calc(90px + env(safe-area-inset-bottom));
+    }
+}
+
+#silktide-cookie-icon {
+    display: none !important;
 }

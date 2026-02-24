@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { TimerService } from '../app/services/timer.service';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 const STORAGE_CONVERSION_DEBUG_KEY = 'tracking_debug';
 
@@ -11,25 +14,40 @@ const STORAGE_CONVERSION_DEBUG_KEY = 'tracking_debug';
 export class AppComponent {
   title = 'ala-wroclaw';
   private conversionTracked = false;
-  
+  isLandingRoute = false;
 
   constructor(
     private timerService: TimerService,
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: object
   ) {}
 
   ngOnInit(): void {
-    this.trackDebugConversionSource();
-    this.conversionTracked = this.checkConversionTracked();
-    if (!this.conversionTracked) {
-      this.timerService.startTimer();
+    this.updateCurrentRoute(this.router.url);
+    this.router.events
+      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+      .subscribe((event) => this.updateCurrentRoute(event.urlAfterRedirects));
+
+    if (isPlatformBrowser(this.platformId)) {
+      this.trackDebugConversionSource();
+      this.conversionTracked = this.checkConversionTracked();
+      if (!this.conversionTracked) {
+        this.timerService.startTimer();
+      }
     }
   }
 
   private checkConversionTracked(): boolean {
+    if (!isPlatformBrowser(this.platformId)) {
+      return false;
+    }
     return localStorage.getItem('conversionTracked') === 'true';
   }
 
   private trackDebugConversionSource() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
     if (!localStorage.getItem(STORAGE_CONVERSION_DEBUG_KEY)) {
       const params = new URLSearchParams(window.location.search);
 
@@ -50,5 +68,10 @@ export class AppComponent {
         }));
       }
     }
+  }
+
+  private updateCurrentRoute(url: string): void {
+    const cleanPath = url.split('?')[0].split('#')[0];
+    this.isLandingRoute = cleanPath === '' || cleanPath === '/';
   }
 }

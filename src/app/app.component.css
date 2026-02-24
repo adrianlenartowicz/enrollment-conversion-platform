@@ -1,11 +1,15 @@
 .sub-page {
-    margin-top: 125px;
-    margin-bottom: 75px;
-    padding: 0 10%;
+    padding-top: 88px;
+    margin-bottom: 56px;
+    padding-left: clamp(16px, 6vw, 120px);
+    padding-right: clamp(16px, 6vw, 120px);
 }
 
 @media (max-width: 768px) {
     .sub-page {
-        padding: 0 5%;
+        padding-top: 84px;
+        margin-bottom: 48px;
+        padding-left: 16px;
+        padding-right: 16px;
     }
 }

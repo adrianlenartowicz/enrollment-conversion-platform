@@ -1,39 +1,101 @@
-<div class="top-bar">
-  <div class="top-bar-content">
-    <div class="logo-container">
-      <a routerLink="/" aria-label="Home">
-        <img class="logo" src="assets/logo-ala.svg" alt="logo">
-        <p>Akademia Lekkiej Atletyki Wrocław</p>
-      </a>
-    </div>
-    <div class="nav-items">
-      <a routerLink="/lokalizacja">Lokalizacja</a>
-      <a routerLink="/zapisy">Zapisy</a>
-      <a routerLink="/cennik">Cennik</a>
-      <!-- <a routerLink="/trenerzy">Trenerzy</a> -->
-      <a routerLink="/zajecia">Zajęcia</a>
-      <a routerLink="/artykuly">Artykuły</a>
-    </div>
-    <div class="contact-info">
-      <div class="phone-icon">
-        <i class="fas fa-phone"></i>
+<nav class="fixed w-full bg-white z-50 transition-all border-b border-gray-100 h-20 flex items-center shadow-md">
+  <div class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 w-full">
+    <div class="flex justify-between items-center lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-10">
+      <button
+        class="flex-shrink-0 flex items-center gap-3 cursor-pointer bg-transparent border-0 p-0 lg:justify-self-start"
+        (click)="goToSection('hero')"
+        aria-label="Przejdź do początku strony"
+      >
+        <img src="assets/logo-ala.svg" alt="ALA Wrocław" class="h-14 w-auto" />
+      </button>
+
+      <div class="hidden lg:flex items-center justify-center gap-2 xl:gap-3 lg:justify-self-center">
+        <button (click)="goToSection('method')" class="text-gray-600 hover:text-[#E0584F] transition-colors text-xs xl:text-sm font-semibold bg-transparent border-0 px-1">
+          Dolaczego lekkoatletyka?
+        </button>
+        <a routerLink="/zapisy" routerLinkActive="text-[#E0584F]" [routerLinkActiveOptions]="{ exact: true }" class="text-gray-600 hover:text-[#E0584F] transition-colors text-xs xl:text-sm font-semibold px-1">
+          Zapisy
+        </a>
+        <a routerLink="/lokalizacja" routerLinkActive="text-[#E0584F]" [routerLinkActiveOptions]="{ exact: true }" class="text-gray-600 hover:text-[#E0584F] transition-colors text-xs xl:text-sm font-semibold px-1">
+          Lokalizacja
+        </a>
+        <a routerLink="/trenerzy" routerLinkActive="text-[#E0584F]" [routerLinkActiveOptions]="{ exact: true }" class="text-gray-600 hover:text-[#E0584F] transition-colors text-xs xl:text-sm font-semibold px-1">
+          Trenerzy
+        </a>
+        <a routerLink="/cennik" routerLinkActive="text-[#E0584F]" [routerLinkActiveOptions]="{ exact: true }" class="text-gray-600 hover:text-[#E0584F] transition-colors text-xs xl:text-sm font-semibold px-1">
+          Cennik
+        </a>
+        <a routerLink="/zajecia" routerLinkActive="text-[#E0584F]" [routerLinkActiveOptions]="{ exact: true }" class="text-gray-600 hover:text-[#E0584F] transition-colors text-xs xl:text-sm font-semibold px-1">
+          Zajęcia
+        </a>
+        <a routerLink="/artykuly" routerLinkActive="text-[#E0584F]" [routerLinkActiveOptions]="{ exact: true }" class="text-gray-600 hover:text-[#E0584F] transition-colors text-xs xl:text-sm font-semibold px-1">
+          Artykuły
+        </a>
       </div>
-      <div class="phone-number">
-        <p>+48 459 119 894</p>
+
+      <div class="hidden lg:flex items-center justify-end gap-3 lg:justify-self-end">
+        <a href="tel:459119894" class="inline-flex items-center gap-2 text-sm font-semibold text-gray-700 hover:text-[#E0584F] whitespace-nowrap">
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.43-5.15-3.75-6.58-6.59l1.97-1.57c.3-.29.4-.72.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3.3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .72-.63.72-1.19v-3.44c0-.54-.45-.99-.99-.99z" />
+          </svg>
+          459 119 894
+        </a>
+        <button
+          (click)="goToSection('contact')"
+          class="bg-[#E0584F] hover:bg-[#c9453c] text-white px-4 xl:px-5 py-2 xl:py-2.5 rounded shadow-md transition-transform hover:-translate-y-0.5 text-xs xl:text-sm font-bold border-0 whitespace-nowrap"
+        >
+          Zapisz dziecko
+        </button>
       </div>
-    </div>
-    <div class="mobile-menu-icons">
-      <i class="fas fa-bars" *ngIf="!isMobileMenuOpen" (click)="showMobileMenu()"></i>
-      <i class="fas fa-times" *ngIf="isMobileMenuOpen" (click)="closeMobileMenu()"></i>
+
+      <div class="lg:hidden flex items-center gap-4">
+        <a href="tel:459119894" class="text-gray-800" aria-label="Zadzwoń">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.43-5.15-3.75-6.58-6.59l1.97-1.57c.3-.29.4-.72.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3.3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .72-.63.72-1.19v-3.44c0-.54-.45-.99-.99-.99z" />
+          </svg>
+        </a>
+        <button
+          (click)="toggleMobileMenu()"
+          class="p-2 rounded-md text-gray-600 hover:text-gray-900 focus:outline-none border-0 bg-transparent"
+          aria-label="Menu"
+          aria-controls="mobile-menu"
+          [attr.aria-expanded]="isMobileMenuOpen"
+        >
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
-  <div class="mobile-nav-items" [class.open]="isMobileMenuOpen">
-    <a routerLink="/" (click)="closeMobileMenu()" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Strona główna</a>
-    <a routerLink="/lokalizacja" (click)="closeMobileMenu()" routerLinkActive="active-link">Lokalizacja</a>
-    <a routerLink="/zapisy" (click)="closeMobileMenu()" routerLinkActive="active-link">Zapisy</a>
-    <a routerLink="/cennik" (click)="closeMobileMenu()" routerLinkActive="active-link">Cennik</a>
-    <!-- <a routerLink="/trenerzy" (click)="closeMobileMenu()" routerLinkActive="active-link">Trenerzy</a> -->
-    <a routerLink="/zajecia" (click)="closeMobileMenu()" routerLinkActive="active-link">Zajęcia</a>
-    <a routerLink="/artykuly" (click)="closeMobileMenu()" routerLinkActive="active-link">Artykuły</a>
+
+  <div *ngIf="isMobileMenuOpen" class="lg:hidden fixed inset-0 top-20 z-40">
+    <button class="absolute inset-0 bg-black/25 border-0 w-full h-full" (click)="closeMobileMenu()" aria-label="Zamknij menu"></button>
+    <div id="mobile-menu" class="relative bg-white border-t border-gray-100 shadow-lg w-full left-0 z-50">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <button (click)="goToSection('method')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[#E0584F] hover:bg-red-50 bg-transparent border-0">
+          Dlaczego lekkoatletyka?
+        </button>
+                <a routerLink="/zapisy" routerLinkActive="text-[#E0584F] bg-red-50" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[#E0584F] hover:bg-red-50">
+          Zapisy
+        </a>
+        <div class="my-2 border-t border-gray-100"></div>
+        <a routerLink="/lokalizacja" routerLinkActive="text-[#E0584F] bg-red-50" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[#E0584F] hover:bg-red-50">
+          Lokalizacja
+        </a>
+        <a routerLink="/trenerzy" routerLinkActive="text-[#E0584F] bg-red-50" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[#E0584F] hover:bg-red-50">
+          Trenerzy
+        </a>
+        <a routerLink="/cennik" routerLinkActive="text-[#E0584F] bg-red-50" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[#E0584F] hover:bg-red-50">
+          Cennik
+        </a>
+        <a routerLink="/zajecia" routerLinkActive="text-[#E0584F] bg-red-50" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[#E0584F] hover:bg-red-50">
+          Zajęcia
+        </a>
+        <a routerLink="/artykuly" routerLinkActive="text-[#E0584F] bg-red-50" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[#E0584F] hover:bg-red-50">
+          Artykuły
+        </a>
+      </div>
+    </div>
   </div>
-</div>
+</nav>
