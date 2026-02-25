@@ -185,13 +185,37 @@ export class LandingPageComponent implements OnInit, OnDestroy, AfterViewInit {
         return;
       }
 
-      const atEnd = Math.ceil(carousel.scrollLeft + carousel.clientWidth) >= carousel.scrollWidth - 1;
-      if (atEnd) {
+      const items = Array.from(carousel.children) as HTMLElement[];
+      if (items.length === 0) {
+        return;
+      }
+
+      const maxScrollLeft = Math.max(0, carousel.scrollWidth - carousel.clientWidth);
+      const getSnapLeft = (item: HTMLElement): number => {
+        const centeredLeft = item.offsetLeft - (carousel.clientWidth - item.clientWidth) / 2;
+        return Math.min(Math.max(centeredLeft, 0), maxScrollLeft);
+      };
+
+      const currentLeft = carousel.scrollLeft;
+      let currentIndex = 0;
+      let minDistance = Number.POSITIVE_INFINITY;
+
+      items.forEach((item, index) => {
+        const targetLeft = getSnapLeft(item);
+        const distance = Math.abs(currentLeft - targetLeft);
+        if (distance < minDistance) {
+          minDistance = distance;
+          currentIndex = index;
+        }
+      });
+
+      const nextIndex = currentIndex + 1;
+      if (nextIndex >= items.length) {
         carousel.scrollTo({ left: 0, behavior: 'smooth' });
         return;
       }
 
-      carousel.scrollBy({ left: carousel.clientWidth * 0.9, behavior: 'smooth' });
+      carousel.scrollTo({ left: getSnapLeft(items[nextIndex]), behavior: 'smooth' });
     }, 4500);
   }
 
