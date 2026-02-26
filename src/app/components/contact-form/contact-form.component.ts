@@ -120,15 +120,21 @@ export class ContactFormComponent implements OnInit {
     const values = this.getNormalizedValues();
     const trackingDebug = this.getTrackingDebug();
 
-    try {
-      const res = await this.mailService.sendEmail(this.buildFormData(values));
-      if (!res.ok) {
-        throw new Error();
+    if (this.hasFormAccessKey()) {
+      try {
+        const res = await this.mailService.sendEmail(this.buildFormData(values));
+        if (!res.ok) {
+          const errorText = await res.text().catch(() => '');
+          console.error('Web3Forms error:', res.status, errorText);
+        } else {
+          mailSucceeded = true;
+          emitSuccess();
+        }
+      } catch (err) {
+        console.error(err);
       }
-      mailSucceeded = true;
-      emitSuccess();
-    } catch (err) {
-      console.error(err);
+    } else {
+      console.warn('Missing Web3Forms access key. Skipping email submission.');
     }
 
     try {
@@ -200,6 +206,10 @@ export class ContactFormComponent implements OnInit {
 
   private normalizedEmail(): string {
     return String(this.emailControl.value ?? '').trim().toLowerCase();
+  }
+
+  private hasFormAccessKey(): boolean {
+    return Boolean(environment.formAccessKey && environment.formAccessKey !== 'undefined');
   }
 
   private setSubmitErrorIfNeeded(didEmit: boolean, mailSucceeded: boolean): void {
