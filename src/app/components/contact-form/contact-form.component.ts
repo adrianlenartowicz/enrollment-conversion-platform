@@ -104,7 +104,9 @@ export class ContactFormComponent implements OnInit {
     this.submitError = null;
 
     let didEmit = false;
-    let mailSucceeded = false;
+    let pending = 0;
+    const maxWaitMs = 12000;
+    let safetyTimer: ReturnType<typeof setTimeout> | null = null;
 
     // NOTE: Acknowledge conversion on the first successful channel (email preferred, worker fallback).
     const emitSuccess = () => {
@@ -112,26 +114,57 @@ export class ContactFormComponent implements OnInit {
         return;
       }
       didEmit = true;
+      if (safetyTimer) {
+        clearTimeout(safetyTimer);
+        safetyTimer = null;
+      }
       this.acknowledgeConversion();
       this.submitError = null;
       this.formSubmitted.emit();
+      this.isSubmitting = false;
     };
 
     const values = this.getNormalizedValues();
     const trackingDebug = this.getTrackingDebug();
+    const willSendEmail = this.hasFormAccessKey();
+    pending = willSendEmail ? 2 : 1;
 
-    if (this.hasFormAccessKey()) {
+    safetyTimer = setTimeout(() => {
+      if (!didEmit) {
+        this.submitError = SUBMIT_ERROR_MESSAGE;
+        this.isSubmitting = false;
+      }
+    }, maxWaitMs);
+
+    const markFailure = () => {
+      if (didEmit) {
+        return;
+      }
+      pending -= 1;
+      if (pending > 0) {
+        return;
+      }
+      if (safetyTimer) {
+        clearTimeout(safetyTimer);
+        safetyTimer = null;
+      }
+      this.submitError = SUBMIT_ERROR_MESSAGE;
+      this.isSubmitting = false;
+    };
+
+    if (willSendEmail) {
       try {
         const res = await this.mailService.sendEmail(this.buildFormData(values));
         if (!res.ok) {
           const errorText = await res.text().catch(() => '');
           console.error('Web3Forms error:', res.status, errorText);
+          markFailure();
         } else {
-          mailSucceeded = true;
           emitSuccess();
         }
       } catch (err) {
         console.error(err);
+        markFailure();
       }
     } else {
       console.warn('Missing Web3Forms access key. Skipping email submission.');
@@ -146,18 +179,16 @@ export class ContactFormComponent implements OnInit {
             emitSuccess();
             return;
           }
-          this.setSubmitErrorIfNeeded(didEmit, mailSucceeded);
+          markFailure();
         },
         error: (err) => {
           console.error('Error sending contact form via Cloudflare Worker:', err);
-          this.setSubmitErrorIfNeeded(didEmit, mailSucceeded);
+          markFailure();
         }
       });
     } catch (err) {
       console.error('Error sending contact form:', err);
-      this.setSubmitErrorIfNeeded(didEmit, mailSucceeded);
-    } finally {
-      this.isSubmitting = false;
+      markFailure();
     }
   }
 
@@ -210,12 +241,6 @@ export class ContactFormComponent implements OnInit {
 
   private hasFormAccessKey(): boolean {
     return Boolean(environment.formAccessKey && environment.formAccessKey !== 'undefined');
-  }
-
-  private setSubmitErrorIfNeeded(didEmit: boolean, mailSucceeded: boolean): void {
-    if (!didEmit && !mailSucceeded) {
-      this.submitError = SUBMIT_ERROR_MESSAGE;
-    }
   }
 
   private acknowledgeConversion(): void {
