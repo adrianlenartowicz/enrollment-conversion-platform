@@ -209,14 +209,25 @@ export class ContactFormComponent implements OnInit {
   }
 
   private acknowledgeConversion(): void {
+    const userData = this.getEnhancedConversionUserData();
+
     (window as any).dataLayer = (window as any).dataLayer || [];
     (window as any).dataLayer.push({
-      event: DATA_LAYER_EVENT
+      event: DATA_LAYER_EVENT,
+      ...(userData ? { user_data: userData } : {})
     });
 
     this.metaPixelService.track('Lead', {
       contact: this.normalizedPhone() || this.normalizedEmail(),
       group: this.groupControl.value
     });
+  }
+
+  private getEnhancedConversionUserData(): { email: string } | null {
+    const email = this.normalizedEmail();
+    if (!email) {
+      return null;
+    }
+    return { email };
   }
 }
