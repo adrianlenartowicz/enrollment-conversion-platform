@@ -87,7 +87,10 @@ export class PricingComponent {
     }
   ];
 
-  constructor(private metaService: Meta, private titleService: Title) {
+  constructor(
+    private metaService: Meta,
+    private titleService: Title
+  ) {
     this.titleService.setTitle('Cennik treningów lekkoatletycznych dla dzieci | Akademia Lekkiej Atletyki Wrocław');
     this.metaService.updateTag({
       name: 'description',

@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ConfirmFirstTrainingComponent } from './components/confirm-first-training/confirm-first-training.component';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
 import { SimpleSelectComponent } from './components/simple-select/simple-select.component';
+import { TrackPhoneClickDirective } from './directives/track-phone-click.directive';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { SimpleSelectComponent } from './components/simple-select/simple-select.
     PrivacyPolicyComponent,
     ConfirmFirstTrainingComponent,
     DatePickerComponent,
-    SimpleSelectComponent
+    SimpleSelectComponent,
+    TrackPhoneClickDirective
   ],
   imports: [
     BrowserModule,
