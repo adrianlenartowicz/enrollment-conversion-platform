@@ -1,27 +1,89 @@
-# AlaWroclaw
+# ALA Wroclaw - Landing Page & Lead Funnel
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.3.
+> Lead-generation website and online sign-up flow for a youth athletics academy, built to replace ad-hoc phone/email intake with a structured, trackable process.
 
-## Development server
+[Live Site](https://alawroc.pl)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Tech Stack
 
-## Code scaffolding
+Angular 17 | TypeScript | RxJS | Tailwind CSS | Angular Prerender (SSG) | Web3Forms | Cloudflare Workers | GTM | Meta Pixel
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Key Features
 
-## Build
+- **Reliable lead capture flow** - validated signup form with dual submission channels (Web3Forms + HubSpot via Cloudflare Worker) to reduce drop-off from transient failures
+- **Operational follow-up workflow** - dedicated confirmation page for first training date using tokenized links, built for real-world coach/admin coordination
+- **Conversion analytics with consent control** - GTM + Meta Pixel events integrated with cookie consent gating to track outcomes without bypassing privacy choices; core tag initialization (including Meta Pixel / Google Ads conversion tracking) is managed in GTM
+- **SEO-ready page model** - prerendered key routes plus per-page meta/Open Graph tags for discoverability and link previews
+- **Mobile-first conversion UX** - sticky mobile CTA, phone-click tracking, and streamlined form interactions tuned for paid/social traffic
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Technical Decisions
 
-## Running unit tests
+**Dual submission path for lead capture reliability**
+- Form submissions are sent through two independent channels (Web3Forms + HubSpot via Cloudflare Worker), so one upstream outage does not block lead intake.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+**Consent-first analytics bootstrap**
+- Tracking is initialized with denied ad/analytics storage and only upgraded after explicit cookie consent, keeping attribution logic aligned with privacy requirements. Core tracking tags are initialized and managed via GTM.
 
-## Running end-to-end tests
+**Prerender with explicit route list**
+- SEO-critical pages are prerendered from a maintained `routes.txt` file instead of auto-discovery, which keeps build output deterministic and avoids accidental indexing gaps.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Local Setup
 
-## Further help
+Requirements:
+- Node.js 20+
+- npm
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Install:
+
+```bash
+npm install
+```
+
+Run in development:
+
+```bash
+npm start
+```
+
+Build:
+
+```bash
+npm run build
+```
+
+Production build (includes `environment.ts` generation):
+
+```bash
+npm run build:prod
+```
+
+Tests:
+
+```bash
+npm test
+```
+
+## Form Configuration (Web3Forms)
+
+`build:prod` runs a script that generates `src/environments/environment.ts` using `ACCESS_KEY`.
+
+Option 1: create `src/environments/.env`
+
+```env
+ACCESS_KEY=your_web3forms_key
+```
+
+Option 2: provide `ACCESS_KEY` as an environment variable.
+
+If the key is missing, the Web3Forms channel is skipped and the form still attempts submission through the Cloudflare Worker endpoint.
+
+## Deployment
+
+Current production deployment:
+- build static files locally (`dist/browser`)
+- upload files manually to the hosting connected to the production domain
+- production runs as static hosting with prerendered pages (no Node/Express runtime)
+
+Legacy pipeline:
+- the repository still contains an older automatic Pages-style deployment workflow
+- it is no longer the source of truth for the live domain
