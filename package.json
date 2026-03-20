@@ -1,6 +1,6 @@
 {
-  "homepage": "https://adrianlenartowicz.github.io/alawroc/",
-  "name": "ala-wroclaw",
+  "homepage": "https://alawroc.pl/",
+  "name": "enrollment-conversion-platform",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -10,7 +10,7 @@
     "build:prod": "npm run config && ng build --configuration=production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:ala-wroclaw": "node dist/server/server.mjs"
+    "serve:ssr:enrollment-conversion-platform": "node dist/server/server.mjs"
   },
   "private": true,
   "dependencies": {

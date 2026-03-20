@@ -1,4 +1,4 @@
-# ALA Wroclaw - Landing Page & Lead Funnel
+# Enrollment Conversion Platform (ALA Wroclaw)
 
 > Lead-generation website and online sign-up flow for a youth athletics academy, built to replace ad-hoc phone/email intake with a structured, trackable process.
 
@@ -79,11 +79,8 @@ If the key is missing, the Web3Forms channel is skipped and the form still attem
 
 ## Deployment
 
-Current production deployment:
-- build static files locally (`dist/browser`)
-- upload files manually to the hosting connected to the production domain
+Current production workflow:
+- push to `master`
+- CI builds a production artifact and publishes output to the `prod` branch
+- download built files from `prod` and upload them manually to the hosting connected to the production domain
 - production runs as static hosting with prerendered pages (no Node/Express runtime)
-
-Legacy pipeline:
-- the repository still contains an older automatic Pages-style deployment workflow
-- it is no longer the source of truth for the live domain
